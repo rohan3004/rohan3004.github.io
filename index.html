@@ -2,495 +2,356 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rohan Chakravarty</title>
-    <!-- ===== Header Icon====== -->
-    <link rel="icon" href="images/icon.png" type="image/x-icon">
-    <!-- ====== css files ===== -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/skins/color-1.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <!-- =======Style Switcher======== -->
-    <link rel="stylesheet" href="css/skins/color-1.css" class="alternate-style" title="color-1" 
-    disabled>
-    <link rel="stylesheet" href="css/skins/color-2.css" class="alternate-style" title="color-2" 
-    disabled>
-    <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" 
-    disabled>
-    <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" 
-    disabled>
-    <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" 
-    disabled>
-    <link rel="stylesheet" href="css/style-switcher.css">
-    
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/mediaqueries.css" />
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="./styles/carousel.css">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   </head>
   <body>
-    <!-- =====Main container start===== -->
-    <div class="main-container">
-      <!-- ====Aside Start=== -->
-      <div class="aside">
-        <div class="logo">
-          <a href="#"><span>R</span>ohan</a>
-        </div>
-        <div class="nav-toggler">
-          <span></span>
-        </div>
-        <ul class="nav">
-          <li>
-            <a href="#home" class="active"><i class="fa fa-home"></i>Home</a>
-          </li>
-          <li>
-            <a href="#about"><i class="fa fa-user"></i>About</a>
-          </li>
-          <!-- <li>
-            <a href="#services"><i class="fa fa-list"></i>Services</a>
-          </li> -->
-          <li>
-            <a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a>
-          </li>
-          <li>
-            <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
-          </li>
+    <nav id="desktop-nav">
+      <div class="logo">Rohan Chakravarty</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-      <!-- ====Aside End=== -->
-      <!-- ====Main content Start=== -->
-      <div class="main-content">
-        <!--=== Home Section Start==== -->
-        <section class="home active section" id="home">
-          <div class="container">
-            <div class="row">
-              <div class="home-info padd-15">
-                <h3 class="hello">
-                  Hello, my name is <span class="name">Rohan Chakravarty</span>
-                </h3>
-                <h3 class="my-profession">
-                  I' m a <span class="typing">cloud architect</span>
-                </h3>
-                <p>
-                  I’m looking to use my strong abilities in Java, Python, C/C++, Data Structures and Algorithms, Linux administration, and cloud architecture to contribute to a dynamic team and earn useful experience in the real world.
-                </p>
-                <a href="https://drive.google.com/file/d/1KJlzLDLCOWZHg17cLWxnLBhu6KxWXWR1/view?usp=sharing" class="btn" target="_blank">Download CV</a>
-              </div>
-              <div class="home-img padd-15">
-                <img src="images/me1.jpg" alt="" />
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--=== Home Section End==== -->
-        <!--=== About Section Start==== -->
-        <section class="about section "id="about">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>About Me</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="container">
-                <div class="about-content padd-15">
-                  <div class="row">
-                    <div class="about-text padd-15">
-                      <h3>I'm Rohan Chakravarty and a<span> Cloud Architect</span></h3>
-                      <p>
-                        I am Proficient in managing cloud-based infrastructure services including Google Cloud, AWS, and Azure. I have hands-on experience with DevOps practices and methodologies working with Linux environments. I have an understanding of Data Structures and version control systems for efficient code management. 
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="personal-info padd-15">
-                      <div class="row">
-                        <div class="info-item padd-15">
-                          <p>Birthday: <span>30th August 2004</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>Age: <span>19</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>Website: <span>rohan3004.github.io</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>GCPA: <span>8.56</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>Degree: <span>B.Tech(CSE)</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>Phone: <span>+91 8444814369</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>City: <span>Kolkata</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="info-item padd-15">
-                          <p>Country: <span>India</span></p>
-                        </div>
-                        <!--******************************************************** -->
-                      </div>
-                      <div class="row">
-                        <div class="buttons padd-15">
-                       <a href="#contact" data-section-index="1" class="btn hire-me">Hire Me</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="skills padd-15">
-                      <div class="row">
-                        <div class="skill-item padd-15">
-                          <h5>Java</h5>
-                          <div class="progress">
-                            <div class="progress-in" style="width: 86%"></div>
-                            <div class="skill-percent">86%</div>
-                          </div>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="skill-item padd-15">
-                          <h5>C/C++</h5>
-                          <div class="progress">
-                            <div class="progress-in" style="width: 76%"></div>
-                            <div class="skill-percent">76%</div>
-                          </div>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="skill-item padd-15">
-                          <h5>Linux Administration</h5>
-                          <div class="progress">
-                            <div class="progress-in" style="width: 99%"></div>
-                            <div class="skill-percent">99%</div>
-                          </div>
-                        </div>
-                        <!--******************************************************** -->
-                        <div class="skill-item padd-15">
-                          <h5>Google Cloud Platform</h5>
-                          <div class="progress">
-                            <div class="progress-in" style="width: 70%"></div>
-                            <div class="skill-percent">70%</div>
-                          </div>
-                        </div>
-                        <!--******************************************************** -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <!-- ****************************** -->
-                    <div class="education padd-15">
-                      <h3 class="title">Education</h3>
-                      <div class="row">
-                        <!--Columns of the education part starts here -->
-                        <div class="timeline-box padd-15">
-                          <div class="timeline shadow-dark">
-                            <!--========Timeline item==========-->
-                            <!-- ####################################################### -->
-                            <div class="timeline-item">
-                              <div class="circle-dot"></div>
-                              <h3 class="timeline-date">
-                                <i class="fa fa-calendar"></i> 2022 - 2026
-                                <h4 class="timeline-title">
-                                  B.Tech in Computer Scince and Engineering
-                                </h4>
-                                <p class="timeline-text">
-                                  Pursuing BTech in Information Technology at Lovely Professional University, Punjab, India. CGPA = 8.56/10.0
-                                </p>
-                              </h3>
-                            </div>
-                            <!-- ################################################# -->
-
-                            <div class="timeline-item">
-                              <div class="circle-dot"></div>
-                              <h3 class="timeline-date">
-                                <i class="fa fa-calendar"></i> 2022
-                                <h4 class="timeline-title">
-                                  CISCE - ISC
-                                </h4>
-                                <p class="timeline-text">
-                                   Passed with 80.75% from National Gems Higher Secondary School.
-                                </p>
-                              </h3>
-                            </div>
-                            <!-- ############################################################### -->
-
-                            <div class="timeline-item">
-                              <div class="circle-dot"></div>
-                              <h3 class="timeline-date">
-                                <i class="fa fa-calendar"></i> 2020
-                                <h4 class="timeline-title">
-                                 CISCE - ICSE
-                                </h4>
-                                <p class="timeline-text">
-                                  Passed with 87.33% from National Gems Higher Secondary School.
-                                </p>
-                              </h3>
-                            </div>
-                            <!-- #################################################################### -->
-                          </div>
-                        </div>
-                      </div>
-                      <!--Columns of the education part ends here -->
-                    </div>
-                    <!-- ************************************-->
-                    <div class="experience padd-15">
-                      <h3 class="title">Experience</h3>
-
-                      <div class="timeline-box padd-15">
-                        <div class="timeline shadow-dark">
-                          <!--========Timeline item==========-->
-                          <!-- ####################################################### -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h3 class="timeline-date">
-                              <i class="fa fa-calendar"></i> 2022 
-                              <h4 class="timeline-title">
-                               Web Development
-                              </h4>
-                              <p class="timeline-text">
-                               Cuurently focusing on frontend development
-                               (HTML,CSS,JavaScript and React Js).
-                               Hopefully, I will soon start focusing on backend development.
-                              </p>
-                            </h3>
-                          </div>
-                          <!-- ################################################# -->
-
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h3 class="timeline-date">
-                              <i class="fa fa-calendar"></i> 2018
-                              <h4 class="timeline-title">
-                               Java
-                              </h4>
-                              <p class="timeline-text">
-                                I began learning to code in class VIII, when I was introduced to Java.
-                                Since then, I've solved a lot of programs in Java, and I'll 
-                                keep doing so to improve my programming abilities.
-                              </p>
-                            </h3>
-                          </div>
-                          <!-- ############################################################### -->
-
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h3 class="timeline-date">
-                              <i class="fa fa-calendar"></i> 2022
-                              <h4 class="timeline-title">
-                                C++
-                              </h4>
-                              <p class="timeline-text">
-                                Another programming language that I like to write codes in is C++.I'm currently learning data structures and algorithms in C++.
-                            </h3>
-                          </div>
-                          <!-- #################################################################### -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--***********************************  -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--=== About Section End==== -->
-
-        <!--=== Portfolio Section Start==== -->
-        <section class="portfolio section "id="portfolio">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>Portfolio</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="portfolio-heading padd-15">
-                <h2>My Projects:</h2>
-              </div>
-            </div>
-            <div class="row">
-              <!-- ====== portfolio items start======== -->
-               <div class="portfolio-item padd-15">
-                <div class="portfolio-item-inner shadow-dark">
-               <div class="portfolio-img"><p style="text-align: center;">Marks Evaluator System</p>
-                <a href="https://github.com/rohan3004/Evaluator-System" target="_blank" rel="noopener noreferrer"><img  class="project-image" src="images/portfolio/Evaluator System.jpg" alt=""></a>
-               </div>
-                </div>
-               </div>
-               <!-- ====== portfolio items end========= -->
-               <!-- ====== portfolio items start======== -->
-               <div class="portfolio-item padd-15">
-                <div class="portfolio-item-inner shadow-dark">
-               <div class="portfolio-img"><p style="text-align: center;">Data Structures and Algorithms</p>
-                <a href="https://github.com/rohan3004/Data-Structures-and-Algorithms" target="_blank" rel="noopener noreferrer"><img class="second-image project-image"  src="images/portfolio/graph-theory.png" alt=""></a>
-               </div>
-                </div>
-               </div>
-               <!-- ====== portfolio items end========= -->
-                <!-- ====== portfolio items start======== -->
-               <div class="portfolio-item padd-15">
-                <div class="portfolio-item-inner shadow-dark">
-               <div class="portfolio-img"><p style="text-align: center;">Design Analysis Algorithms</p>
-                <a href="https://github.com/rohan3004/Design-Analysis-Algorithms" target="_blank" rel="noopener noreferrer"><img class="last-image project-image"  src="images/portfolio/Analysis of Algo.jpg" alt=""></a>
-               </div>
-                </div>
-               </div>
-               <!-- ====== portfolio items end========= -->
-               <!-- ====== portfolio items start======== -->
-               <div class="portfolio-item padd-15">
-                <div class="portfolio-item-inner shadow-dark">
-               <div class="portfolio-img"><p style="text-align: center;">University Management System</p>
-                <a href="https://github.com/rohan3004/University-Management-System-CSE326-SEM1" target="_blank" rel="noopener noreferrer"><img class="last-image project-image"  src="images/portfolio/sem 1 project.png" alt=""></a>
-               </div>
-                </div>
-               </div>
-               <!-- ====== portfolio items end========= -->
-            </div>
-          </div>
-        </section>
-        <!--=== Portfolio Section End==== -->
-        <!--=== Contact Section Start========= -->
-        <section class="contact section"id="contact">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>Contact Me</h2>
-              </div>
-            </div>
-            <h3 class="contact-title padd-15">Do, You Have Any Questions?</h3>
-            <!-- <h4 class="contact-sub-title h4 padd-15">I'M AT YOUR SERVICE</h4> -->
-            <div class="row">
-              <!-- ======Contact info item start======= -->
-              <!-- <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa fa-phone"></i></div>
-                <h4>Email</h4>
-                <p>123456789</p>
-                <button class="btn">Learn More</button>
-              </div> -->
-              <!-- ======Contact info item end======= -->
-               <!-- ======Contact info item start======= -->
-               <div class="contact-info-item padd-15">
-                <div class="icon"><i class=" fa fa-brands fa-github"></i></div>
-                <h4>Github</h4>
-                <!-- <p>Kolkata</p> -->
-                <a href="https://github.com/rohan3004" target="_blank" rel="noopener noreferrer"><button class="btn">Learn More</button></a>
-              </div>
-              <!-- ======Contact info item end======= -->
-               <!-- ======Contact info item start======= -->
-               <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa fa-brands fa-linkedin-in"></i></div>
-                <h4>Linked In</h4>
-                <a href="https://www.linkedin.com/in/rohan-chakravarty-/" target="_blank" rel="noopener noreferrer"><button class="btn">Learn More</button></a>
-              </div>
-              <!-- ======Contact info item end======= -->
-               <!-- ======Contact info item start======= -->
-               <div class="contact-info-item padd-15">
-                <div class="icon"><i class="fa fa-brands fa-instagram"></i></div>
-                <h4>Instagram</h4>
-                <!-- <p>www.domain.com</p> -->
-                <a href="" target="_blank" rel="noopener noreferrer"><button class="btn">Learn More</button></a>
-              </div>
-              <!-- ======Contact info item end======= -->
-            </div>
-            <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
-            <!-- <h4 class="contact-sub-title h4 padd-15">I'M VERY RESPONSIVE TO MESSAGES</h4> -->
-            <!-- ==========Contact form========= -->
-            <div class="row">
-              <div class="contact-form padd-15">
-                <!-- ########################################### -->
-                <div class="row">
-                  <div class="form-item col-6 padd-15">
-                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name">
-                   </div>
-                  </div>
-                     <!-- ########################################### -->
-
-                      <!-- ########################################### -->
-                
-                  <div class="form-item col-6 padd-15">
-                   <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
-                   </div>
-                  </div>
-                     <!-- ########################################### -->
-
-                </div>
-                <div class="row">
-                   <!-- ########################################### -->
-                
-                   <div class="form-item col-12 padd-15">
-                    <div class="form-group">
-                     <input type="email" class="form-control" placeholder="Subject">
-                    </div>
-                   </div>
-                      <!-- ########################################### -->
-                </div>
-                <div class="row">
-                  <!-- ########################################### -->
-               
-                  <div class="form-item col-12 padd-15">
-                   <div class="form-group">
-                    <textarea name="" class="form-control" id=""placeholder="Message" ></textarea>
-                   </div>
-                  </div>
-                     <!-- ########################################### -->
-               </div>
-
-             <!-- ***********************************************8 -->
-               <div class="row3">
-              <div class="form-item col-12 padd-15">
-                 <button type="submit" class="btn">Send Message</button>
-                </div>
-                 <div class="call-email"> 
-                <!-- <div class="contact-info-item padd-15">
-                  <div class="icon"><i class="fa fa-phone"></i></div>
-                  <h4>Call Me</h4>
-                  <button class="btn"></button>
-                </div> -->
-
-                <!-- <div class="contact-info-item padd-15">
-                  <div class="icon"><i class="fa fa-envelope"></i></div>
-                  <h4>Email</h4>
-                  <button class="btn"></button>
-             </div> -->
-             </div>
-
-              </div>
-            
-
-          </div>
-        </section>
-        <!--=== Contact Section End========== -->
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Rohan Chakravarty</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
       </div>
-      <!-- ====Main content End=== -->
-    </div>
-
-    <!-- ======Container End===== -->
-     <!--=== Style Switcher Start========== -->
-     <div class="style-switcher">
-      <div class="style-switcher-toggler s-icon">
-        <i class="fas fa-cog fa-spin"></i>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Rohan Chakravarty profile picture" />
       </div>
-       <div class="day-night s-icon">
-        <i class="fas "></i>
-       </div>
-       <h4>Theme Colors</h4>
-       <div class="colors">
-        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
-        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
-        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
-        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
-        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
-       </div>
-     </div>
-     <!--=== Style Switcher End========== -->
-    <!-- ==== Js files ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/script.js"></script>
-    <script src="js/style-switcher.js"></script>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Rohan Chakravarty</h1>
+        <p class="section__text__p2">LPU CSE'26 | 2⭐@Codechef | Full-Stack Developer | Cloud Enthusiast</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/RohanChakravarty.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://linkedin.com/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>1,718 Contest rank in LeetCode<br>2⭐@Codechef</p>
+            </div>
+            <div class="details-container">
+              <i class="fa-solid fa-building-columns" id="eduIcon"></i>
+              <h3>Education</h3>
+              <p>Bachelor of Technology in<br>Science and Engineering</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              A passionate software engineer with a strong foundation in computer science, specializing in data structures, algorithms, and software development. Skilled in Python, Java, C++, JavaScript, and frameworks like Spring, Django, Flask, and ReactJS. Recently completed a summer course in Data Structures and Algorithms, with hands-on projects including an N-Queen Visualizer using backtracking. Experienced in backend development with Node.js and FastAPI, and familiar with cloud environments such as AWS and GCP. Thrives in collaborative settings and continuously seeks to learn new technologies, aiming for a Software Engineer intern position to contribute to impactful projects and solve real-world challenges.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="my-component-void" id="my-component-void">
+        <div class="my-component-crop">
+            <ul id="my-component-card-list" style="--count: 10;">
+                <li>
+                    <div class="my-component-card">
+                            <span class="my-component-model-name">Java</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="my-component-card">
+                            <span class="my-component-model-name">C/C++</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="my-component-card">
+                            <span class="my-component-model-name">Python</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="my-component-card">
+                            <span class="my-component-model-name">JS</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="my-component-card">
+                            <span class="my-component-model-name">SQL</span>
+                    </div>
+                </li>
+                <li>
+                  <div class="my-component-card">
+                          <span class="my-component-model-name">Git</span>
+                  </div>
+              </li>
+            <li>
+              <div class="my-component-card">
+                      <span class="my-component-model-name">Bash</span>
+              </div>
+          </li>
+    <li>
+      <div class="my-component-card">
+              <span class="my-component-model-name">GCP</span>
+      </div>
+  </li>
+<li>
+  <div class="my-component-card">
+          <span class="my-component-model-name">RHEL</span>
+  </div>
+</li>
+            </ul>
+            <div class="my-component-last-circle"></div>
+            <div class="my-component-second-circle"></div>
+        </div>
+        <div class="my-component-mask"></div>
+        <div class="my-component-center-circle"></div>
+    </div>    
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project One</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-3.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div>
+      </div>
+      <div class="background">
+        <div class="container">
+          <div class="screen">
+            <div class="screen-header">
+              <div class="screen-header-left">
+                <div class="screen-header-button close"></div>
+                <div class="screen-header-button maximize"></div>
+                <div class="screen-header-button minimize"></div>
+              </div>
+              <div class="screen-header-right">
+                <div class="screen-header-ellipsis"></div>
+                <div class="screen-header-ellipsis"></div>
+                <div class="screen-header-ellipsis"></div>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-body-item left">
+                <div class="app-title">
+                  <span>CONTACT</span>
+                  <span>ME</span>
+                </div>
+                <div class="app-contact">CONTACT INFO : rohan.chakravarty@gmail.com</div>
+              </div>
+              <div class="screen-body-item">
+                <div class="app-form">
+                  <div class="app-form-group">
+                    <input class="app-form-control" placeholder="NAME">
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" placeholder="EMAIL">
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" placeholder="CONTACT NO">
+                  </div>
+                  <div class="app-form-group message">
+                    <input class="app-form-control" placeholder="MESSAGE">
+                  </div>
+                  <div class="app-form-group buttons">
+                    <button class="app-form-button">CANCEL</button>
+                    <button class="app-form-button">SEND</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
