@@ -1,0 +1,323 @@
+.screenshot__wrapper {
+    width: 400px;
+    height: auto;
+    position: relative;
+    line-height: 1;
+    margin: 5em auto 2em;
+  }
+  .desktop__title {
+    background: linear-gradient(to bottom, #eee, #e5e5e5);
+    padding: 8px 8px 0;
+    position: relative;
+    border-radius: 6px 6px 0 0;
+    min-height: 25px;
+    top: 0;
+  }
+  .desktop__title__button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    background: #fc605c;
+    margin: 0 1px;
+  }
+  .desktop__title__button:nth-child(2) {
+    background: #fdbf41;
+  }
+  .desktop__title__button:nth-child(3) {
+    background: #34c94a;
+  }
+  .desktop__title__name {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 6px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+  .desktop__body {
+    background: #f5f5f5;
+    border-radius: 0 0 6px 6px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+  }
+  .project-profitability {
+    position: relative;
+    top: -8px;
+    opacity: 0;
+  }
+  .graph-dropdown {
+    padding: 0.6em;
+    display: flex;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
+    position: relative;
+  }
+  .graph-dropdown__label {
+    padding: 12px 25px 0 10px;
+  }
+  .graph-dropdown__options {
+    flex: 2;
+    position: relative;
+  }
+  .graph-dropdown__options__main {
+    position: relative;
+    background: #fff;
+    line-height: 36px;
+    padding: 1px 10px;
+    border-radius: 8px;
+    border: 1px solid #f3f3f3;
+  }
+  .graph-dropdown__options__dropdown {
+    z-index: 10;
+    top: 35px;
+    position: absolute;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    list-style: none;
+    padding: 5px;
+  }
+  .graph-dropdown__options__dropdown li {
+    padding: 10px 8px;
+    border-radius: 8px;
+  }
+  .project-graph {
+    background: #f5f5f5;
+    min-height: 250px;
+    margin-top: 10px;
+    padding-top: 20px;
+    display: flex;
+    position: relative;
+    background: linear-gradient(to bottom, #f5f5f5 50px, #ddd 0.5px);
+    background-size: 100% 51px;
+    width: 0;
+  }
+  .project-graph__section {
+    flex: 0 0 20%;
+    text-align: center;
+    position: relative;
+  }
+  .project-graph__section__line {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+  }
+  .project-graph__section__line:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background: inherit;
+    left: 0;
+    width: 0;
+  }
+  .project-graph__section__line:before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border: 1.5px solid;
+    border-radius: 100%;
+    top: -3px;
+    left: -3px;
+    background: #fff;
+    z-index: 4;
+    opacity: 0;
+  }
+  .project-graph__section__line.green {
+    background: #53ca0c;
+    color: #53ca0c;
+  }
+  .project-graph__section__line.yellow {
+    background: #f4cf65;
+    color: #f4cf65;
+  }
+  .project-graph__section__date {
+    position: relative;
+    top: 192px;
+    opacity: 0;
+  }
+  .project-graph__section__date span {
+    display: block;
+    font-size: 12px;
+  }
+  .project-graph__section__date span.date {
+    margin-top: 3px;
+    color: #999;
+  }
+  .project-graph__popup {
+    font-size: 12px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    padding: 5px 10px;
+    text-align: left;
+    border-radius: 6px;
+    width: 190px;
+    left: 50%;
+    margin-left: -95px;
+    position: absolute;
+    top: -50px;
+    z-index: 5;
+    transform: scale(0);
+    opacity: 0;
+    border: 0.5px solid #eee;
+  }
+  .project-graph__popup p {
+    margin: 5px 0 10px;
+  }
+  .project-graph__popup__item {
+    margin: 6px 0;
+    display: flex;
+  }
+  .project-graph__popup__item .bullet-green {
+    color: #53ca0c;
+  }
+  .project-graph__popup__item .bullet-yellow {
+    color: #f4cf65;
+  }
+  .project-graph__popup__item .insight-type {
+    flex: 100px;
+  }
+  .project-graph__popup__item .insight-total {
+    flex: auto;
+    color: #999;
+    text-align: right;
+  }
+  .project-graph__popup__line {
+    position: absolute;
+    height: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.02);
+    bottom: 48px;
+    z-index: 1;
+    left: 0;
+  }
+  .project-graph__section:nth-child(1) .green {
+    transform: rotate(38deg);
+    margin-left: -10px;
+    top: 52px;
+    width: 98px;
+  }
+  .project-graph__section:nth-child(1) .yellow {
+    margin-left: -2px;
+    top: 130px;
+    transform: rotate(15deg);
+    width: 85px;
+  }
+  .project-graph__section:nth-child(2) .green {
+    transform: rotate(-23deg);
+    margin-left: -5px;
+    top: 68px;
+    width: 80px;
+  }
+  .project-graph__section:nth-child(2) .yellow {
+    margin-left: -3px;
+    transform: rotate(-13deg);
+    top: 131px;
+    width: 80px;
+  }
+  .project-graph__section:nth-child(3) .green {
+    transform: rotate(14deg);
+    margin-left: -11px;
+    top: 62px;
+    width: 88px;
+  }
+  .project-graph__section:nth-child(3) .yellow {
+    margin-left: -3px;
+    top: 122px;
+    transform: rotate(0deg);
+    width: 80px;
+  }
+  .project-graph__section:nth-child(4) .green {
+    transform: rotate(-26deg);
+    margin-left: -8px;
+    top: 54px;
+    width: 95px;
+  }
+  .project-graph__section:nth-child(4) .yellow {
+    margin-left: -3px;
+    top: 115px;
+    transform: rotate(-9deg);
+    width: 80px;
+  }
+  .project-graph__section:nth-child(5) .green {
+    margin-left: -2px;
+    top: 35px;
+    width: 0;
+  }
+  .project-graph__section:nth-child(5) .yellow {
+    margin-left: -2px;
+    width: 0;
+    top: 109px;
+  }
+  .project-profitability.active {
+    opacity: 1;
+    top: 0;
+    transition: 0.3s ease;
+  }
+  .project-profitability.active .project-graph {
+    width: 100%;
+    transition: 0.5s ease 0.5s;
+  }
+  .project-profitability.active .project-graph__section__date {
+    opacity: 1;
+    transition: 0.3s ease 0.8s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(1) .project-graph__section__line:before {
+    opacity: 1;
+    transition: 0.3s ease 1s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(1) .project-graph__section__line:after {
+    width: 100%;
+    transition: 0.8s ease 1.2s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(2) .project-graph__section__line:before {
+    opacity: 1;
+    transition: 0.3s ease 1.6s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(2) .project-graph__section__line:after {
+    width: 100%;
+    transition: 0.8s ease 1.8s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(3) .project-graph__section__line:before {
+    opacity: 1;
+    transition: 0.3s ease 2.2s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(3) .project-graph__section__line:after {
+    width: 100%;
+    transition: 0.8s ease 2.4s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(4) .project-graph__section__line:before {
+    opacity: 1;
+    transition: 0.3s ease 2.8s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(4) .project-graph__section__line:after {
+    width: 100%;
+    transition: 0.8s ease 3s;
+  }
+  .project-profitability.active .project-graph__section:nth-child(5) .project-graph__section__line:before {
+    opacity: 1;
+    transition: 0.3s ease 3.4s;
+  }
+  .project-profitability.active .project-graph__popup__line {
+    height: 100%;
+    transition: 0.5s linear 4.1s;
+  }
+  .project-profitability.active .project-graph__popup {
+    transform: scale(1);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 4.5s;
+    opacity: 1;
+  }
+  .js-replay {
+    margin: 0 auto 6em;
+    font-size: 12px;
+    cursor: pointer;
+  }
