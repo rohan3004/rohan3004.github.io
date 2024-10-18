@@ -14,3 +14,12 @@ window.addEventListener('scroll', function() {
       menu.classList.remove('hidden'); // Remove hidden class to show the menu
   }
 });
+
+const tween = KUTE.fromTo(
+  '#blob1',
+  {path: '#blob1'},
+  {path: '#blob2'},
+  {repeat: 999, duration: 3000, yoyo:true}
+)
+
+tween.start()
