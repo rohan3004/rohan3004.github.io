@@ -1,0 +1,22 @@
+{
+  "name": "Rohan Chakravarty",
+  "description": "Portfolio",
+  "version": "v1.0",
+  "short_name": "Portfolio",
+  "start_url": "https://rohandev.online",
+  "display": "standalone",
+  "theme_color": "#FFE1FF",
+  "background_color": "#e4b1f0",
+  "icons": [
+    {
+      "src": "https://rohandev.online/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://rohandev.online/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
