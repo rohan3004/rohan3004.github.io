@@ -7,15 +7,47 @@
     <title>Page Not Found - Portfolio</title>
     <link rel="stylesheet" href="./styles/404.css">
     <link rel="icon" href="./favicon.png" type="image/png">
+    <script src="./js/404.js"></script>
 </head>
-<body>
-<main id="main" class="main">
-    <div class="text-404">
-        <h1>4 X 4</h1>
-        <p>Are You Lost?</p>
-        <a class="back-btn" href="/">Go Home</a>
+<body class="" id="body">
+
+<main id="main">
+    <header class="Menubar">
+        <div class="Menu_BTN">
+            <a href="/" id="close"></a>
+            <a href="#" id="min" onclick="BTNS('min')"></a>
+            <a href="#" id="max" onclick="BTNS('max')"></a>
+        </div>
+        <p class="title_Terminal">PowerShell</p>
+        <p class="title_404">404</p>
+    </header>
+    <div class="Terminal_body" id="Terminal">
+        <p>Microsoft Windows [Version 10.0.22631.4391]<br>
+            (c) Rohan Chakravarty. All rights reserved.</p></br>
+            <p>Oops! page not found</p><br>
+        <p>Enter
+            <span class="red">
+            help
+            </span>
+            for help</p>
+        <br>
+        <div class="Terminal_code">
+            <div class="Terminal_line">
+                <div class="code" id="code">
+
+                </div>
+                <span class="arrow">rohandev.online:~/404$ </span><span class="user-input" id="userInput"></span>
+                <label for="Keyboard"></label><input type="text" id="Keyboard" class="keyboard">
+            </div>
+        </div>
     </div>
-    <div class="image"><img id="big_image" src="./assets/cute-ghost.png" alt="#"></div>
 </main>
+
+<div class="min_app" id="min_app">
+    <a href="#" onclick="BTNS('re')">
+        <img src="./assets/terminal.png">
+    </a>
+</div>
+
 </body>
 </html>
