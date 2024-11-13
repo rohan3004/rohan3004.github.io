@@ -44,10 +44,8 @@ const execute = function executeCommand(input) {
     //If what the user entered is not in the command list
     if (!COMMANDS.hasOwnProperty(input)) {
         output = `<p>${input}: command not found<br>Enter
-            <span class="red">
-            help
-            </span>
-            for help</p>`;
+            "<span class="red">man</span>"
+            for list of commands</p>`;
     }
     //If user enter the word cls
     else if (input === "cls") {

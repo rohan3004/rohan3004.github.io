@@ -1,0 +1,84 @@
+.instagram-photo{
+    max-width: 420px;
+    width: 100%;
+    border: 1px solid rgba( 255, 255, 255, 0.25);
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.25);
+    backdrop-filter: blur( 18px );
+}
+.instagram-header{
+    padding-block: 12px;
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.25);
+}
+.instagram-header figure{
+    padding-bottom: 0;
+    padding-inline: 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.instagram-header figure img{
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba( 255, 255, 255, 0.25);
+    margin-inline-end: 8px;
+}
+
+.insta-media{
+    display: flex;
+    border-bottom: 1px solid hsl(
+		calc(64 + 220 * 0),
+		calc(77% - 7% * 0),
+		calc(79% - 56% * 0)
+	);
+}
+.insta-media img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    max-width: 300px;
+}
+.insta-buttons{
+    padding-block: 12px;
+    padding-inline: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.insta-buttons .left{
+    display: flex;
+    align-items: center;
+}
+.insta-buttons .left svg:nth-of-type(2){
+    margin-inline: 12px;
+}
+.instagram__icon {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    font-size: clamp(1.09rem, 1.42vw + 0.74rem, 1.88rem);
+    min-width: 24px;
+    min-height: 24px;
+  }
+  .instagram__icon:hover {
+    opacity: 0.7;
+  }
+  .instagram__icon path {
+    stroke: black;
+    stroke-linejoin: round;
+  }
+  .instagram__icon--comment path {
+    stroke-width: 2;
+  }
+  .instagram__icon--message {
+    margin-block-start: 3px;
+  }
+  .instagram__icon--message path {
+    stroke-width: 2;
+  }
+  .instagram__icon--saved path {
+    stroke-width: 2;
+  }
+  

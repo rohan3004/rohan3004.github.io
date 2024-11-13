@@ -271,7 +271,6 @@ article .icon {
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 1rem;
   padding: 1.5rem;
-  
 }
 
 .project-img {
@@ -383,4 +382,12 @@ footer p {
 }
 .layer3{
   background-image: url('../assets/separeteLayer.svg');
+}
+
+#photography{
+position: relative;
+}
+
+.layer4{
+  background-image: url('../assets/layer4.svg');
 }

@@ -1,500 +1,907 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rohan Chakravarty - Portfolio</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/mediaqueries.css" />
-    <link rel="stylesheet" href="./styles/contact.css" />
-    <link rel="stylesheet" href="./styles/carousel.css" />
-    <link rel="stylesheet" href="./styles/graph.css" />
-    <link rel="stylesheet" href="./styles/MusicPlayer.css" />
-    <link rel="stylesheet" href="./styles/navBar.css" />
-    <link rel="stylesheet" href="./styles/repocard.css">
-    <link rel="stylesheet" href="./styles/button.css">
-    <link rel="stylesheet" href="./styles/blob.css">
-    <!-- Latest Font Awesome CDN without integrity attribute -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="icon" href="./favicon.png" />
-    <link rel="manifest" href="./manifest.json">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohan Chakravarty - Portfolio</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/mediaqueries.css" />
+  <link rel="stylesheet" href="./styles/contact.css" />
+  <link rel="stylesheet" href="./styles/carousel.css" />
+  <link rel="stylesheet" href="./styles/graph.css" />
+  <link rel="stylesheet" href="./styles/MusicPlayer.css" />
+  <link rel="stylesheet" href="./styles/navBar.css" />
+  <link rel="stylesheet" href="./styles/repocard.css" />
+  <link rel="stylesheet" href="./styles/button.css" />
+  <link rel="stylesheet" href="./styles/blob.css" />
+  <link rel="stylesheet" href="./styles/photography.css" />
+  <!-- <link rel="stylesheet" href="./styles/modal.css" /> -->
+  <!-- Latest Font Awesome CDN without integrity attribute -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="./js/contact.js"></script>
-  </head>
-  <body>
-    <div class="menu">
-      <a href="#about" class="link">
-        <span class="link-icon">
-          <!-- icon -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="192"
-            height="192"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-          >
-            <rect width="256" height="256" fill="none"></rect>
-            <path
-              d="M213.3815,109.61945,133.376,36.88436a8,8,0,0,0-10.76339.00036l-79.9945,72.73477A8,8,0,0,0,40,115.53855V208a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V115.53887A8,8,0,0,0,213.3815,109.61945Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></path>
-          </svg>
-          <!-- /icon -->
-        </span>
-        <span class="link-title">About</span>
-      </a>
-      <a href="#experience" class="link">
-        <span class="link-icon">
-          <!-- icon -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="192"
-            height="192"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-          >
-            <rect width="256" height="256" fill="none"></rect>
-            <polyline
-              points="76.201 132.201 152.201 40.201 216 40 215.799 103.799 123.799 179.799"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></polyline>
-            <line
-              x1="100"
-              y1="156"
-              x2="160"
-              y2="96"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></line>
-            <path
-              d="M82.14214,197.45584,52.201,227.397a8,8,0,0,1-11.31371,0L28.603,215.11268a8,8,0,0,1,0-11.31371l29.94113-29.94112a8,8,0,0,0,0-11.31371L37.65685,141.65685a8,8,0,0,1,0-11.3137l12.6863-12.6863a8,8,0,0,1,11.3137,0l76.6863,76.6863a8,8,0,0,1,0,11.3137l-12.6863,12.6863a8,8,0,0,1-11.3137,0L93.45584,197.45584A8,8,0,0,0,82.14214,197.45584Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></path>
-          </svg>
-          <!-- /icon -->
-        </span>
-        <span class="link-title">Skills</span>
-      </a>
-      <a href="#projects" class="link">
-        <span class="link-icon">
-          <!-- icon -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="192"
-            height="192"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-          >
-            <rect width="256" height="256" fill="none"></rect>
-            <circle
-              cx="116"
-              cy="116"
-              r="84"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></circle>
-            <line
-              x1="175.39356"
-              y1="175.40039"
-              x2="223.99414"
-              y2="224.00098"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></line>
-          </svg>
-          <!-- /icon -->
-        </span>
-        <span class="link-title">Work</span>
-      </a>
-      <a href="#contact" class="link">
-        <span class="link-icon">
-          <!-- icon -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="192"
-            height="192"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-          >
-            <rect width="256" height="256" fill="none"></rect>
-            <circle
-              cx="128"
-              cy="96"
-              r="64"
-              fill="none"
-              stroke="currentColor"
-              stroke-miterlimit="10"
-              stroke-width="16"
-            ></circle>
-            <path
-              d="M30.989,215.99064a112.03731,112.03731,0,0,1,194.02311.002"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            ></path>
-          </svg>
-          <!-- /icon -->
-        </span>
-        <span class="link-title">Me</span>
-      </a>
+  <link rel="icon" href="./favicon.png" />
+  <link rel="manifest" href="./manifest.json" />
+
+  <script src="./js/contact.js"></script>
+</head>
+
+<body>
+  <!-- Popup Modal -->
+  <!-- <div id="popupModal" class="popup">
+    <div class="popup-content">
+      <div class="Menu_BTN">
+        <a href="/" id="close"></a>
+        <a href="#" id="min" onclick="BTNS('min')"></a>
+        <a href="#" id="max" onclick="BTNS('max')"></a>
     </div>
-    <div class="homeSection">
-      <div class="spacer layer3 flip custom"></div>
-      <section id="profile">
-        <div id="boxes">
-          <div id="player02" class="player horizontal">
-            <div class="wrapper">
-              <div class="info-wrapper">
-                <img src="./assets/profile-pic.png" alt="Rohan Chakravarty" />
+        <span id="closePopupBtn" class="close">&times;</span>
+        <h2>Popup Title</h2>
+        <p>This is a simple popup modal example.</p>
+    </div>
+  </div> -->
+  <div class="menu">
+    <a href="#about" class="link">
+      <span class="link-icon">
+        <!-- icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <path
+            d="M213.3815,109.61945,133.376,36.88436a8,8,0,0,0-10.76339.00036l-79.9945,72.73477A8,8,0,0,0,40,115.53855V208a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V115.53887A8,8,0,0,0,213.3815,109.61945Z"
+            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+        </svg>
+        <!-- /icon -->
+      </span>
+      <span class="link-title">About</span>
+    </a>
+    <a href="#experience" class="link">
+      <span class="link-icon">
+        <!-- icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <polyline points="76.201 132.201 152.201 40.201 216 40 215.799 103.799 123.799 179.799" fill="none"
+            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+          <line x1="100" y1="156" x2="160" y2="96" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16"></line>
+          <path
+            d="M82.14214,197.45584,52.201,227.397a8,8,0,0,1-11.31371,0L28.603,215.11268a8,8,0,0,1,0-11.31371l29.94113-29.94112a8,8,0,0,0,0-11.31371L37.65685,141.65685a8,8,0,0,1,0-11.3137l12.6863-12.6863a8,8,0,0,1,11.3137,0l76.6863,76.6863a8,8,0,0,1,0,11.3137l-12.6863,12.6863a8,8,0,0,1-11.3137,0L93.45584,197.45584A8,8,0,0,0,82.14214,197.45584Z"
+            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+        </svg>
+        <!-- /icon -->
+      </span>
+      <span class="link-title">Skills</span>
+    </a>
+    <a href="#projects" class="link">
+      <span class="link-icon">
+        <!-- icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16"></circle>
+          <line x1="175.39356" y1="175.40039" x2="223.99414" y2="224.00098" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+        </svg>
+        <!-- /icon -->
+      </span>
+      <span class="link-title">Work</span>
+    </a>
+    <a href="#contact" class="link">
+      <span class="link-icon">
+        <!-- icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <circle cx="128" cy="96" r="64" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16">
+          </circle>
+          <path d="M30.989,215.99064a112.03731,112.03731,0,0,1,194.02311.002" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+        </svg>
+        <!-- /icon -->
+      </span>
+      <span class="link-title">Me</span>
+    </a>
+  </div>
+  <div class="homeSection">
+    <div class="spacer layer3 flip custom"></div>
+    <section id="profile">
+      <div id="boxes">
+        <div id="player02" class="player horizontal">
+          <div class="wrapper">
+            <div class="info-wrapper">
+              <img src="./assets/profile-pic.png" alt="Rohan Chakravarty" />
 
-                <div class="info">
-                  <h1>Sajde<br /></h1>
-                  <p style="color: #e4b1f0">Rohan Chakravarty</p>
-                </div>
+              <div class="info">
+                <h1>Sajde<br /></h1>
+                <p style="color: #e4b1f0">Rohan Chakravarty</p>
               </div>
-              <div id="weatherRohan">
-                <div class="weather-info">
+            </div>
+            <div id="weatherRohan">
+              <div class="weather-info">
                 <p class="temperature" id="temp">--°C in Kolkata</p>
                 <p class="condition" id="condition"></p>
                 <img id="icon" src="" alt="Weather Icon" />
                 <div class="details">
-                    <p><i class="fas fa-tint"></i><span id="humidity">--</span>%</p>
-                    <p><i class="fa-solid fa-wind"></i><span id="wind">--</span> km/h</p>
-                </div>
-              </div>
-              </div>
-              <div class="track-time">
-                <div class="track"></div>
-                <div class="time">
-                  <div class="total-time">03:20</div>
-                  <div class="last-time">00:12</div>
+                  <p>
+                    <i class="fas fa-tint"></i><span id="humidity">--</span>%
+                  </p>
+                  <p>
+                    <i class="fa-solid fa-wind"></i><span id="wind">--</span> km/h
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="section__text">
-          <p class="section__text__p1">Hello, I'm</p>
-          <h1 class="title">Rohan Chakravarty</h1>
-          <p class="section__text__p2">
-            LPU CSE'26 | 2⭐@Codechef | Full-Stack Developer | Cloud Enthusiast
-          </p>
-          <div class="btn-container">
-            <button
-              class="btn btn-color-2"
-              onclick="window.open('./assets/RohanChakravarty.pdf')"
-            >
-              Download CV
-            </button>
-            <button
-              class="btn btn-color-1"
-              onclick="location.href='./#contact'"
-            >
-              Contact Info
-            </button>
-          </div>
-          <div id="socials-container">
-            <img
-              src="./assets/linkedin.png"
-              alt="My LinkedIn profile"
-              class="icon"
-              onclick="location.href='https://www.linkedin.com/in/rohan-chakravarty-/'"
-            />
-            <img
-              src="./assets/github.png"
-              alt="My Github profile"
-              class="icon"
-              onclick="location.href='https://github.com/rohan3004/'"
-            />
-          </div>
-        </div>
-      </section>
-    </div>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="screenshot__wrapper">
-              <div class="project-profitability">
-                <div class="desktop__title">
-                  <div class="desktop__title__button"></div>
-                  <div class="desktop__title__button"></div>
-                  <div class="desktop__title__button"></div>
-                  <div class="desktop__title__name"></div>
-                </div>
-                <div class="desktop__body">
-                  <div class="graph-dropdown">
-                    <div class="graph-dropdown__label">Insights</div>
-                    <div class="graph-dropdown__options">
-                      <div class="graph-dropdown__options__main">
-                        Contest Rating
-                      </div>
-                    </div>
-                  </div>
-                  <div class="project-graph">
-                    <div class="project-graph__section">
-                      <div class="project-graph__section__line green"></div>
-                      <div class="project-graph__section__line yellow"></div>
-                      <div class="project-graph__section__date">
-                        <span>Jun</span><span class="date">2024</span>
-                      </div>
-                    </div>
-                    <div class="project-graph__section">
-                      <div class="project-graph__section__line green"></div>
-                      <div class="project-graph__section__line yellow"></div>
-                      <div class="project-graph__section__date">
-                        <span>Jul</span><span class="date">2024</span>
-                      </div>
-                    </div>
-                    <div class="project-graph__section">
-                      <div class="project-graph__popup__line"></div>
-                      <div class="project-graph__popup">
-                        <p><strong>October 2024</strong></p>
-                        <div class="project-graph__popup__item">
-                          <div class="insight-type">
-                            <span class="bullet-green">&#x25CF; </span>LeetCode
-                          </div>
-                          <div class="insight-total">1,718</div>
-                        </div>
-                        <div class="project-graph__popup__item">
-                          <div class="insight-type">
-                            <span class="bullet-yellow">&#x25CF; </span>CodeChef
-                          </div>
-                          <div class="insight-total">1,452</div>
-                        </div>
-                      </div>
-                      <div class="project-graph__section__line green"></div>
-                      <div class="project-graph__section__line yellow"></div>
-                      <div class="project-graph__section__date">
-                        <span>Aug</span><span class="date">2024</span>
-                      </div>
-                    </div>
-                    <div class="project-graph__section">
-                      <div class="project-graph__section__line green"></div>
-                      <div class="project-graph__section__line yellow"></div>
-                      <div class="project-graph__section__date">
-                        <span>Sep</span><span class="date">2024</span>
-                      </div>
-                    </div>
-                    <div class="project-graph__section">
-                      <div class="project-graph__section__line green"></div>
-                      <div class="project-graph__section__line yellow"></div>
-                      <div class="project-graph__section__date">
-                        <span>Oct</span><span class="date">2024</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="track-time">
+              <div class="track"></div>
+              <div class="time">
+                <div class="total-time">03:20</div>
+                <div class="last-time">00:12</div>
               </div>
-              <script src="./js/graph.js"></script>
             </div>
-          </div>
-          <div class="text-container">
-            <p>
-              A passionate software engineer with a strong foundation in
-              computer science, specializing in data structures, algorithms, and
-              software development. Skilled in Python, Java, C++, JavaScript,
-              and frameworks like Spring, Django, Flask, and ReactJS. Recently
-              completed a summer course in Data Structures and Algorithms, with
-              hands-on projects including an N-Queen Visualizer using
-              backtracking. Experienced in backend development with Node.js and
-              FastAPI, and familiar with cloud environments such as AWS and GCP.
-              Thrives in collaborative settings and continuously seeks to learn
-              new technologies, aiming for a Software Engineer intern position
-              to contribute to impactful projects and solve real-world
-              challenges.
-            </p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="my-component-void" id="my-component-void">
-        <div class="my-component-crop">
-          <ul id="my-component-card-list" style="--count: 10">
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Java</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">C/C++</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Python</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">JS</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">SQL</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Git</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Bash</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">GCP</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">RHEL</span>
-              </div>
-            </li>
-          </ul>
-          <div class="my-component-last-circle"></div>
-          <div class="my-component-second-circle"></div>
-        </div>
-        <div class="my-component-mask"></div>
-        <div class="my-component-center-circle"></div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <div class="spacer layer3"></div>
-    <div class="projectBG">
-      <section id="projects">
-        <p class="section__text__p1" style="color: #faf9f6">Browse My Recent</p>
-        <h1 class="title" style="color: white">Projects</h1>
-        <div class="experience-details-container">
-          <div id="repo-container" style="display: flex; flex-wrap: wrap; gap: 20px;justify-content: center;">
-            <div class="myblob"></div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
-      </section>
-      <div class="spacer layer2 flip"></div>
-    </div>
-    <div style="background-color: #7e60bf">
-      <section id="contact">
-        <p class="section__text__p1" style="color: #343231">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="background">
-          <div class="container">
-            <div class="screen">
-              <div class="screen-header">
-                <div class="screen-header-left">
-                  <div class="screen-header-button close"></div>
-                  <div class="screen-header-button maximize"></div>
-                  <div class="screen-header-button minimize"></div>
-                </div>
-                <div class="screen-header-right">
-                  <div class="screen-header-ellipsis"></div>
-                  <div class="screen-header-ellipsis"></div>
-                  <div class="screen-header-ellipsis"></div>
-                </div>
-              </div>
-              <div class="screen-body">
-                <div class="screen-body-item left">
-                  <div class="app-title">
-                    <span>CONTACT</span>
-                    <span>ME</span>
-                  </div>
-                  <div class="app-contact">
-                    CONTACT INFO : rohan.chakravarty@gmail.com
-                  </div>
-                </div>
-                <div class="screen-body-item">
-                  <div class="app-form">
-                    <div class="app-form-group">
-                        <input class="app-form-control" id="name" placeholder="NAME" required />
-                    </div>
-                    <div class="app-form-group">
-                        <input class="app-form-control" id="email" placeholder="EMAIL" required />
-                    </div>
-                    <div class="app-form-group">
-                        <input class="app-form-control" id="contactNo" placeholder="CONTACT NO" required />
-                    </div>
-                    <div class="app-form-group message">
-                        <input class="app-form-control" id="message" placeholder="MESSAGE" required />
-                    </div>
-                    <div class="app-form-group buttons">
-                        <button type="button" class="app-form-button" onclick="window.location.reload();">CANCEL</button>
-                        <button class="app-form-button" onclick="submitForm(event)">SEND</button>
-                    </div>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <p style="color: #faf9f6">
-          Copyright &copy; <span id="year"></span> Rohan Chakravarty. All Rights
-          Reserved.
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Rohan Chakravarty</h1>
+        <p class="section__text__p2">
+          LPU CSE'26 | 2⭐@Codechef | Full-Stack Developer | Cloud Enthusiast
         </p>
-      </footer>
+        <div class="btn-container">
+          <button class="btn btn-color-2" onclick="window.open('./assets/RohanChakravarty.pdf')">
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
+            onclick="location.href='https://www.linkedin.com/in/rohan-chakravarty-/'" />
+          <img src="./assets/github.png" alt="My Github profile" class="icon"
+            onclick="location.href='https://github.com/rohan3004/'" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <section id="about">
+    <p class="section__text__p1">Get To Know More</p>
+    <h1 class="title">About Me</h1>
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
+      </div>
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="screenshot__wrapper">
+            <div class="project-profitability">
+              <div class="desktop__title">
+                <div class="desktop__title__button"></div>
+                <div class="desktop__title__button"></div>
+                <div class="desktop__title__button"></div>
+                <div class="desktop__title__name"></div>
+              </div>
+              <div class="desktop__body">
+                <div class="graph-dropdown">
+                  <div class="graph-dropdown__label">Insights</div>
+                  <div class="graph-dropdown__options">
+                    <div class="graph-dropdown__options__main">
+                      Contest Rating
+                    </div>
+                  </div>
+                </div>
+                <div class="project-graph">
+                  <div class="project-graph__section">
+                    <div class="project-graph__section__line green"></div>
+                    <div class="project-graph__section__line yellow"></div>
+                    <div class="project-graph__section__date">
+                      <span>Jun</span><span class="date">2024</span>
+                    </div>
+                  </div>
+                  <div class="project-graph__section">
+                    <div class="project-graph__section__line green"></div>
+                    <div class="project-graph__section__line yellow"></div>
+                    <div class="project-graph__section__date">
+                      <span>Jul</span><span class="date">2024</span>
+                    </div>
+                  </div>
+                  <div class="project-graph__section">
+                    <div class="project-graph__popup__line"></div>
+                    <div class="project-graph__popup">
+                      <p><strong>October 2024</strong></p>
+                      <div class="project-graph__popup__item">
+                        <div class="insight-type">
+                          <span class="bullet-green">&#x25CF; </span>LeetCode
+                        </div>
+                        <div class="insight-total">1,718</div>
+                      </div>
+                      <div class="project-graph__popup__item">
+                        <div class="insight-type">
+                          <span class="bullet-yellow">&#x25CF; </span>CodeChef
+                        </div>
+                        <div class="insight-total">1,452</div>
+                      </div>
+                    </div>
+                    <div class="project-graph__section__line green"></div>
+                    <div class="project-graph__section__line yellow"></div>
+                    <div class="project-graph__section__date">
+                      <span>Aug</span><span class="date">2024</span>
+                    </div>
+                  </div>
+                  <div class="project-graph__section">
+                    <div class="project-graph__section__line green"></div>
+                    <div class="project-graph__section__line yellow"></div>
+                    <div class="project-graph__section__date">
+                      <span>Sep</span><span class="date">2024</span>
+                    </div>
+                  </div>
+                  <div class="project-graph__section">
+                    <div class="project-graph__section__line green"></div>
+                    <div class="project-graph__section__line yellow"></div>
+                    <div class="project-graph__section__date">
+                      <span>Oct</span><span class="date">2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script src="./js/graph.js"></script>
+          </div>
+        </div>
+        <div class="text-container">
+          <p>
+            A passionate software engineer with a strong foundation in
+            computer science, specializing in data structures, algorithms, and
+            software development. Skilled in Python, Java, C++, JavaScript,
+            and frameworks like Spring, Django, Flask, and ReactJS. Recently
+            completed a summer course in Data Structures and Algorithms, with
+            hands-on projects including an N-Queen Visualizer using
+            backtracking. Experienced in backend development with Node.js and
+            FastAPI, and familiar with cloud environments such as AWS and GCP.
+            Thrives in collaborative settings and continuously seeks to learn
+            new technologies, aiming for a Software Engineer intern position
+            to contribute to impactful projects and solve real-world
+            challenges.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="spacer layer2"></div>
-    <script src="./js/script.js"></script>
-  </body>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
+  </section>
+  <section id="experience">
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title">Experience</h1>
+    <div class="my-component-void" id="my-component-void">
+      <div class="my-component-crop">
+        <ul id="my-component-card-list" style="--count: 10">
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">Java</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">C/C++</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">Python</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">JS</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">SQL</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">Git</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">Bash</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">GCP</span>
+            </div>
+          </li>
+          <li>
+            <div class="my-component-card">
+              <span class="my-component-model-name">RHEL</span>
+            </div>
+          </li>
+        </ul>
+        <div class="my-component-last-circle"></div>
+        <div class="my-component-second-circle"></div>
+      </div>
+      <div class="my-component-mask"></div>
+      <div class="my-component-center-circle"></div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+  </section>
+  <div class="spacer layer3"></div>
+  <div class="projectBG">
+    <section id="projects">
+      <p class="section__text__p1" style="color: #faf9f6">Browse My Recent</p>
+      <h1 class="title" style="color: white">Projects</h1>
+      <div class="experience-details-container">
+        <div id="repo-container" style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+              justify-content: center;
+            ">
+          <div class="myblob"></div>
+        </div>
+        <button id="openPopupBtn">Open Popup</button>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#photography'" />
+    </section>
+    <div class="spacer layer2 flip"></div>
+  </div>
+  <div style="background-color: #7e60bf">
+    <section id="photography">
+      <p class="section__text__p1" style="color: #343231">
+        Exploring the art of storytelling through visuals
+      </p>
+      <h1 class="title">Through My Lens</h1>
+      <div class="experience-details-container">
+        <div style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+              justify-content: center;
+            ">
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p11.png" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Lost in Heaven<br>Shot on Canon EOS R10</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p12.png" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Hadimba Temple<br>Shot on Canon EOS R10</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p10.jpeg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">It's Either You or Nobody✨<br>Shot on Xiaomi 11T Pro</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p9.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Sunset<br>Shot on Xiaomi 11T Pro</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p8.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Kolkata Christmas<br>Shot on Xiaomi 11T Pro</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p7.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Khiderpore Docks<br>Shot on Redmi Note 10 Pro Max</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p6.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Macro Photography<br>Shot on Redmi Note 10 Pro Max</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p5.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right"><svg class="instagram__icon instagram__icon--saved" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg></div>
+              </div>
+              <h2 class="project-title" style="color: black;">Railway Tracks<br>Shot on Redmi K30</h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure>
+                  <img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42" />
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p4.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left">
+                  <svg class="instagram__icon instagram__icon--heart" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right">
+                  <svg class="instagram__icon instagram__icon--saved" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h2 class="project-title" style="color: black">
+                Fountain Stop Motion<br />Shot on Redmi K30
+              </h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure>
+                  <img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42" />
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p3.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left">
+                  <svg class="instagram__icon instagram__icon--heart" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right">
+                  <svg class="instagram__icon instagram__icon--saved" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h2 class="project-title" style="color: black">
+                Beautiful Sunrise Sky<br />Shot on Redmi K30
+              </h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure>
+                  <img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42" />
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p2.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left">
+                  <svg class="instagram__icon instagram__icon--heart" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right">
+                  <svg class="instagram__icon instagram__icon--saved" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h2 class="project-title" style="color: black">
+                Night Photography - Bulb Mode<br />Shot on Redmi Note 8 Pro
+              </h2>
+            </div>
+          </div>
+          <div class="repo-card">
+            <div class="instagram-photo">
+              <div class="instagram-header">
+                <figure>
+                  <img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42" />
+                  <figcaption>
+                    <h4>rohan.chakravarty</h4>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="insta-media">
+                <img src="./assets/photography/p1.jpg" alt="Project 1" />
+              </div>
+              <div class="insta-buttons">
+                <div class="left">
+                  <svg class="instagram__icon instagram__icon--heart" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M16.8196 3.40477L16.8196 3.40468L16.8105 3.40435C15.9939 3.37401 15.1837 3.55848 14.4607 3.93934C13.7415 4.31818 13.1337 4.87813 12.6974 5.56376C12.3799 6.0141 12.1595 6.38237 12.0011 6.66645C11.841 6.38254 11.6182 6.01451 11.2971 5.5646C10.8588 4.88294 10.252 4.32584 9.53521 3.94728C8.81455 3.56666 8.00746 3.37954 7.19284 3.40423L7.19283 3.40408L7.18038 3.40477C5.73422 3.48471 4.37827 4.133 3.40801 5.20836C2.44041 6.28078 1.93462 7.69124 1.99999 9.13385C2.00344 10.8131 2.73878 12.1587 3.76066 13.3486C4.54375 14.2605 5.52952 15.1172 6.516 15.9745C6.80035 16.2216 7.08476 16.4688 7.36439 16.7173C7.71256 17.0283 8.0484 17.3289 8.36875 17.6156C9.03981 18.2163 9.64287 18.7561 10.1488 19.2024C10.8808 19.8482 11.4505 20.3358 11.7281 20.5156L11.9996 20.6915L12.2713 20.516C12.5291 20.3494 13.0097 19.9415 13.7041 19.3303C14.2257 18.8712 14.8883 18.2789 15.7018 17.5517C15.9935 17.2909 16.3047 17.0128 16.6357 16.7172C16.9253 16.4597 17.2205 16.2037 17.5157 15.9477C18.4876 15.105 19.4601 14.2617 20.2346 13.3628C21.2586 12.1744 21.9965 10.8264 22 9.13385C22.0653 7.69123 21.5596 6.28078 20.592 5.20836C19.6217 4.133 18.2657 3.48471 16.8196 3.40477ZM11.6142 4.35506L11.9954 4.80294L12.3761 4.35467C12.9155 3.71951 13.5913 3.21422 14.3531 2.87644C15.1144 2.53889 15.9419 2.37731 16.7742 2.40369C18.4866 2.47112 20.1027 3.21362 21.2694 4.46897C22.4364 5.72476 23.0588 7.39158 23.0003 9.10494L23 9.11347V9.122C23 12.4787 20.5608 14.6294 18.1924 16.6842C17.8966 16.94 17.598 17.2003 17.3031 17.462L17.3018 17.4632L16.3798 18.2872L16.3736 18.2927L16.3676 18.2985C15.2327 19.3827 14.0415 20.4065 12.7991 21.3656C12.5599 21.5162 12.2829 21.5962 12 21.5962C11.7171 21.5962 11.4402 21.5162 11.201 21.3657C9.9972 20.4352 8.84189 19.4436 7.73965 18.3948L7.73401 18.3894L7.7282 18.3842L6.7012 17.4662L6.70057 17.4657C6.43759 17.2314 6.17305 17.0015 5.91337 16.7758C5.88988 16.7554 5.86643 16.735 5.84303 16.7147C3.34442 14.5424 0.999982 12.4694 0.999982 9.122V9.11347L0.999691 9.10494C0.941196 7.39158 1.56352 5.72476 2.73058 4.46897C3.89709 3.21378 5.51295 2.47131 7.2251 2.40372C8.0557 2.37962 8.88112 2.54227 9.6405 2.87968C10.4006 3.21742 11.0751 3.72163 11.6142 4.35506Z">
+                    </path>
+                  </svg>
+                  <svg class="instagram__icon instagram__icon--comment" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M20.656 17.008C21.8711 14.9061 22.2795 12.4337 21.8048 10.0527C21.3301 7.67172 20.0048 5.54497 18.0765 4.06978C16.1482 2.59458 13.7488 1.87186 11.3266 2.0366C8.9043 2.20135 6.62486 3.24231 4.91408 4.96501C3.20329 6.68772 2.17817 8.97432 2.03024 11.3977C1.8823 13.821 2.62166 16.2153 4.1102 18.1334C5.59874 20.0514 7.73463 21.3619 10.1189 21.82C12.5031 22.2782 14.9726 21.8527 17.066 20.623L22 22L20.656 17.008Z">
+                    </path>
+                  </svg><svg class="instagram__icon instagram__icon--message" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2L9.218 10.084 11.698 20.334Z"></path>
+                  </svg>
+                </div>
+                <div class="right">
+                  <svg class="instagram__icon instagram__icon--saved" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h2 class="project-title" style="color: black">
+                Annualar Solar Eclipse<br />Shot on Redmi Note 8 Pro
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
+  </div>
+  <div class="spacer layer4 flip"></div>
+  <div style="background-color: #fff7f7">
+    <section id="contact">
+      <p class="section__text__p1" style="color: #343231">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="background">
+        <div class="container">
+          <div class="screen">
+            <div class="screen-header">
+              <div class="screen-header-left">
+                <div class="screen-header-button close"></div>
+                <div class="screen-header-button maximize"></div>
+                <div class="screen-header-button minimize"></div>
+              </div>
+              <div class="screen-header-right">
+                <div class="screen-header-ellipsis"></div>
+                <div class="screen-header-ellipsis"></div>
+                <div class="screen-header-ellipsis"></div>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-body-item left">
+                <div class="app-title">
+                  <span>CONTACT</span>
+                  <span>ME</span>
+                </div>
+                <div class="app-contact">
+                  CONTACT INFO : rohan.chakravarty@gmail.com
+                </div>
+              </div>
+              <div class="screen-body-item">
+                <div class="app-form">
+                  <div class="app-form-group">
+                    <input class="app-form-control" id="name" placeholder="NAME" required />
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" id="email" placeholder="EMAIL" required />
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" id="contactNo" placeholder="CONTACT NO" required />
+                  </div>
+                  <div class="app-form-group message">
+                    <input class="app-form-control" id="message" placeholder="MESSAGE" required />
+                  </div>
+                  <div class="app-form-group buttons">
+                    <button type="button" class="app-form-button" onclick="window.location.reload();">
+                      CANCEL
+                    </button>
+                    <button class="app-form-button" onclick="submitForm(event)">
+                      SEND
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>
+        Copyright &copy; <span id="year"></span> Rohan Chakravarty. All Rights
+        Reserved.
+      </p>
+    </footer>
+  </div>
+  <div class="spacer layer4"></div>
+  <script src="./js/script.js"></script>
+</body>
+
 </html>
