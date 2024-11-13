@@ -133,6 +133,9 @@ main {
 .green {
     color: #3fc950;
 }
+.blue{
+    color: #82EEFD;
+}
 
 #userInput::after {
     content: '';

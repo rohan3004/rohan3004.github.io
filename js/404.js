@@ -2,15 +2,17 @@ const BLACKLISTED_KEY_CODES = [38,40,37,39,18,20,17,16,9,27,144];
 //List of commands
 const COMMANDS = {
     "help":
-        'The page you want to visit does not exist, or it may have been deleted, or the wrong address was entered. To see the commands, enter the word <span class=\"red\"> commands</span>',
+        'The page you want to visit does not exist, or it may have been deleted, or the wrong address was entered. To see the list of commands, enter "<span class=\"red\">man</span>"',
     "exit":
         "",
     "report":
         "<span class='green'>This page report has been successfully sent to support.</span>",
-    "commands":
-        "List of commands: <span class=\"red\"> help</span> , <span class=\"red\"> report</span> ,<span class=\"red\"> exit</span>\n",
+    "man":
+        "List of commands: <span class=\"red\"> help</span>, <span class=\"red\"> report</span>,<span class=\"red\"> whoami</span>,<span class=\"red\"> exit</span>\n",
     "cls":
-        ""
+        "",
+    "whoami":
+    "You are the master of the entire world ~Rohan Chakravarty"
 };
 
 let userInput
@@ -59,6 +61,7 @@ const execute = function executeCommand(input) {
     }
     //If the user enters the word report
     else if (input === "report") {
+        terminalOutput.innerHTML = "";
         terminalOutput.innerHTML = `${
             terminalOutput.innerHTML
         }<p>${COMMANDS[input]}</p>`;
@@ -72,7 +75,7 @@ const execute = function executeCommand(input) {
 
     terminalOutput.innerHTML = `${
         terminalOutput.innerHTML
-    }<p class="out_code">rohandev.online:~/404$ ${input}<br>${output}</p>`;
+    }<p class="out_code"><span class="arrow green">rohandev.online:</span><span class="blue">~/404</span>$ ${input}<br>${output}</p>`;
     Terminal.scrollTop = terminalOutput.scrollHeight;
 };
 let str = '';

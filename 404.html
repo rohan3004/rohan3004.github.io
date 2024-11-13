@@ -24,19 +24,23 @@
     <div class="Terminal_body" id="Terminal">
         <p>Microsoft Windows [Version 10.0.22631.4391]<br>
             (c) Rohan Chakravarty. All rights reserved.</p></br>
-            <p>Oops! page not found</p><br>
-        <p>Enter
-            <span class="red">
-            help
-            </span>
-            for help</p>
+            <p><span class="arrow green">rohandev.online:</span><span class="blue">~/404</span>$ <span id="url" class="red"></span></p>
+            <script>
+                // Capture the current URL
+                const url = window.location.href;
+            
+                // Display it on the page
+                document.getElementById("url").textContent = url;
+            </script>
+            <p>The page you’re looking for can’t be found</p><br>
+        <p>Enter "<span class="red">help</span>" for help</p>
         <br>
         <div class="Terminal_code">
             <div class="Terminal_line">
                 <div class="code" id="code">
 
                 </div>
-                <span class="arrow">rohandev.online:~/404$ </span><span class="user-input" id="userInput"></span>
+                <span class="arrow green">rohandev.online:</span><span class="blue">~/404</span>$ <span class="user-input" id="userInput"></span>
                 <label for="Keyboard"></label><input type="text" id="Keyboard" class="keyboard">
             </div>
         </div>
