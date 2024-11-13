@@ -38,25 +38,23 @@ async function fetchGitHubData() {
           card.innerHTML = `
           <div class="details-container color-container">
               <div class="article-container">
-                <img
-                  src="${pexelsImageUrl}"
-                  alt="Project 1"
-                  class="thumbnail"
-                />
+                <img src="${pexelsImageUrl}" alt="Project 1" class="thumbnail" />
               </div>
-              <h2 class="experience-sub-title project-title">
-              ${repo.name}
+              <h2 class="experience-sub-title project-title" style="font-size: 1.2em;margin: 30px;">
+                ${repo.name}
               </h2>
               <div class="btn-container" style="justify-content: flex-start;">
                 <a href="${repo.html_url}" class="btnp">
-    <span class="btnp__circle"></span>
-    <span class="btnp__white-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" id="icon-arrow-right" viewBox="0 0 21 12">
-            <path d="M17.104 5.072l-4.138-4.014L14.056 0l6 5.82-6 5.82-1.09-1.057 4.138-4.014H0V5.072h17.104z"></path>
-        </svg>
-    </span>
-    <span class="btnp__text">Bombarda</span>
-</a>
+                  <span class="btnp__circle"></span>
+                  <span class="btnp__white-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icon-arrow-right" viewBox="0 0 21 12">
+                      <path
+                        d="M17.104 5.072l-4.138-4.014L14.056 0l6 5.82-6 5.82-1.09-1.057 4.138-4.014H0V5.072h17.104z">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="btnp__text">Bombarda</span>
+                </a>
 
               </div>
             </div>
