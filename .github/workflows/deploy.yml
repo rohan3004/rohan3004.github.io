@@ -27,6 +27,8 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
+
+          ssh -i ssh_key ${USER}@${HOST} "mkdir ~/tmp"
           # Transfer files to EC2 instance's web directory
           scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
           
