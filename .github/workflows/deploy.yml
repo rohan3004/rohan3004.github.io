@@ -28,7 +28,10 @@ jobs:
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
           # Transfer files to EC2 instance's web directory
-          scp -i ssh_key -r ./* ${USER}@${HOST}:/var/www/html
+          scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
+          
+          ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
 
           # Execute server commands to restart services
           ssh -i ssh_key ${USER}@${HOST} "sudo systemctl reload apache2"  
