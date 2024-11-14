@@ -26,6 +26,7 @@
     background-color: #433878;
     padding: 1rem;
     border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   }
   
   .player img {
@@ -58,20 +59,20 @@
     padding-bottom: 7px;
   }
   
-/*   
+  
   .controls {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    /* padding-top: 20px; */
   }
   
-  .track {
+  /* .track {
     padding-top: 28px;
    position: relative;
   
-  }
+  } */
   
-  .track::before {
+  /* .track::before {
   content: '';
   height: 6px;
   width: 100%;
@@ -91,17 +92,18 @@
   border-radius: 10px;
   
   
-  }
+  } */
   
   .time {
-    opacity: 0.7;
-    font-size: 14px;
+    /* opacity: 0.7; */
+    font-size: 1rem;
     color: #FFE1FF;
   
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 9.6px;
-  } */
+    padding-bottom: 9.6px;
+  }
   
   @media (max-width: 670px) {
     #boxes {
@@ -122,7 +124,7 @@
 
   #weatherRohan {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     border-radius: 8px;
