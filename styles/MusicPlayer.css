@@ -24,13 +24,13 @@
   
   .player {
     background-color: #433878;
-    padding: 28px;
+    padding: 1rem;
     border-radius: 20px;
   }
   
   .player img {
-    width: 84px;
-    height: 84px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -51,13 +51,14 @@
     gap: 30px;
   }
   
+  
   .player h1 {
-    font-size: 27px;
+    font-size: 1.2rem;
     color: #FFE1FF;
     padding-bottom: 7px;
   }
   
-  
+/*   
   .controls {
     display: flex;
     justify-content: space-between;
@@ -100,7 +101,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 9.6px;
-  }
+  } */
   
   @media (max-width: 670px) {
     #boxes {
@@ -132,6 +133,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    font-size: 1.2em;
 }
 
 .text {
