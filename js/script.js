@@ -112,7 +112,7 @@ async function fetchPexelsImage(apiKey, repoName) {
 async function getWeather() {
     try {
         const response = await fetch(
-            "https://api.rohandev.online/weather/Kolkata"
+            "https://api.weatherapi.com/v1/current.json?key=fc9c2d13772441e9b72191328240604&q=Kolkata"
         );
         const data = await response.json();
 
