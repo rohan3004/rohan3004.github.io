@@ -43,9 +43,10 @@ section {
 }
 
 /* PROFILE SECTION */
-.custom{
+.custom {
   margin-top: -120px;
 }
+
 #profile {
   display: flex;
   justify-content: center;
@@ -187,7 +188,7 @@ section {
   bottom: 2.5rem;
 }
 
-.details-container {
+/* .details-container {
   padding: 1.5rem;
   flex: 1;
   background: white;
@@ -195,7 +196,7 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
-}
+} */
 
 .section-container {
   gap: 4rem;
@@ -233,14 +234,14 @@ section {
   margin-top: 50px;
 }
 
-.article-container {
+/* .article-container {
   display: flex;
   text-align: initial;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
-}
+} */
 
 article {
   display: flex;
@@ -261,32 +262,25 @@ article .icon {
 
 
 
-.color-container {
+/* .color-container {
   width: 340px;
   height: 100%;
-  background: rgba( 255, 255, 255, 0.15 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 18px );
-  -webkit-backdrop-filter: blur( 18px );
+  background: #14181a;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 1rem;
   padding: 1.5rem;
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
+} */
 
 .project-title {
   margin: 1rem;
-  color: whitesmoke;;
+  color: whitesmoke;
+  ;
   font-size: 9px;
 }
 
 .project-btn {
-  color:whitesmoke;;
+  color: whitesmoke;
+  ;
   border-color: rgb(163, 163, 163);
   font-size: 9px;
 }
@@ -349,7 +343,7 @@ footer p {
   }
 }
 
-.spacer{
+.spacer {
   aspect-ratio: 960/300;
   width: 100%;
   background-repeat: no-repeat;
@@ -357,37 +351,38 @@ footer p {
   background-size: cover;
 }
 
-.layer2{
+.layer2 {
   background-image: url('../assets/layer2.svg');
 }
 
-.flip{
+.flip {
   transform: rotate(180deg);
 }
 
-.projectBG{
+.projectBG {
   background-color: #433878;
 }
 
-.blob-motion{
+.blob-motion {
   position: absolute;
   transform: translateY(-20%);
 }
 
 @media (max-width:947px) {
-  .blob-motion{
+  .blob-motion {
     display: none;
   }
-  
+
 }
-.layer3{
+
+.layer3 {
   background-image: url('../assets/separeteLayer.svg');
 }
 
-#photography{
-position: relative;
+#photography {
+  position: relative;
 }
 
-.layer4{
+.layer4 {
   background-image: url('../assets/layer4.svg');
 }
