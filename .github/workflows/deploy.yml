@@ -32,12 +32,10 @@ jobs:
           # Transfer files to EC2 instance's web directory
           scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
           
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R /var/www/html/*"
+
           ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
           ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
-
-          # Execute server commands to restart services
-          ssh -i ssh_key ${USER}@${HOST} "sudo systemctl reload apache2"  
-          ssh -i ssh_key ${USER}@${HOST} "sudo systemctl reload nginx"
 
           # Clean up by removing the SSH key file
           rm ssh_key
