@@ -1,12 +1,12 @@
 {
   "name": "Rohan Chakravarty",
-  "description": "Portfolio",
+  "description": "Rohan Chakravarty - Portfolio",
   "version": "v1.0",
-  "short_name": "Portfolio",
+  "short_name": "Rohan Chakravarty",
   "start_url": "https://rohandev.online",
   "display": "standalone",
-  "theme_color": "#FFE1FF",
-  "background_color": "#e4b1f0",
+  "theme_color": "#7e60bf",
+  "background_color": "#FFFFFF",
   "icons": [
     {
       "src": "https://rohandev.online/assets/logo.png",
