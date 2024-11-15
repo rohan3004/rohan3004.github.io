@@ -9,12 +9,12 @@
   "background_color": "#e4b1f0",
   "icons": [
     {
-      "src": "https://rohandev.online/favicon.png",
+      "src": "https://rohandev.online/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "https://rohandev.online/favicon.png",
+      "src": "https://rohandev.online/assets/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     }
