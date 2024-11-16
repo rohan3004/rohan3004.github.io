@@ -34,6 +34,7 @@ html {
 
     *::-webkit-scrollbar-thumb {
         background-color: #433a74;
+        border-radius: 10px;
     }
 
 p {
