@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./styles/button.css" />
     <link rel="stylesheet" href="./styles/blob.css" />
     <link rel="stylesheet" href="./styles/photography.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
     <!-- Latest Font Awesome CDN without integrity attribute -->
     <link
       rel="stylesheet"
@@ -30,14 +31,46 @@
   </head>
 
   <body>
+    <div class="modal" id="musicModal">
+      <div class="modal-content" id="musicModalContainer">
+        <h2>Shall we cue the playlist and make this moment sound as good as it feels?</h2>
+        <button class="btn btn-color-1" id="playMusic"><i class="fa-regular fa-face-laugh-wink"></i> Yes</button>
+        <button class="btn btn-color-2" id="noMusic"><i class="fa-regular fa-face-sad-cry"></i> No</button>
+      </div>
+    </div>
+
+    <video controls="" name="media" id="backgroundMusic" loop>
+      <source
+        src="https://rr4---sn-qxaeenls.googlevideo.com/videoplayback?expire=1731796961&amp;ei=gcs4Z-jWL9Kl9fwPucG6SQ&amp;ip=103.165.20.39&amp;id=o-AFvjhHOWGOJ-HJQRQjNLnicEEzSzT9HJ1btZMwLV6d4Y&amp;itag=251&amp;source=youtube&amp;requiressl=yes&amp;xpc=EgVo2aDSNQ%3D%3D&amp;gcr=in&amp;vprv=1&amp;mime=audio%2Fwebm&amp;rqh=1&amp;gir=yes&amp;clen=3285074&amp;dur=207.261&amp;lmt=1727960129391630&amp;keepalive=yes&amp;fexp=24350590,24350675,24350705,24350737,51299154,51312688,51326932&amp;c=ANDROID_VR&amp;txp=5532434&amp;sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&amp;sig=AJfQdSswRAIgOFs14DFVai3N8JXGUU2Hv_nLz4xqVTl719DUE1om7twCIGZ72WFZZ_k35jJtLLscr0uUcg88e3ucEd-ayUECumYs&amp;rm=sn-qf5o-jv3l7d,sn-h55se7z&amp;rrc=79,104&amp;req_id=4cea312c5055a3ee&amp;rms=rdu,au&amp;redirect_counter=2&amp;cms_redirect=yes&amp;cmsv=e&amp;ipbypass=yes&amp;met=1731786453,&amp;mh=r0&amp;mip=210.89.61.7&amp;mm=29&amp;mn=sn-qxaeenls&amp;ms=rdu&amp;mt=1731786075&amp;mv=m&amp;mvi=4&amp;pl=24&amp;lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&amp;lsig=AGluJ3MwRgIhAKqddgC9-9Znzd3sw-8XBm6sQAJLIJb6srdv5b6CN1Q3AiEAsBIQkEn8qbpOa-W-BxFhiZnQC1USa1t5_Oq7VJNA2Co%3D"
+        type="audio/webm"
+      />
+    </video>
+    <script src="./js/modal.js"></script>
     <div class="menu">
       <a href="#about" class="link">
         <span class="link-icon">
           <!-- icon -->
-          <svg width="192" height="192" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.385 6.67244L11.029 3.52744C11.8836 2.82419 13.1164 2.82419 13.971 3.52744L17.615 6.67244C17.9887 6.98222 18.2079 7.44011 18.215 7.92544L18.5 18.0004C18.5 19.6573 17.1569 21.0004 15.5 21.0004H9.5C7.84315 21.0004 6.5 19.6573 6.5 18.0004L6.782 7.92544C6.78982 7.43962 7.01021 6.98165 7.385 6.67244Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10.5 13.2504C10.0858 13.2504 9.75 13.5862 9.75 14.0004C9.75 14.4147 10.0858 14.7504 10.5 14.7504V13.2504ZM14.5 14.7504C14.9142 14.7504 15.25 14.4147 15.25 14.0004C15.25 13.5862 14.9142 13.2504 14.5 13.2504V14.7504ZM9.5 16.2504C9.08579 16.2504 8.75 16.5862 8.75 17.0004C8.75 17.4147 9.08579 17.7504 9.5 17.7504V16.2504ZM15.5 17.7504C15.9142 17.7504 16.25 17.4147 16.25 17.0004C16.25 16.5862 15.9142 16.2504 15.5 16.2504V17.7504ZM11 8.50045L11.75 8.50078L11 8.50045ZM12.208 7.02982L12.062 6.29417L12.208 7.02982ZM13.886 7.92764L13.193 8.21438V8.21438L13.886 7.92764ZM13.3329 9.74862L12.9165 9.12487L13.3329 9.74862ZM11.439 9.56144L10.9085 10.0916L11.439 9.56144ZM10.5 14.7504H14.5V13.2504H10.5V14.7504ZM9.5 17.7504H15.5V16.2504H9.5V17.7504ZM11.75 8.50078C11.7502 8.14299 12.003 7.83513 12.354 7.76547L12.062 6.29417C11.0091 6.50314 10.2505 7.42672 10.25 8.50011L11.75 8.50078ZM12.354 7.76547C12.7049 7.69582 13.0562 7.88377 13.193 8.21438L14.5791 7.64089C14.1687 6.64905 13.1148 6.08521 12.062 6.29417L12.354 7.76547ZM13.193 8.21438C13.3298 8.54499 13.214 8.9262 12.9165 9.12487L13.7494 10.3724C14.6421 9.77635 14.9894 8.63273 14.5791 7.64089L13.193 8.21438ZM12.9165 9.12487C12.6189 9.32355 12.2224 9.28437 11.9695 9.03128L10.9085 10.0916C11.6673 10.8508 12.8567 10.9684 13.7494 10.3724L12.9165 9.12487ZM11.9695 9.03128C11.8289 8.89056 11.7499 8.69973 11.75 8.50078L10.25 8.50011C10.2497 9.09695 10.4866 9.66944 10.9085 10.0916L11.9695 9.03128Z" fill="#000000"/>
-            </svg>
+          <svg
+            width="192"
+            height="192"
+            viewBox="0 -0.5 25 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.385 6.67244L11.029 3.52744C11.8836 2.82419 13.1164 2.82419 13.971 3.52744L17.615 6.67244C17.9887 6.98222 18.2079 7.44011 18.215 7.92544L18.5 18.0004C18.5 19.6573 17.1569 21.0004 15.5 21.0004H9.5C7.84315 21.0004 6.5 19.6573 6.5 18.0004L6.782 7.92544C6.78982 7.43962 7.01021 6.98165 7.385 6.67244Z"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10.5 13.2504C10.0858 13.2504 9.75 13.5862 9.75 14.0004C9.75 14.4147 10.0858 14.7504 10.5 14.7504V13.2504ZM14.5 14.7504C14.9142 14.7504 15.25 14.4147 15.25 14.0004C15.25 13.5862 14.9142 13.2504 14.5 13.2504V14.7504ZM9.5 16.2504C9.08579 16.2504 8.75 16.5862 8.75 17.0004C8.75 17.4147 9.08579 17.7504 9.5 17.7504V16.2504ZM15.5 17.7504C15.9142 17.7504 16.25 17.4147 16.25 17.0004C16.25 16.5862 15.9142 16.2504 15.5 16.2504V17.7504ZM11 8.50045L11.75 8.50078L11 8.50045ZM12.208 7.02982L12.062 6.29417L12.208 7.02982ZM13.886 7.92764L13.193 8.21438V8.21438L13.886 7.92764ZM13.3329 9.74862L12.9165 9.12487L13.3329 9.74862ZM11.439 9.56144L10.9085 10.0916L11.439 9.56144ZM10.5 14.7504H14.5V13.2504H10.5V14.7504ZM9.5 17.7504H15.5V16.2504H9.5V17.7504ZM11.75 8.50078C11.7502 8.14299 12.003 7.83513 12.354 7.76547L12.062 6.29417C11.0091 6.50314 10.2505 7.42672 10.25 8.50011L11.75 8.50078ZM12.354 7.76547C12.7049 7.69582 13.0562 7.88377 13.193 8.21438L14.5791 7.64089C14.1687 6.64905 13.1148 6.08521 12.062 6.29417L12.354 7.76547ZM13.193 8.21438C13.3298 8.54499 13.214 8.9262 12.9165 9.12487L13.7494 10.3724C14.6421 9.77635 14.9894 8.63273 14.5791 7.64089L13.193 8.21438ZM12.9165 9.12487C12.6189 9.32355 12.2224 9.28437 11.9695 9.03128L10.9085 10.0916C11.6673 10.8508 12.8567 10.9684 13.7494 10.3724L12.9165 9.12487ZM11.9695 9.03128C11.8289 8.89056 11.7499 8.69973 11.75 8.50078L10.25 8.50011C10.2497 9.09695 10.4866 9.66944 10.9085 10.0916L11.9695 9.03128Z"
+              fill="#000000"
+            />
+          </svg>
           <!-- /icon -->
         </span>
         <span class="link-title">About</span>
@@ -45,7 +78,17 @@
       <a href="#experience" class="link">
         <span class="link-icon">
           <!-- icon -->
-          <svg fill="#000000" width="192" height="192" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.272,22.414l4.2-4.2.929.93a1,1,0,1,0,1.414-1.414l-.774-.775,8.8-5.869a1,1,0,0,0,.445-.832V3.707a1,1,0,0,0-1-1H13.747a1,1,0,0,0-.832.445l-5.869,8.8-.774-.774A1,1,0,1,0,4.858,12.6l.93.93-4.2,4.2a1,1,0,0,0,0,1.414l3.272,3.272A1,1,0,0,0,6.272,22.414Zm8.01-17.707h5.011v5.01L10.6,15.511c-.1-.1-2.25-2.25-2.113-2.113ZM7.2,14.94,9.06,16.8l-3.495,3.5L3.707,18.435Z"/></svg>
+          <svg
+            fill="#000000"
+            width="192"
+            height="192"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.272,22.414l4.2-4.2.929.93a1,1,0,1,0,1.414-1.414l-.774-.775,8.8-5.869a1,1,0,0,0,.445-.832V3.707a1,1,0,0,0-1-1H13.747a1,1,0,0,0-.832.445l-5.869,8.8-.774-.774A1,1,0,1,0,4.858,12.6l.93.93-4.2,4.2a1,1,0,0,0,0,1.414l3.272,3.272A1,1,0,0,0,6.272,22.414Zm8.01-17.707h5.011v5.01L10.6,15.511c-.1-.1-2.25-2.25-2.113-2.113ZM7.2,14.94,9.06,16.8l-3.495,3.5L3.707,18.435Z"
+            />
+          </svg>
           <!-- /icon -->
         </span>
         <span class="link-title">Skills</span>
@@ -53,9 +96,21 @@
       <a href="#projects" class="link">
         <span class="link-icon">
           <!-- icon -->
-          <svg width="192" height="192" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.5 8C6.88071 8 8 6.88071 8 5.5C8 4.11929 6.88071 3 5.5 3C4.11929 3 3 4.11929 3 5.5C3 6.88071 4.11929 8 5.5 8ZM5.5 8V16M5.5 16C4.11929 16 3 17.1193 3 18.5C3 19.8807 4.11929 21 5.5 21C6.88071 21 8 19.8807 8 18.5C8 17.1193 6.88071 16 5.5 16ZM18.5 8C19.8807 8 21 6.88071 21 5.5C21 4.11929 19.8807 3 18.5 3C17.1193 3 16 4.11929 16 5.5C16 6.88071 17.1193 8 18.5 8ZM18.5 8C18.5 8.92997 18.5 9.39496 18.3978 9.77646C18.1204 10.8117 17.3117 11.6204 16.2765 11.8978C15.895 12 15.43 12 14.5 12H8.5C6.84315 12 5.5 13.3431 5.5 15" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <svg
+            width="192"
+            height="192"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.5 8C6.88071 8 8 6.88071 8 5.5C8 4.11929 6.88071 3 5.5 3C4.11929 3 3 4.11929 3 5.5C3 6.88071 4.11929 8 5.5 8ZM5.5 8V16M5.5 16C4.11929 16 3 17.1193 3 18.5C3 19.8807 4.11929 21 5.5 21C6.88071 21 8 19.8807 8 18.5C8 17.1193 6.88071 16 5.5 16ZM18.5 8C19.8807 8 21 6.88071 21 5.5C21 4.11929 19.8807 3 18.5 3C17.1193 3 16 4.11929 16 5.5C16 6.88071 17.1193 8 18.5 8ZM18.5 8C18.5 8.92997 18.5 9.39496 18.3978 9.77646C18.1204 10.8117 17.3117 11.6204 16.2765 11.8978C15.895 12 15.43 12 14.5 12H8.5C6.84315 12 5.5 13.3431 5.5 15"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
           <!-- /icon -->
         </span>
         <span class="link-title">Projects</span>
@@ -63,10 +118,28 @@
       <a href="#photography" class="link">
         <span class="link-icon">
           <!-- icon -->
-          <svg width="192" height="192" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M3 16.8V9.2C3 8.0799 3 7.51984 3.21799 7.09202C3.40973 6.71569 3.71569 6.40973 4.09202 6.21799C4.51984 6 5.0799 6 6.2 6H7.25464C7.37758 6 7.43905 6 7.49576 5.9935C7.79166 5.95961 8.05705 5.79559 8.21969 5.54609C8.25086 5.49827 8.27836 5.44328 8.33333 5.33333C8.44329 5.11342 8.49827 5.00346 8.56062 4.90782C8.8859 4.40882 9.41668 4.08078 10.0085 4.01299C10.1219 4 10.2448 4 10.4907 4H13.5093C13.7552 4 13.8781 4 13.9915 4.01299C14.5833 4.08078 15.1141 4.40882 15.4394 4.90782C15.5017 5.00345 15.5567 5.11345 15.6667 5.33333C15.7216 5.44329 15.7491 5.49827 15.7803 5.54609C15.943 5.79559 16.2083 5.95961 16.5042 5.9935C16.561 6 16.6224 6 16.7454 6H17.8C18.9201 6 19.4802 6 19.908 6.21799C20.2843 6.40973 20.5903 6.71569 20.782 7.09202C21 7.51984 21 8.0799 21 9.2V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <svg
+            width="192"
+            height="192"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M3 16.8V9.2C3 8.0799 3 7.51984 3.21799 7.09202C3.40973 6.71569 3.71569 6.40973 4.09202 6.21799C4.51984 6 5.0799 6 6.2 6H7.25464C7.37758 6 7.43905 6 7.49576 5.9935C7.79166 5.95961 8.05705 5.79559 8.21969 5.54609C8.25086 5.49827 8.27836 5.44328 8.33333 5.33333C8.44329 5.11342 8.49827 5.00346 8.56062 4.90782C8.8859 4.40882 9.41668 4.08078 10.0085 4.01299C10.1219 4 10.2448 4 10.4907 4H13.5093C13.7552 4 13.8781 4 13.9915 4.01299C14.5833 4.08078 15.1141 4.40882 15.4394 4.90782C15.5017 5.00345 15.5567 5.11345 15.6667 5.33333C15.7216 5.44329 15.7491 5.49827 15.7803 5.54609C15.943 5.79559 16.2083 5.95961 16.5042 5.9935C16.561 6 16.6224 6 16.7454 6H17.8C18.9201 6 19.4802 6 19.908 6.21799C20.2843 6.40973 20.5903 6.71569 20.782 7.09202C21 7.51984 21 8.0799 21 9.2V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8Z"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
           <!-- /icon -->
         </span>
         <span class="link-title">Lens</span>
@@ -82,7 +155,7 @@
                 <img src="./assets/profile-pic.png" alt="Rohan Chakravarty" />
 
                 <div class="info">
-                  <h1>MRSTRANGER<br /></h1>
+                  <h1>Hello, World!<br /></h1>
                   <p style="color: #e4b1f0">Rohan Chakravarty</p>
                 </div>
               </div>
@@ -148,7 +221,6 @@
               class="icon"
               onclick="location.href='https://github.com/rohan3004/'"
             />
-
           </div>
         </div>
       </section>
@@ -326,7 +398,15 @@
           <div class="my-component-second-circle"></div>
         </div>
         <div class="my-component-mask"></div>
-        <div class="my-component-center-circle" style="background: url('./assets/logo.png');background-repeat: no-repeat; background-position: center; background-size: contain;"></div>
+        <div
+          class="my-component-center-circle"
+          style="
+            background: url('./assets/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          "
+        ></div>
       </div>
       <img
         src="./assets/arrow.svg"
