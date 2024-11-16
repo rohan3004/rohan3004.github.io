@@ -112,11 +112,11 @@ section {
 }
 
 .btn {
-  font-weight: 600;
+  font-weight: 300;
   transition: all 300ms ease;
   padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
+  width: 8.6rem;
+  border-radius: .9rem;
 }
 
 .btn-color-1,

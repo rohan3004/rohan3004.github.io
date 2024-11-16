@@ -90,6 +90,9 @@
   @media (max-width: 768px) {
       .menu {
           padding: 0.5rem; /* Further reduce padding on mobile */
+          border-radius: 0px;
+          margin-bottom: 0;
+          width: 100vw;
       }
   
   }
