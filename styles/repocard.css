@@ -98,3 +98,10 @@
 .repo-card>a {
     text-decoration: none;
 }
+
+
+@media only screen and (max-width: 400px) {
+    .article-container{
+        width: 100vw;
+    }
+}
