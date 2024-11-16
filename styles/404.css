@@ -133,7 +133,8 @@ main {
 .green {
     color: #3fc950;
 }
-.blue{
+
+.blue {
     color: #82EEFD;
 }
 
@@ -151,9 +152,12 @@ main {
 }
 
 @keyframes cursor {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -165,7 +169,8 @@ main {
     height: 100%;
 }
 
-.max .Menubar, .max .Terminal_body {
+.max .Menubar,
+.max .Terminal_body {
     border-radius: 0;
 }
 
@@ -189,12 +194,12 @@ main {
     border: 1px solid rgba(255, 255, 255, .25);
 }
 
-.min_app img{
+.min_app img {
     width: 70%;
     height: auto;
     position: absolute;
-    top: 50%;                
-    left: 50%;               
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 

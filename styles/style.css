@@ -31,7 +31,7 @@ a,
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
+  padding: 4vh 0 4vh 0;
   height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;

@@ -1,6 +1,7 @@
 :root {
 	--my-component-rotate-speed: 40;
-	--my-component-count: 8; /* Default count, the DOM element should override this */
+	--my-component-count: 8;
+	/* Default count, the DOM element should override this */
 	--my-component-easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
 	--my-component-easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
 }
@@ -64,31 +65,38 @@
 	display: block;
 }
 
-.my-component-void li:nth-child(2), .my-component-void li:nth-child(2) .my-component-card {
+.my-component-void li:nth-child(2),
+.my-component-void li:nth-child(2) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -1s);
 }
 
-.my-component-void li:nth-child(3), .my-component-void li:nth-child(3) .my-component-card {
+.my-component-void li:nth-child(3),
+.my-component-void li:nth-child(3) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -2s);
 }
 
-.my-component-void li:nth-child(4), .my-component-void li:nth-child(4) .my-component-card {
+.my-component-void li:nth-child(4),
+.my-component-void li:nth-child(4) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -3s);
 }
 
-.my-component-void li:nth-child(5), .my-component-void li:nth-child(5) .my-component-card {
+.my-component-void li:nth-child(5),
+.my-component-void li:nth-child(5) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -4s);
 }
 
-.my-component-void li:nth-child(6), .my-component-void li:nth-child(6) .my-component-card {
+.my-component-void li:nth-child(6),
+.my-component-void li:nth-child(6) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -5s);
 }
 
-.my-component-void li:nth-child(7), .my-component-void li:nth-child(7) .my-component-card {
+.my-component-void li:nth-child(7),
+.my-component-void li:nth-child(7) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -6s);
 }
 
-.my-component-void li:nth-child(8), .my-component-void li:nth-child(8) .my-component-card {
+.my-component-void li:nth-child(8),
+.my-component-void li:nth-child(8) .my-component-card {
 	animation-delay: calc((var(--my-component-rotate-speed)/var(--my-component-count)) * -7s);
 }
 
@@ -96,6 +104,7 @@
 	from {
 		transform: translate3d(0px, -50%, -1px) rotate(-45deg);
 	}
+
 	to {
 		transform: translate3d(0px, -50%, 0px) rotate(-315deg);
 	}
@@ -105,6 +114,7 @@
 	from {
 		transform: rotate(45deg);
 	}
+
 	to {
 		transform: rotate(315deg);
 	}
@@ -178,17 +188,19 @@
 	from {
 		background-size: 60%;
 	}
+
 	to {
 		background-size: 100%;
 	}
 }
 
 @media (max-width: 480px) {
-    .my-component-center-circle,
-    .my-component-second-circle,
-    .my-component-last-circle {
-        width: 50%;
-    }
+
+	.my-component-center-circle,
+	.my-component-second-circle,
+	.my-component-last-circle {
+		width: 50%;
+	}
 }
 
 @media (max-width: 768px) {
@@ -196,17 +208,20 @@
 		font-size: .6rem;
 	}
 
-	.my-component-card{
+	.my-component-card {
 		padding: 10px 20px;
 		border-radius: 8px;
 	}
-	.my-component-center-circle{
+
+	.my-component-center-circle {
 		width: 25%;
 	}
-	.my-component-second-circle{
+
+	.my-component-second-circle {
 		width: 40%;
 	}
-	.my-component-last-circle{
+
+	.my-component-last-circle {
 		width: 55%;
 	}
 }

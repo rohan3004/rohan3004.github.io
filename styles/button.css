@@ -1,6 +1,7 @@
 a {
     text-decoration: none;
 }
+
 .btnp {
     display: inline-block;
     color: #ffffff;
@@ -8,9 +9,13 @@ a {
     position: relative;
     letter-spacing: 1px;
 }
-.btnp__circle, .btnp__text, .btnp__white-circle {
+
+.btnp__circle,
+.btnp__text,
+.btnp__white-circle {
     position: absolute;
 }
+
 .btnp__circle {
     top: 0;
     left: 0;
@@ -20,6 +25,7 @@ a {
     box-shadow: 0 0 1px 1px #fff;
     transition: 0.3s linear;
 }
+
 .btnp__white-circle {
     top: 50%;
     left: 50%;
@@ -31,11 +37,13 @@ a {
     display: flex;
     transition: 0.3s ease-in-out;
 }
+
 .btnp__white-circle svg {
     width: 24px;
     height: 24px;
     margin: auto;
 }
+
 .btnp__text {
     top: 50%;
     transform: translateY(-50%);
@@ -44,12 +52,15 @@ a {
     padding: 24px 8px;
     transition: 0.3s linear;
 }
+
 .btnp:hover .btnp__circle {
     transform: scale(0);
 }
+
 .btnp:hover .btnp__white-circle {
     transform: translate(-50%, -50%) scale(1);
 }
+
 .btnp:hover .btnp__text {
     transform: translate(40px, -50%);
 }
