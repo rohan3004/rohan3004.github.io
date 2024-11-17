@@ -136,30 +136,37 @@
   margin: 8px;
 }
 
+#custom {
+  font-family: 'JetBrains Mono', monospace;
+}
+
 @media (min-width: 321px) and (max-width: 424px) {
+
   /* Your styles here */
-  .player .info h1{
+  .player .info h1 {
     font-size: .9rem;
   }
-  .player .info p{
+
+  .player .info p {
     font-size: .9rem;
   }
-  .player .info #custom{
-    font-family: 'JetBrains Mono', monospace;
+
+  .player .info #custom {
     font-size: .7rem;
   }
 }
 
 
 @media (max-width: 320px) {
-  .player .info h1{
+  .player .info h1 {
     font-size: .8rem;
   }
-  .player .info p{
+
+  .player .info p {
     font-size: .8rem;
   }
-  .player .info #custom{
-    font-family: 'JetBrains Mono', monospace;
+
+  .player .info #custom {
     font-size: .6rem;
   }
 }
