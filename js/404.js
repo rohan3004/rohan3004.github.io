@@ -15,6 +15,14 @@ let terminalOutput;
 let Terminal;
 let Keyboard;
 const app = () => {
+  fetch("https://api.rohandev.online/your_ip")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("ip-display").textContent = data;
+  })
+  .catch(error => {
+    console.error("Error fetching IP from Spring Boot:", error);
+  });
   userInput = document.getElementById("userInput");
   terminalOutput = document.getElementById("code");
   Terminal = document.getElementById("Terminal");
