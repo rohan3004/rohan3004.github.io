@@ -32,8 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
   disableScrolling();
   openModal();
 
+  let shouldPlayMusic = false;
+
   playMusicBtn.addEventListener("click", () => {
     backgroundMusic.play();
+    shouldPlayMusic = true;
     closeModal();
     enableScrolling();
   });
@@ -45,10 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Pause or resume the music when the user switches tabs
   function handleVisibilityChange() {
-    if (document.hidden) {
-      backgroundMusic.pause();  // Pause music when the user switches to another tab
-    } else {
-      backgroundMusic.play();   // Resume music when the user comes back to the current tab
+    if (shouldPlayMusic) {
+      if(document.hidden){
+        backgroundMusic.pause();
+      }else{
+        backgroundMusic.play();
+      }
     }
   }
 
