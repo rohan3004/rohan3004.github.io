@@ -1,120 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>403 Forbidden</title>
-    <link rel="icon" href="./favicon.png" />
-    <!-- Include Poppins font from Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-      /* Global styles */
-      body {
-        font-family: "JetBrains Mono", monospace;
-        background-color: #FFF7F7;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
-        /* Full viewport height */
-      }
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>403 Forbidden</title>
+  <link rel="icon" href="./favicon.png" />
+  <!-- Include Poppins font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+    /* Global styles */
+    body {
+      font-family: "JetBrains Mono", monospace;
+      background-color: #FFF7F7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+      /* Full viewport height */
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+
+    .text-container {
+      flex: 1;
+      text-align: center;
+    }
+
+    h1 {
+      color: #433878;
+      font-weight: 600;
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    .copyright {
+      font-size: 1rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
       .container {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
         flex-direction: column;
-      }
-
-      .text-container {
-        flex: 1;
-        text-align: center;
+        align-items: center;
       }
 
       h1 {
-        color: #433878;
-        font-weight: 600;
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       p {
-        font-size: 1.2rem;
-        font-weight: 300;
+        font-size: 1rem;
       }
 
       .copyright {
-        font-size: 1rem;
-        color: #888;
-        text-align: center;
+        font-size: .8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
       }
 
-      /* Media queries for responsiveness */
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
-
-        .copyright {
-          font-size: .8rem;
-        }
+      p {
+        font-size: 0.9rem;
       }
 
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 2rem;
-        }
-
-        p {
-          font-size: 0.9rem;
-        }
-
-        .copyright {
-          font-size: .8rem;
-        }
+      .copyright {
+        font-size: .8rem;
       }
-    </style>
-    <script>
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
       fetch("https://api.rohandev.online/your_ip")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("ip-display").textContent = data;
-    })
-    .catch(error => {
-        console.error("Error fetching IP from Spring Boot:", error);
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("ip-display").textContent = data;
+        })
+        .catch(error => {
+          console.error("Error fetching IP from Spring Boot:", error);
+        });
     });
-    </script>
-  </head>
+  </script>
+</head>
 
-  <body>
-    <div class="container">
-      <div class="text-container">
-        <h1>403 Forbidden</h1>
-        <p>
-          You do not have permission to access this site from your <span id="ip-display"></span> IP address.
-        </p>
-      </div>
+<body>
+  <div class="container">
+    <div class="text-container">
+      <h1>403 Forbidden</h1>
+      <p>
+        You do not have permission to access this site from your <span id="ip-display"></span> IP address.
+      </p>
+    </div>
     <!-- Copyright section -->
     <div class="copyright">
       <p>Copyright &copy; 2024 Rohan Chakravarty. All rights reserved.</p>
     </div>
-  </body>
+</body>
+
 </html>
