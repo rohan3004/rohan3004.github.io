@@ -10,111 +10,106 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-
     <style>
       /* Global styles */
       body {
         font-family: "Poppins", sans-serif;
-        /* Use Poppins font */
         background-color: #f4f4f4;
         color: #333;
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
         height: 100vh;
         /* Full viewport height */
       }
 
       .container {
-        max-width: 1200px;
-        width: 90%;
-        /* Take up 90% of the width */
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 20px;
         box-sizing: border-box;
-        display: flex;
         flex-direction: row;
-        /* Side by side on large screens */
-        justify-content: center;
-        align-items: center;
-        text-align: center;
       }
 
       .text-container {
         flex: 1;
         padding-right: 20px;
+        text-align: center;
       }
 
       h1 {
         color: #e74c3c;
         font-weight: 600;
-        /* Make the heading bold */
         font-size: 3rem;
-        /* Default font size */
       }
 
       p {
         font-size: 1.2rem;
         font-weight: 300;
-        /* Lighter font weight for the paragraph */
         margin-top: 20px;
+      }
+
+      .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .copyright {
         font-size: 14px;
         color: #888;
+        text-align: center;
         margin-top: 40px;
-      }
-
-      .copyright p {
-        margin: 0;
       }
 
       /* Media queries for responsiveness */
       @media (max-width: 768px) {
         .container {
           flex-direction: column;
-          /* Stack content in column on smaller screens */
           align-items: center;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-          /* Reduce font size on smaller screens */
-        }
-
-        p {
-          font-size: 1rem;
-          /* Adjust paragraph size for smaller screens */
-        }
-
-        .copyright {
-          font-size: 12px;
-          /* Smaller font for copyright on mobile */
         }
 
         .image-container {
           max-width: 80%;
-          /* Make the image smaller on mobile */
           margin-top: 20px;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .copyright {
+          font-size: 12px;
         }
       }
 
       @media (max-width: 480px) {
         h1 {
           font-size: 2rem;
-          /* Further reduce font size on very small screens */
         }
 
         p {
           font-size: 0.9rem;
-          /* Adjust text size for mobile phones */
         }
 
         .copyright {
           font-size: 12px;
-          /* Keep copyright size small on very small screens */
         }
       }
     </style>
@@ -127,11 +122,18 @@
         <p>
           You do not have permission to access this site from your IP address.
         </p>
-        <!-- Copyright section -->
-        <div class="copyright">
-          <p>Copyright &copy; 2024 Rohan Chakravarty. All rights reserved.</p>
-        </div>
       </div>
+      <!-- Image container -->
+      <div class="image-container">
+        <img
+          src="./assets/logo.png"
+          alt="Copyright &copy; 2024 Rohan Chakravart"
+        />
+      </div>
+    </div>
+    <!-- Copyright section -->
+    <div class="copyright">
+      <p>Copyright &copy; 2024 Rohan Chakravarty. All rights reserved.</p>
     </div>
   </body>
 </html>

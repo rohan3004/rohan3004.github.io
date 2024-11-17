@@ -42,4 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal();
     enableScrolling();
   });
+
+  // Pause or resume the music when the user switches tabs
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      backgroundMusic.pause();  // Pause music when the user switches to another tab
+    } else {
+      backgroundMusic.play();   // Resume music when the user comes back to the current tab
+    }
+  }
+
+  // Listen for the visibility change event
+  document.addEventListener("visibilitychange", handleVisibilityChange);
 });
