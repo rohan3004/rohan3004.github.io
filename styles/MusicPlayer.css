@@ -148,3 +148,12 @@
   height: 50px;
   margin: 8px;
 }
+
+@media (max-width: 320px) {
+  .player .info h1{
+    font-size: .8rem;
+  }
+  .player .info p{
+    font-size: .8rem;
+  }
+}

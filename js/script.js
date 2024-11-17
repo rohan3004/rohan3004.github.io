@@ -71,9 +71,8 @@ async function fetchGitHubData() {
             <div class="repo-content">
                 <h3>
                     <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                    <span class="stars"><i class="fa-solid fa-star" style="color:yellow;"></i> ${
-                      repo.stargazers_count
-                    }</span>
+                    <span class="stars"><i class="fa-solid fa-star" style="color:yellow;"></i> ${repo.stargazers_count
+          }</span>
                 </h3>
                 <div class="repo-stats">
                     <div class="language">${languageList || "N/A"}</div>
@@ -87,7 +86,7 @@ async function fetchGitHubData() {
     } else {
       console.error("Error: Repository data is not an array", reposData);
     }
-  } catch (error) {}
+  } catch (error) { }
 }
 
 // Fetch Nekosia Image for each repo
@@ -306,3 +305,12 @@ window.onload = () => {
   getWeather();
   Generate();
 };
+
+fetch("https://api.rohandev.online/your_ip")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("ip-display").textContent = data;
+  })
+  .catch(error => {
+    console.error("Error fetching IP from Spring Boot:", error);
+  });
