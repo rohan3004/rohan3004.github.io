@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 * {
     box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "JetBrains Mono", monospace;
     color: rgba(255, 255, 255, 0.8);
     overflow: hidden !important;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/404.jpg');
@@ -92,7 +92,6 @@ main {
     height: 100%;
     border-radius: 0 0 1.2rem 1.2rem;
     padding: 1.2rem;
-    font-family: "Anonymous Pro", monospace;
     overflow-y: auto;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 0 0 20px 20px;
