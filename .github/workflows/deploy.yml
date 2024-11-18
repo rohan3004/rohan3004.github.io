@@ -36,6 +36,7 @@ jobs:
 
           ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
           ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm /var/www/html/ssh_key"
 
           # Clean up by removing the SSH key file
           rm ssh_key
