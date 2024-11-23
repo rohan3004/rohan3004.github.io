@@ -27,23 +27,23 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
-          # Create the temporary directory on the remote server
-          ssh -i ssh_key ${USER}@${HOST} "mkdir -p ~/tmp"
+          # Use the absolute path for the temporary directory
+          ssh -i ssh_key ${USER}@${HOST} "mkdir -p /home/${USER}/tmp"
 
           # Debug: Check if the tmp directory exists
-          ssh -i ssh_key ${USER}@${HOST} "ls -ld ~/tmp"
+          ssh -i ssh_key ${USER}@${HOST} "ls -ld /home/${USER}/tmp"
 
           # Transfer files to the EC2 instance's temporary directory
-          scp -v -i ssh_key -r . ${USER}@${HOST}:~/tmp
+          scp -v -i ssh_key -r ./* ${USER}@${HOST}:/home/${USER}/tmp
 
           # Debug: Verify files in the tmp directory
-          ssh -i ssh_key ${USER}@${HOST} "ls -la ~/tmp"
+          ssh -i ssh_key ${USER}@${HOST} "ls -la /home/${USER}/tmp"
 
           # Deploy files to /var/www/html and clean up
           ssh -i ssh_key ${USER}@${HOST} "
             sudo rm -rf /var/www/html/* && \
-            sudo cp -r ~/tmp/* /var/www/html/ && \
-            sudo rm -rf ~/tmp
+            sudo cp -r /home/${USER}/tmp/* /var/www/html/ && \
+            sudo rm -rf /home/${USER}/tmp
           "
 
           # Debug: Verify files in /var/www/html
@@ -51,6 +51,7 @@ jobs:
 
           # Clean up the local SSH key file
           rm ssh_key
+
 
         shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
 
