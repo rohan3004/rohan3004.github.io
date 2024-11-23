@@ -30,14 +30,10 @@ jobs:
           # Create the tmp directory using the absolute path
           ssh -i ssh_key ${USER}@${HOST} "mkdir -p /home/${USER}/tmp"
 
-          # Debug: Verify tmp directory existence
-          ssh -i ssh_key ${USER}@${HOST} "ls -ld /home/${USER}/tmp"
 
           # Transfer files using scp
-          scp -i ssh_key -r ./* ${USER}@${HOST}:/home/${USER}/tmp/
+          scp -i ssh_key -r . ${USER}@${HOST}:/home/${USER}/tmp/
 
-          # Debug: Verify files are transferred
-          ssh -i ssh_key ${USER}@${HOST} "ls -la /home/${USER}/tmp"
 
           # Deploy files to /var/www/html and clean up
           ssh -i ssh_key ${USER}@${HOST} "
@@ -46,8 +42,6 @@ jobs:
             sudo rm -rf /home/${USER}/tmp
           "
 
-          # Debug: Verify files in /var/www/html
-          ssh -i ssh_key ${USER}@${HOST} "ls -la /var/www/html"
 
           # Clean up the local SSH key file
           rm ssh_key
