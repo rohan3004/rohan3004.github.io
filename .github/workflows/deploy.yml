@@ -27,18 +27,18 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
-          # Ensure ~/tmp exists on the remote server
-          ssh -i ssh_key ${USER}@${HOST} "mkdir -p ~/tmp"
 
-          # Transfer files to the temporary directory on the EC2 instance
+          ssh -i ssh_key ${USER}@${HOST} "mkdir ~/tmp"
+          # Transfer files to EC2 instance's web directory
           scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
+          
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R /var/www/html/*"
 
-          # Deploy files to /var/www/html and clean up
-          ssh -i ssh_key ${USER}@${HOST} "
-            sudo rm -rf /var/www/html/* && \
-            sudo cp -r ~/tmp/* /var/www/html/ && \
-            sudo rm -rf ~/tmp
-          "
+          ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm /var/www/html/ssh_key"
 
-          # Clean up the SSH key locally
+          # Clean up by removing the SSH key file
           rm ssh_key
+        shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+
