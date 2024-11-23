@@ -27,16 +27,16 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
-          # Use the absolute path for the temporary directory
+          # Create the tmp directory using the absolute path
           ssh -i ssh_key ${USER}@${HOST} "mkdir -p /home/${USER}/tmp"
 
-          # Debug: Check if the tmp directory exists
+          # Debug: Verify tmp directory existence
           ssh -i ssh_key ${USER}@${HOST} "ls -ld /home/${USER}/tmp"
 
-          # Transfer files to the EC2 instance's temporary directory
-          scp -v -i ssh_key -r ./* ${USER}@${HOST}:/home/${USER}/tmp
+          # Transfer files using scp
+          scp -i ssh_key -r ./* ${USER}@${HOST}:/home/${USER}/tmp/
 
-          # Debug: Verify files in the tmp directory
+          # Debug: Verify files are transferred
           ssh -i ssh_key ${USER}@${HOST} "ls -la /home/${USER}/tmp"
 
           # Deploy files to /var/www/html and clean up
