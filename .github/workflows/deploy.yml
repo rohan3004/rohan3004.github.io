@@ -23,22 +23,34 @@ jobs:
           echo "${KEY}" > ssh_key
           chmod 600 ssh_key
 
-          # Add the EC2 instance's host key to known hosts to bypass verification
+          # Add the EC2 instance's host key to known hosts
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
+          # Create the temporary directory on the remote server
+          ssh -i ssh_key ${USER}@${HOST} "mkdir -p ~/tmp"
 
-          ssh -i ssh_key ${USER}@${HOST} "mkdir ~/tmp"
-          # Transfer files to EC2 instance's web directory
-          scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
-          
-          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R /var/www/html/*"
+          # Debug: Check if the tmp directory exists
+          ssh -i ssh_key ${USER}@${HOST} "ls -ld ~/tmp"
 
-          ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
-          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
-          ssh -i ssh_key ${USER}@${HOST} "sudo rm /var/www/html/ssh_key"
+          # Transfer files to the EC2 instance's temporary directory
+          scp -v -i ssh_key -r . ${USER}@${HOST}:~/tmp
 
-          # Clean up by removing the SSH key file
+          # Debug: Verify files in the tmp directory
+          ssh -i ssh_key ${USER}@${HOST} "ls -la ~/tmp"
+
+          # Deploy files to /var/www/html and clean up
+          ssh -i ssh_key ${USER}@${HOST} "
+            sudo rm -rf /var/www/html/* && \
+            sudo cp -r ~/tmp/* /var/www/html/ && \
+            sudo rm -rf ~/tmp
+          "
+
+          # Debug: Verify files in /var/www/html
+          ssh -i ssh_key ${USER}@${HOST} "ls -la /var/www/html"
+
+          # Clean up the local SSH key file
           rm ssh_key
+
         shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
 
