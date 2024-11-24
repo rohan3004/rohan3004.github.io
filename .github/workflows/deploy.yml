@@ -23,29 +23,22 @@ jobs:
           echo "${KEY}" > ssh_key
           chmod 600 ssh_key
 
-          # Add the EC2 instance's host key to known hosts
+          # Add the EC2 instance's host key to known hosts to bypass verification
           mkdir -p ~/.ssh
           ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
 
-          # Create the tmp directory using the absolute path
-          ssh -i ssh_key ${USER}@${HOST} "mkdir -p /home/${USER}/tmp"
 
+          ssh -i ssh_key ${USER}@${HOST} "mkdir ~/tmp"
+          # Transfer files to EC2 instance's web directory
+          scp -i ssh_key -r ./* ${USER}@${HOST}:~/tmp
+          
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R /var/www/html/*"
 
-          # Transfer files using scp
-          scp -i ssh_key -r . ${USER}@${HOST}:/home/${USER}/tmp/
+          ssh -i ssh_key ${USER}@${HOST} "sudo cp -R ~/tmp/* /var/www/html/"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm -R ~/tmp"
+          ssh -i ssh_key ${USER}@${HOST} "sudo rm /var/www/html/ssh_key"
 
-
-          # Deploy files to /var/www/html and clean up
-          ssh -i ssh_key ${USER}@${HOST} "
-            sudo rm -rf /var/www/html/* && \
-            sudo cp -r /home/${USER}/tmp/* /var/www/html/ && \
-            sudo rm -rf /home/${USER}/tmp
-          "
-
-
-          # Clean up the local SSH key file
+          # Clean up by removing the SSH key file
           rm ssh_key
-
-
         shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
 
