@@ -1,6 +1,5 @@
 .menu {
   padding: 2rem;
-  background-color: #fff;
   position: fixed;
   width: calc(40px + 4 * 70px + 4rem);
   display: flex;
