@@ -103,3 +103,59 @@ platformRadios.forEach(radio => {
     currentChart = generateChart(selectedData);
   });
 });
+
+// Data for DSA difficulty levels
+const data = {
+  labels: ['Easy', 'Medium', 'Hard'],
+  datasets: [{
+    data: [78, 213, 33],  // The number of problems for each difficulty
+    backgroundColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)'],
+    hoverBackgroundColor: ['rgba(75, 192, 192, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(255, 99, 132, 0.8)']
+  }]
+};
+
+// Create the pie chart
+const ctx = document.getElementById('dsaPieChart').getContext('2d');
+const dsaPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Easy', 'Medium', 'Hard'], // Add your labels
+    datasets: [{
+      data: [78, 213, 33], // Add your dataset values
+      backgroundColor: ['#219B9D', '#4C1F7A', '#FF8000'], // Colors for slices
+      hoverOffset: 4,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: {
+            family: 'Poppins', // Use Poppins font
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(tooltipItem) {
+            return tooltipItem.label + ': ' + tooltipItem.raw; // Display count in the tooltip
+          }
+        }
+      },
+      datalabels: {
+        color: '#fff',
+        font: {
+          weight: 'bold',
+          size: 14,
+          family: 'Poppins', // Set font for numbers inside slices
+        },
+        formatter: (value) => value, // Display the value directly on the slice
+      },
+    },
+    scales: {}, // Remove any scales for the pie chart
+  },
+  plugins: [ChartDataLabels], // Add the Chart.js Data Labels plugin
+});

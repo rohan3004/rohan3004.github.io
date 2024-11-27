@@ -21,6 +21,7 @@
   <!-- Latest Font Awesome CDN without integrity attribute -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
   <link rel="icon" href="./favicon.png" />
   <link rel="manifest" href="./manifest.json" />
@@ -165,11 +166,12 @@
     </section>
   </div>
   <section id="about">
-    <p class="section__text__p1">Get To Know More</p>
-    <h1 class="title">About Me</h1>
+    <p class="section__text__p1">Get To Know My Statistics</p>
+    <h1 class="title">Fundamentals</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
+        <!-- <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" /> -->
+        <canvas id="dsaPieChart"></canvas>
       </div>
       <div class="about-details-container">
         <div class="about-containers chart-container">
