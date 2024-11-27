@@ -27,6 +27,10 @@
   padding: 1rem;
   border-radius: 20px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
 }
 
 .player img {
@@ -57,6 +61,8 @@
   font-size: 1.2rem;
   color: #FFE1FF;
   padding-bottom: 7px;
+
+  color: white;
 }
 
 
@@ -103,11 +109,15 @@
   justify-content: center;
   padding-top: 9.6px;
   padding-bottom: 9.6px;
+
+  color: white;
 }
 
 
 #weatherRohan p {
   color: #e4b1f0;
+
+  color: white;
 }
 
 #weatherRohan {
