@@ -29,9 +29,6 @@
 
 .insta-media {
   display: flex;
-  border-bottom: 1px solid hsl(calc(64 + 220 * 0),
-      calc(77% - 7% * 0),
-      calc(79% - 56% * 0));
 }
 
 .insta-media img {
