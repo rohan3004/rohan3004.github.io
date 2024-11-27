@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
   background-color: #FFF7F7;
 }
 
-::selection{
+::selection {
   background-color: #433a74;
   color: #FFF7F7;
 }
@@ -22,25 +23,25 @@ html {
 }
 
 /* ===== Scrollbar CSS ===== */
-    /* Firefox */
-    * {
-        scrollbar-width: auto;
-        scrollbar-color: #433a74 #FFF7F7;
-    }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #433a74 #FFF7F7;
+}
 
-    /* Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
-        width: 40px;
-    }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 40px;
+}
 
-    *::-webkit-scrollbar-track {
-        background: #FFF7F7;
-    }
+*::-webkit-scrollbar-track {
+  background: #FFF7F7;
+}
 
-    *::-webkit-scrollbar-thumb {
-        background-color: #433a74;
-        border-radius: 10px;
-    }
+*::-webkit-scrollbar-thumb {
+  background-color: #433a74;
+  border-radius: 10px;
+}
 
 p {
   color: rgb(85, 85, 85);
@@ -413,24 +414,33 @@ footer p {
   background-image: url('../assets/layer4.svg');
 }
 
-.homeSection{
+.homeSection {
   background-image: url('../assets/section_bg.png');
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #FFF7F7;
   border-bottom: #433a74 solid 8px;
 }
 
-.homeSection .section__text{
+.homeSection .section__text {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.specialBtn:hover{
-  background: none;
+.specialBtn {
+  background-color: rgba(255, 255, 255, 0.080);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border: none;
   color: #FFF7F7;
+}
+
+.specialBtn:hover {
+  background: none;
+  color: black;
+  cursor: pointer;
 }
