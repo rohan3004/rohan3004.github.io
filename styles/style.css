@@ -412,3 +412,28 @@ footer p {
 .layer4 {
   background-image: url('../assets/layer4.svg');
 }
+
+.homeSection{
+  background-image: url('../assets/section_bg.png');
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  color: #FFF7F7;
+  border-bottom: #433a74 solid 8px;
+}
+
+.homeSection .section__text{
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.homeSection .player{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.specialBtn:hover{
+  background: none;
+  color: #FFF7F7;
+}
