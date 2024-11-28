@@ -64,36 +64,9 @@
 .controls {
   display: flex;
   justify-content: space-between;
-  /* padding-top: 20px; */
 }
 
-/* .track {
-  padding-top: 28px;
-   position: relative;
-  } */
-
-/* .track::before {
-  content: '';
-  height: 6px;
-  width: 100%;
-  display: block;
-  background: #FFE1FF;
-  opacity: 0.3;
-  border-radius: 10px;
-  position: absolute;
-  }
-  
-  .track::after { 
-    content: '';
-  height: 6px;
-  width: 85%;
-  display: block;
-  background: #FFE1FF;
-  border-radius: 10px;
-  } */
-
 .time {
-  /* opacity: 0.7; */
   font-size: 1rem;
   color: #FFE1FF;
 

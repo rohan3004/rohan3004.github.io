@@ -9,9 +9,6 @@
   transform: translateX(-50%);
   transition: opacity 0.3s ease;
   opacity: 1;
-  /* backdrop-filter: blur(8px) brightness(1.2);
-  -webkit-backdrop-filter: blur(8px) brightness(1.2);
-  font-size: 16px; */
 }
 
 .navImage{

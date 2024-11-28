@@ -58,13 +58,11 @@ a,
 @keyframes appear {
   from {
     opacity: 0;
-    /* transform: translateX(-100px); */
     scale: 0.5;
   }
 
   to {
     opacity: 1;
-    /* transform: translateX(0px); */
     scale: 1;
   }
 }
@@ -197,7 +195,6 @@ section {
 
 #about {
   position: relative;
-
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
@@ -232,16 +229,6 @@ section {
   right: -5rem;
   bottom: 2.5rem;
 }
-
-/* .details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  text-align: center;
-} */
 
 .section-container {
   gap: 4rem;
@@ -279,15 +266,6 @@ section {
   margin-top: 50px;
 }
 
-/* .article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
-} */
-
 article {
   display: flex;
   width: 10rem;
@@ -304,17 +282,6 @@ article .icon {
 #projects {
   position: relative;
 }
-
-
-
-/* .color-container {
-  width: 340px;
-  height: 100%;
-  background: #14181a;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 1rem;
-  padding: 1.5rem;
-} */
 
 .project-title {
   margin: 1rem;
@@ -380,56 +347,15 @@ footer p {
   text-align: center;
 }
 
-@media (max-width: 1400px) {
-  footer p {
-    margin-top: 10%;
-    text-align: center;
-  }
-}
-
-.spacer {
-  aspect-ratio: 960/300;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.layer2 {
-  background-image: url('../assets/layer2.svg');
-}
-
-.flip {
-  transform: rotate(180deg);
-}
-
 .projectBG {
   background-color: #433878;
 }
 
-.blob-motion {
-  position: absolute;
-  transform: translateY(-20%);
-}
-
-@media (max-width:947px) {
-  .blob-motion {
-    display: none;
-  }
-
-}
-
-.layer3 {
-  background-image: url('../assets/separeteLayer.svg');
-}
 
 #photography {
   position: relative;
 }
 
-.layer4 {
-  background-image: url('../assets/layer4.svg');
-}
 
 .homeSection {
   background-image: url('../assets/section_bg.png');
@@ -442,9 +368,6 @@ footer p {
   background-repeat: no-repeat;
   color: #FFF7F7;
   border-bottom: #433a74 solid 8px;
-
-  /* Parallax Effect */
-  /* background-attachment: fixed; */
 }
 
 .homeSection .section__text {
@@ -465,25 +388,11 @@ footer p {
   cursor: pointer;
 }
 
-/* .projectBG{
-  background-image: url('../assets/endless_black_hole__by_aronvisuals_dimlehu.jpg');
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #FFF7F7;
-  border-bottom: #433a74 solid 8px;
-
-  Parallax Effect
-  background-attachment: fixed;
-} */
-
 .projectBG {
   background-color: rgba(23, 23, 23, 1);
 }
 
 .photographyDiv {
-  /* background-color: #7e60bf; */
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -504,7 +413,6 @@ footer p {
 .contactContainer {
   background-color: #fff7f7;
   border-bottom: #433a74 solid 8px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
