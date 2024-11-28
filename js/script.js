@@ -29,9 +29,7 @@ async function fetchGitHubData() {
     if (Array.isArray(reposData)) {
       const repoContainer = document.getElementById("repo-container");
       for (const repo of filteredRepos) {
-        const pexelsImageUrl =
-          (await fetchPexelsImage(pexelsApiKey, repo.name)) ||
-          (await fetchNekosiaImage(nekosiaApiUrl));
+        // const pexelsImageUrl = (await fetchPexelsImage(pexelsApiKey, repo.name)) || (await fetchNekosiaImage(nekosiaApiUrl));
 
         const hostedURL = `https://${username}.github.io/${repo.name}`;
 
@@ -74,38 +72,6 @@ async function fetchGitHubData() {
       console.error("Error: Repository data is not an array", reposData);
     }
   } catch (error) { }
-}
-
-// Fetch Nekosia Image for each repo
-async function fetchNekosiaImage(apiUrl) {
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    return data.image.original.url || null; // Return the original image URL from Nekosia API, or null if not available
-  } catch (error) {
-    console.error("Failed to fetch Nekosia image:", error);
-    return null;
-  }
-}
-
-// Fetch Pexels Image for each repo
-async function fetchPexelsImage(apiKey, repoName) {
-  try {
-    const randomPage = Math.floor(Math.random() * 10) + 1;
-    const response = await fetch(
-      `https://api.pexels.com/v1/search?query=${encodeURIComponent(
-        repoName
-      )}&per_page=1&page=${randomPage}`,
-      {
-        headers: { Authorization: apiKey },
-      }
-    );
-    const data = await response.json();
-    return data.photos[0]?.src?.medium || null; // Return medium-sized image URL, or null if not available
-  } catch (error) {
-    console.error("Failed to fetch Pexels image:", error);
-    return null;
-  }
 }
 
 async function getWeather() {
@@ -272,16 +238,19 @@ const imageCaptions = new Map([
 ]);
 
 function Generate() {
-  imageCaptions.forEach((data, index) => {
-    const repoContainer = document.getElementById("sp");
-    const card = document.createElement("div");
-    card.className = "repo-card";
-
-    card.innerHTML = htmlInstaPost(index, data);
-
-    repoContainer.appendChild(card);
-  });
+  for (const [index, data] of imageCaptions.entries()) {
+    try {
+      const repoContainer = document.getElementById("sp");
+      const card = document.createElement("div");
+      card.className = "repo-card";
+      card.innerHTML = htmlInstaPost(index, data);
+      repoContainer.appendChild(card);
+    } catch (error) {
+      console.error("Error generating card for index", index, error);
+    }
+  }
 }
+
 
 window.onload = () => {
   Generate();
@@ -301,3 +270,36 @@ fetch("https://api.rohandev.online/your_ip")
   .catch(error => {
     console.error("Error fetching IP from Spring Boot:", error);
   });
+
+
+// Fetch Nekosia Image for each repo
+// async function fetchNekosiaImage(apiUrl) {
+//   try {
+//     const response = await fetch(apiUrl);
+//     const data = await response.json();
+//     return data.image.original.url || null; // Return the original image URL from Nekosia API, or null if not available
+//   } catch (error) {
+//     console.error("Failed to fetch Nekosia image:", error);
+//     return null;
+//   }
+// }
+
+// Fetch Pexels Image for each repo
+// async function fetchPexelsImage(apiKey, repoName) {
+//   try {
+//     const randomPage = Math.floor(Math.random() * 10) + 1;
+//     const response = await fetch(
+//       `https://api.pexels.com/v1/search?query=${encodeURIComponent(
+//         repoName
+//       )}&per_page=1&page=${randomPage}`,
+//       {
+//         headers: { Authorization: apiKey },
+//       }
+//     );
+//     const data = await response.json();
+//     return data.photos[0]?.src?.medium || null; // Return medium-sized image URL, or null if not available
+//   } catch (error) {
+//     console.error("Failed to fetch Pexels image:", error);
+//     return null;
+//   }
+// }

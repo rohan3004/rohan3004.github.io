@@ -55,6 +55,20 @@ a,
 }
 
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    /* transform: translateX(-100px); */
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    /* transform: translateX(0px); */
+    scale: 1;
+  }
+}
+
 /* SECTIONS */
 
 section {
@@ -183,6 +197,10 @@ section {
 
 #about {
   position: relative;
+
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
 }
 
 .about-containers {
@@ -307,7 +325,6 @@ article .icon {
 
 .project-btn {
   color: whitesmoke;
-  ;
   border-color: rgb(163, 163, 163);
   font-size: 9px;
 }
@@ -427,7 +444,7 @@ footer p {
   border-bottom: #433a74 solid 8px;
 
   /* Parallax Effect */
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 .homeSection .section__text {
@@ -461,11 +478,11 @@ footer p {
   background-attachment: fixed;
 } */
 
-.projectBG{
-  border-bottom: #433a74 solid 8px;
+.projectBG {
+  background-color: rgba(23, 23, 23, 1);
 }
 
-.photographyDiv{
+.photographyDiv {
   /* background-color: #7e60bf; */
   min-height: 100vh;
   background-size: cover;
@@ -477,16 +494,16 @@ footer p {
   background-attachment: fixed;
 }
 
-@media (max-width: 768px){
-  .photographyDiv{
+@media (max-width: 768px) {
+  .photographyDiv {
     background-image: url('../assets/dfgpbnw-cf858cc7-bf93-425c-8393-500d7467b775.png');
   }
 }
 
 
-.contactContainer{
-  background-color: #fff7f7; 
-  border-top: #433a74 solid 8px; 
+.contactContainer {
+  background-color: #fff7f7;
+  border-bottom: #433a74 solid 8px;
 
   display: flex;
   flex-direction: column;
