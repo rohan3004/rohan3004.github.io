@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="./styles/repocard.css" />
   <link rel="stylesheet" href="./styles/photography.css" />
   <link rel="stylesheet" href="./styles/modal.css" />
-  <!-- Latest Font Awesome CDN without integrity attribute -->
+  <link rel="stylesheet" href="./styles/fallingstars.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -60,17 +61,6 @@
       </span>
       <span class="link-title">About</span>
     </a>
-    <a href="#experience" class="link">
-      <span class="link-icon">
-        <!-- icon -->
-        <svg fill="#000000" width="192" height="192" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M6.272,22.414l4.2-4.2.929.93a1,1,0,1,0,1.414-1.414l-.774-.775,8.8-5.869a1,1,0,0,0,.445-.832V3.707a1,1,0,0,0-1-1H13.747a1,1,0,0,0-.832.445l-5.869,8.8-.774-.774A1,1,0,1,0,4.858,12.6l.93.93-4.2,4.2a1,1,0,0,0,0,1.414l3.272,3.272A1,1,0,0,0,6.272,22.414Zm8.01-17.707h5.011v5.01L10.6,15.511c-.1-.1-2.25-2.25-2.113-2.113ZM7.2,14.94,9.06,16.8l-3.495,3.5L3.707,18.435Z" />
-        </svg>
-        <!-- /icon -->
-      </span>
-      <span class="link-title">Skills</span>
-    </a>
     <a href="#projects" class="link">
       <span class="link-icon">
         <!-- icon -->
@@ -82,6 +72,17 @@
         <!-- /icon -->
       </span>
       <span class="link-title">Projects</span>
+    </a>
+    <a href="#experience" class="link">
+      <span class="link-icon">
+        <!-- icon -->
+        <svg fill="#000000" width="192" height="192" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.272,22.414l4.2-4.2.929.93a1,1,0,1,0,1.414-1.414l-.774-.775,8.8-5.869a1,1,0,0,0,.445-.832V3.707a1,1,0,0,0-1-1H13.747a1,1,0,0,0-.832.445l-5.869,8.8-.774-.774A1,1,0,1,0,4.858,12.6l.93.93-4.2,4.2a1,1,0,0,0,0,1.414l3.272,3.272A1,1,0,0,0,6.272,22.414Zm8.01-17.707h5.011v5.01L10.6,15.511c-.1-.1-2.25-2.25-2.113-2.113ZM7.2,14.94,9.06,16.8l-3.495,3.5L3.707,18.435Z" />
+        </svg>
+        <!-- /icon -->
+      </span>
+      <span class="link-title">Skills</span>
     </a>
     <a href="#photography" class="link">
       <span class="link-icon">
@@ -100,6 +101,48 @@
     </a>
   </div>
   <div class="homeSection">
+    <div class="starfall">
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+      <div class="falling-star"></div>
+    </div>
     <section id="profile">
       <div id="boxes">
         <div id="player02" class="player horizontal">
@@ -108,7 +151,7 @@
               <img src="./assets/profile-pic.png" alt="Rohan Chakravarty" />
               <div class="info">
                 <h1>Hello, World!</h1>
-                <p style="color: #e4b1f0; color: white;">Rohan Chakravarty</p>
+                <p style="color: #e4b1f0; color: white;">Tailwind, Next.js, SpringBoot</p>
               </div>
             </div>
             <div id="weatherRohan">
@@ -202,71 +245,6 @@
     </div>
     <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
-  <section id="experience">
-    <p class="section__text__p1">Explore My</p>
-    <h1 class="title">Languages and Tools</h1>
-    <div class="my-component-void" id="my-component-void" style="margin-top: 50px">
-      <div class="my-component-crop">
-        <ul id="my-component-card-list" style="--count: 10">
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">Java</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">C/C++</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">Python</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">JS</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">SQL</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">Git</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">Bash</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">GCP</span>
-            </div>
-          </li>
-          <li>
-            <div class="my-component-card">
-              <span class="my-component-model-name">RHEL</span>
-            </div>
-          </li>
-        </ul>
-        <div class="my-component-last-circle"></div>
-        <div class="my-component-second-circle"></div>
-      </div>
-      <div class="my-component-mask"></div>
-      <div class="my-component-center-circle" style="
-            background: url('./assets/logo.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-          "></div>
-    </div>
-    <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
-  </section>
   <div class="projectBG">
     <section id="projects">
       <p class="section__text__p1" style="color: #faf9f6">Browse My Recent</p>
@@ -278,9 +256,76 @@
       <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#photography'" />
     </section>
   </div>
+  <div class="exp">
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Languages and Tools</h1>
+      <div class="my-component-void" id="my-component-void" style="margin-top: 50px">
+        <div class="my-component-crop">
+          <ul id="my-component-card-list" style="--count: 10">
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">Java</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">C/C++</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">Python</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">JS</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">SQL</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">Git</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">Bash</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">GCP</span>
+              </div>
+            </li>
+            <li>
+              <div class="my-component-card">
+                <span class="my-component-model-name">RHEL</span>
+              </div>
+            </li>
+          </ul>
+          <div class="my-component-last-circle"></div>
+          <div class="my-component-second-circle"></div>
+        </div>
+        <div class="my-component-mask"></div>
+        <div class="my-component-center-circle" style="
+            background: url('./assets/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          "></div>
+      </div>
+      <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    </section>
+  </div>
   <div class="photographyDiv">
     <section id="photography">
-      <p class="section__text__p1" style="color: #343231">
+      <p class="section__text__p1" style="color: #FFF7F7">
         Exploring the art of storytelling through visuals
       </p>
       <h1 class="title">Through My Lens</h1>
@@ -292,8 +337,6 @@
   </div>
   <div class="contactContainer">
     <section id="contact">
-      <p class="section__text__p1" style="color: #343231">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
       <div class="background">
         <div class="container">
           <div class="screen">
@@ -345,6 +388,29 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="techstack">
+        <p class="headingTS">Built Using</p>
+        <div class="ts">
+          <img src="./assets/html.svg" alt="HTML Logo">
+          <img src="./assets/css.svg" alt="CSS Logo">
+          <img src="./assets/sass.svg" alt="Saas Logo">
+          <img src="./assets/webpack.svg" alt="Webpack Logo">
+          <img src="./assets/javascript.svg" alt="Javascript Logo">
+          <img src="./assets/tailwind.svg" alt="Tailwindcss Logo">
+          <img src="./assets/postcss.svg" alt="Postcss Logo">
+        </div>
+        <div class="ts">
+          <img src="./assets/mysql.svg" alt="Mysql Logo" style="width: 70px;">
+          <img src="./assets/Spring_Boot.svg" alt="SpringBoot Logo">
+          <img src="./assets/java.svg" alt="Java Logo">
+          <img src="./assets/nginx.svg" alt="Nginx Logo">
+          <img src="./assets/apache.svg" alt="Apache Logo">
+          <img src="./assets/docker.svg" alt="Docker Logo">
+          <img src="./assets/aws.svg" alt="AWS Logo">
+          <img src="./assets/cloudflare.svg" alt="CloudFlare Logo">
         </div>
       </div>
     </section>

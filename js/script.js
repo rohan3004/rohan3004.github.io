@@ -141,7 +141,7 @@ function htmlInstaPost(index, { caption, imageUrl }) {
                     <path d="M20 21L12 13.44L4 21V3H20V21Z"></path>
                   </svg></div>
               </div>
-              <h2 class="sp-captions" style="color: black;">${caption}</h2>
+              <h2 class="sp-captions">${caption}</h2>
             </div>
       `;
 }
@@ -233,8 +233,26 @@ const imageCaptions = new Map([
   ],
 ]);
 
+// function Generate() {
+//   for (const [index, data] of imageCaptions.entries()) {
+//     try {
+//       const repoContainer = document.getElementById("sp");
+//       const card = document.createElement("div");
+//       card.className = "repo-card";
+//       card.innerHTML = htmlInstaPost(index, data);
+//       repoContainer.appendChild(card);
+//     } catch (error) {
+//       console.error("Error generating card for index", index, error);
+//     }
+//   }
+// }
+
 function Generate() {
   for (const [index, data] of imageCaptions.entries()) {
+    if (index > 4 && window.innerWidth <= 768) {
+      // Check to limit the loop from 1 to 4
+      break;
+    }
     try {
       const repoContainer = document.getElementById("sp");
       const card = document.createElement("div");

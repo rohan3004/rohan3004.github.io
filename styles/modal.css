@@ -38,7 +38,7 @@
 }
 
 .modal-content {
-    background: #FFF7F7;
+    background: rgba(23, 23, 23, 1);
     padding: 20px;
     border-radius: 1rem;
     text-align: center;
@@ -51,6 +51,7 @@
     /* Animation for scaling and fading in */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     /* Smooth transition on closing */
+    color: #ffffff;
 }
 
 
@@ -68,7 +69,6 @@
 .modal-content h2 {
     margin: 0 0 20px;
     font-size: 1.5rem;
-    color: #333;
     animation: fadeInText 0.8s ease-out forwards;
     /* Fade-in animation for text */
 }
@@ -85,6 +85,7 @@
 
 
 .modal-content button {
+    color: #ffffff;
     padding: 12px 24px;
     margin: 5px;
     border: none;

@@ -4,7 +4,7 @@
   border-radius: 20px;
   background: rgba(255, 255, 255, 0);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
-  backdrop-filter: blur(18px);
+  /* backdrop-filter: blur(18px); */
 }
 
 .instagram-header {
@@ -70,7 +70,7 @@
 }
 
 .instagram__icon path {
-  stroke: black;
+  stroke: #FFF7F7;
   stroke-linejoin: round;
 }
 
@@ -140,11 +140,11 @@
 
   /* Styles for tablets */
   .instagram-photo {
-    width: 470px;
+    width: 300px;
   }
 
   .insta-media img {
-    max-width: 470px;
+    max-width: 300px;
   }
 }
 

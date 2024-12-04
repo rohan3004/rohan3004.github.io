@@ -252,6 +252,10 @@ section {
   position: relative;
 }
 
+/* .exp{
+  border-bottom: #3333333a solid 1px;
+} */
+
 .experience-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 600;
@@ -301,8 +305,7 @@ article .icon {
 #contact {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  height: 70vh;
+  /* flex-direction: column; */
 }
 
 .contact-info-upper-container {
@@ -338,11 +341,6 @@ article .icon {
 
 /* FOOTER SECTION */
 
-footer {
-  height: 26vh;
-  margin: 0 1rem;
-}
-
 footer p {
   text-align: center;
 }
@@ -358,7 +356,7 @@ footer p {
 
 
 .homeSection {
-  background-image: url('../assets/section_bg.png');
+  background-image: url('../assets/epic_mountain_in_anime_world_by_dawisam_diof2uf.jpg');
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -368,6 +366,8 @@ footer p {
   background-repeat: no-repeat;
   color: #FFF7F7;
   border-bottom: #433a74 solid 8px;
+
+  background-attachment: fixed;
 }
 
 .homeSection .section__text {
@@ -388,26 +388,30 @@ footer p {
   cursor: pointer;
 }
 
-.projectBG {
-  background-color: rgba(23, 23, 23, 1);
-}
+/* .projectBG {
+  background-color: rgb(23, 23, 23, 1);
+} */
 
 .photographyDiv {
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('../assets/di2yz17-b809bf94-8622-4b51-901f-3d84da49ad5d.gif');
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-image: url('../assets/di2yz17-b809bf94-8622-4b51-901f-3d84da49ad5d.gif'); */
 
   /* Parallax Effect */
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
+  /* border-bottom: #3333333a solid 1px; */
+
+  background-color: rgb(23, 23, 23, 1);
+  color: #FFF7F7;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .photographyDiv {
     background-image: url('../assets/dfgpbnw-cf858cc7-bf93-425c-8393-500d7467b775.png');
   }
-}
+} */
 
 
 .contactContainer {
@@ -417,5 +421,64 @@ footer p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 700px;
+}
+
+.techstack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Mobile */
+@media (max-width: 785px) {
+  #contact {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .techstack {
+    margin: 30px 0 0 0;
+  }
+
+  .contactContainer {
+    height: 100%;
+  }
+}
+
+/* Above Tablet*/
+@media (min-width: 786px) {
+  .background {
+    /* width: 50vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 30px; */
+  }
+
+  .techstack {
+    /* width: 40vw; */
+    margin: 0 30px 0 30px;
+  }
+}
+
+.techstack .ts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headingTS {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.ts img {
+  width: 40px;
 }
