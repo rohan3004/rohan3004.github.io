@@ -78,6 +78,11 @@ input {
   margin-right: auto;
 }
 
+.TitleBar{
+  margin-right: auto;
+  color: white;
+}
+
 .screen-header-button {
   display: inline-block;
   width: 8px;

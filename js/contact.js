@@ -19,7 +19,7 @@ async function submitForm(event) {
   const result = await response.text();
   // alert(result);
 
-  const msg = document.querySelector(".app-title");
+  const msg = document.querySelector(".TitleBar");
   msg.innerText = `${result}`;
 }
 
