@@ -101,6 +101,9 @@
         .catch(error => {
           console.error("Error fetching IP from Spring Boot:", error);
         });
+
+        //Current Year
+        document.getElementById("year").textContent = new Date().getFullYear();
     });
   </script>
 </head>
@@ -115,7 +118,7 @@
     </div>
     <!-- Copyright section -->
     <div class="copyright">
-      <p>Copyright &copy; 2024 Rohan Chakravarty. All rights reserved.</p>
+      <p>Copyright &copy; <span id="year"></span> Rohan Chakravarty. All rights reserved.</p>
     </div>
 </body>
 
