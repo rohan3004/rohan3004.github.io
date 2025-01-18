@@ -61,6 +61,11 @@ function generateChart(data) {
             },
           },
         },
+        legend: {
+          labels:{
+            color: '#f2e3ee',
+          }
+        },
       },
       scales: {
         x: {
@@ -70,6 +75,10 @@ function generateChart(data) {
           title: {
             display: true,
             text: 'Rating',
+            color: '#f2e3ee',
+          },
+          ticks:{
+            color:'#f2e3ee',
           },
         },
       },
@@ -133,6 +142,7 @@ const dsaPieChart = new Chart(ctx, {
       legend: {
         position: 'bottom',
         labels: {
+          color : '#f2e3ee',
           font: {
             family: 'Poppins', // Use Poppins font
           }
@@ -146,7 +156,7 @@ const dsaPieChart = new Chart(ctx, {
         }
       },
       datalabels: {
-        color: '#fff',
+        color: '#f2e3ee',
         font: {
           weight: 'bold',
           size: 14,

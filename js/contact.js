@@ -28,6 +28,8 @@ async function submitForm(event) {
 function clearForm() {
   // Clear all input fields
   document.getElementById('form').reset();
+  const msg = document.querySelector(".TitleBar");
+  msg.innerText = "";
 
   // Hide success message if displayed
   // document.getElementById('successMessage').style.display = 'none';

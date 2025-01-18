@@ -47,11 +47,11 @@ label input {
 }
 
 label input:checked+span {
-  background-color: #d6d6e5;
+  background-color: #d19ec0;
 }
 
 label input:checked+span:before {
-  box-shadow: inset 0 0 0 0.4375em #433878;
+  box-shadow: inset 0 0 0 0.4375em #b16f59;
 }
 
 label span {
@@ -63,7 +63,7 @@ label span {
 }
 
 label span:hover {
-  background-color: #d6d6e5;
+  background-color: #6f3934;
 }
 
 label span:before {
@@ -76,5 +76,5 @@ label span:before {
   border-radius: 50%;
   margin-right: 0.375em;
   transition: 0.25s ease;
-  box-shadow: inset 0 0 0 0.125em #433878;
+  box-shadow: inset 0 0 0 0.125em #b16f59;
 }
