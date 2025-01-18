@@ -17,7 +17,20 @@ async function submitForm(event) {
   });
 
   const result = await response.text();
-  alert(result);
+  // alert(result);
+
+  const msg = document.querySelector(".app-title");
+  msg.innerText = `${result}`;
+}
+
+
+//clear form function
+function clearForm() {
+  // Clear all input fields
+  document.getElementById('form').reset();
+
+  // Hide success message if displayed
+  // document.getElementById('successMessage').style.display = 'none';
 }
 
 //Scroll Funtionality for hiding the menu when scrolled down

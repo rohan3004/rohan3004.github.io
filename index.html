@@ -320,28 +320,30 @@
                 </div>
               </div>
               <div class="screen-body-item">
-                <div class="app-form">
-                  <div class="app-form-group">
-                    <input class="app-form-control" id="name" placeholder="NAME" required />
+                <form id="form">
+                  <div class="app-form">
+                    <div class="app-form-group">
+                      <input class="app-form-control" id="name" placeholder="NAME" required />
+                    </div>
+                    <div class="app-form-group">
+                      <input class="app-form-control" id="email" placeholder="EMAIL" required />
+                    </div>
+                    <div class="app-form-group">
+                      <input class="app-form-control" id="contactNo" placeholder="CONTACT NO" required />
+                    </div>
+                    <div class="app-form-group message">
+                      <input class="app-form-control" id="message" placeholder="MESSAGE" required />
+                    </div>
+                    <div class="app-form-group buttons">
+                      <button type="button" class="app-form-button" onclick="clearForm()">
+                        RESET
+                      </button>
+                      <button class="app-form-button" onclick="submitForm(event)">
+                        SEND
+                      </button>
+                    </div>
                   </div>
-                  <div class="app-form-group">
-                    <input class="app-form-control" id="email" placeholder="EMAIL" required />
-                  </div>
-                  <div class="app-form-group">
-                    <input class="app-form-control" id="contactNo" placeholder="CONTACT NO" required />
-                  </div>
-                  <div class="app-form-group message">
-                    <input class="app-form-control" id="message" placeholder="MESSAGE" required />
-                  </div>
-                  <div class="app-form-group buttons">
-                    <button type="button" class="app-form-button" onclick="window.location.reload();">
-                      CANCEL
-                    </button>
-                    <button class="app-form-button" onclick="submitForm(event)">
-                      SEND
-                    </button>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -351,24 +353,25 @@
       <div class="techstack">
         <p class="headingTS">Built Using</p>
         <div class="ts">
-          <img src="./assets/html.svg" alt="HTML Logo">
-          <img src="./assets/css.svg" alt="CSS Logo">
-          <img src="./assets/sass.svg" alt="Saas Logo">
-          <img src="./assets/webpack.svg" alt="Webpack Logo">
-          <img src="./assets/javascript.svg" alt="Javascript Logo">
-          <img src="./assets/tailwind.svg" alt="Tailwindcss Logo">
-          <img src="./assets/postcss.svg" alt="Postcss Logo">
+          <img src="./assets/html.svg" alt="HTML Logo" title="HTML Logo">
+          <img src="./assets/css.svg" alt="CSS Logo" title="CSS Logo">
+          <img src="./assets/sass.svg" alt="Saas Logo" title="Saas Logo">
+          <img src="./assets/vite.svg" alt="Vite Logo" title="Vite Logo">
+          <img src="./assets/javascript.svg" alt="Javascript Logo" title="Javascript Logo">
+          <img src="./assets/tailwind.svg" alt="Tailwindcss Logo" title="Tailwindcss Logo">
+          <img src="./assets/postcss.svg" alt="Postcss Logo" title="Postcss Logo">
         </div>
         <div class="ts">
-          <img src="./assets/mysql.svg" alt="Mysql Logo" style="width: 70px;">
-          <img src="./assets/Spring_Boot.svg" alt="SpringBoot Logo">
-          <img src="./assets/java.svg" alt="Java Logo">
-          <img src="./assets/nginx.svg" alt="Nginx Logo">
-          <img src="./assets/apache.svg" alt="Apache Logo">
-          <img src="./assets/docker.svg" alt="Docker Logo">
-          <img src="./assets/aws.svg" alt="AWS Logo">
-          <img src="./assets/cloudflare.svg" alt="CloudFlare Logo">
+          <img src="./assets/mysql.svg" alt="Mysql Logo" title="Mysql Logo" style="width: 70px;">
+          <img src="./assets/Spring_Boot.svg" alt="SpringBoot Logo" title="SpringBoot Logo">
+          <img src="./assets/java.svg" alt="Java Logo" title="Java Logo">
+          <img src="./assets/nginx.svg" alt="Nginx Logo" title="Nginx Logo">
+          <img src="./assets/apache.svg" alt="Apache Logo" title="Apache Logo">
+          <img src="./assets/docker.svg" alt="Docker Logo" title="Docker Logo">
+          <img src="./assets/aws.svg" alt="AWS Logo" title="AWS Logo">
+          <img src="./assets/cloudflare.svg" alt="CloudFlare Logo" title="CloudFlare Logo">
         </div>
+
       </div>
     </section>
     <footer>
