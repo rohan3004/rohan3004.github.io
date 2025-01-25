@@ -7,7 +7,7 @@ async function fetchGitHubData() {
   const repoMap = {
     "404-Page": "./assets/projects/p1.png",
     "Queen-s-Quest": "./assets/projects/p2.png",
-    "SpendingAnalysisAPI": "./assets/projects/p3.png",
+    "DevOps-Showcase": "./assets/projects/p3.png",
     "Evaluator-System": "./assets/projects/p6.png",
     "Face-Frenzy": "./assets/projects/p4.png",
     "chessMind": "./assets/projects/p5.png",
