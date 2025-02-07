@@ -284,3 +284,5 @@ fetch("https://api.rohandev.online/your_ip")
   .catch(error => {
     console.error("Error fetching IP from Spring Boot:", error);
   });
+
+  AOS.init();

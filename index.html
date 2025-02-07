@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="./styles/photography.css" />
   <link rel="stylesheet" href="./styles/modal.css" />
 
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -31,6 +33,7 @@
   <div class="modal" id="musicModal">
     <div class="modal-content" id="musicModalContainer">
       <h2>Enable Music?</h2>
+      <img src="./assets/anker-soundcore.gif" alt="">
       <button class="btn btn-color-1" id="playMusic">
         <i class="fa-regular fa-face-laugh-wink"></i> Yes
       </button>
@@ -105,7 +108,7 @@
         <div id="player02" class="player horizontal">
           <div class="wrapper">
             <div class="info-wrapper">
-              <img src="./assets/profile-pic.png" alt="Rohan Chakravarty" />
+              <img src="./assets/Rohan Chakravarty.gif" alt="Rohan Chakravarty" />
               <div class="info">
                 <h1>Hello, World!</h1>
                 <p style="color: #e4b1f0; color: white;">DevOps Engineer</p>
@@ -217,7 +220,7 @@
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Languages and Tools</h1>
-      <div class="my-component-void" id="my-component-void" style="margin-top: 50px">
+      <div class="my-component-void" id="my-component-void" style="margin-top: 50px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <div class="my-component-crop">
           <ul id="my-component-card-list" style="--count: 10">
             <li>
@@ -294,7 +297,7 @@
   </div>
   <div class="contactContainer">
     <section id="contact">
-      <div class="background">
+      <div class="background" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="200">
         <div class="container">
           <div class="screen">
             <div class="screen-header">
@@ -351,7 +354,7 @@
         </div>
       </div>
 
-      <div class="techstack">
+      <div class="techstack" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
         <p class="headingTS">Built Using</p>
         <div class="ts">
           <img src="./assets/html.svg" alt="HTML Logo" title="HTML Logo">
@@ -382,6 +385,7 @@
       </p>
     </footer>
   </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="./js/script.js"></script>
 </body>
 
