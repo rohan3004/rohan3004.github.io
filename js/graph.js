@@ -117,7 +117,7 @@ platformRadios.forEach(radio => {
 const data = {
   labels: ['Easy', 'Medium', 'Hard'],
   datasets: [{
-    data: [78, 213, 33],  // The number of problems for each difficulty
+    data: [90, 260, 46],  // The number of problems for each difficulty
     backgroundColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)'],
     hoverBackgroundColor: ['rgba(75, 192, 192, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(255, 99, 132, 0.8)']
   }]
@@ -130,7 +130,7 @@ const dsaPieChart = new Chart(ctx, {
   data: {
     labels: ['Easy', 'Medium', 'Hard'], // Add your labels
     datasets: [{
-      data: [78, 213, 33], // Add your dataset values
+      data: [90, 260, 46], // Add your dataset values
       backgroundColor: ['#219B9D', '#4C1F7A', '#FF8000'], // Colors for slices
       hoverOffset: 4,
     }]
