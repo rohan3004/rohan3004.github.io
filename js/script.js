@@ -265,6 +265,27 @@ function Generate() {
   }
 }
 
+async function loadStats() {
+  try {
+    const response = await fetch('https://scribe.rohandev.online');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Update values in the DOM
+    document.getElementById('total-questions').textContent = data.total_questions;
+    document.getElementById('total-active-days').textContent = data.total_active_days;
+    document.getElementById('submissions').textContent = data.submissions;
+    document.getElementById('max-streak').textContent = data.max_streak;
+  } catch (error) {
+    console.error("Failed to fetch stats:", error);
+    document.getElementById('total-questions').textContent = "Error";
+    document.getElementById('total-active-days').textContent = "Error";
+  }
+}
+
 
 window.onload = () => {
   Generate();
@@ -273,6 +294,7 @@ window.onload = () => {
 window.onload = () => {
   fetchGitHubData();
   getWeather();
+  loadStats();
   Generate();
 };
 
