@@ -27,20 +27,19 @@ const leetcodeData = [
 function generateChart(data) {
   const ctx = document.getElementById('ratingChart').getContext('2d');
 
-  // Extract labels and ratings based on the selected data
   const labels = data.map(d => d.date);
   const ratings = data.map(d => d.rating);
   const contestNames = data.map(d => d.contestName);
 
   const chart = new Chart(ctx, {
-    type: 'line', // Line chart to show contest progress
+    type: 'line',
     data: {
       labels: labels,
       datasets: [{
         label: 'Rating',
         data: ratings,
-        borderColor: 'rgb(169, 176, 249)', // Teal color
-        backgroundColor: 'rgb(169, 176, 249,0.2)', // Light fill
+        borderColor: 'rgb(169, 176, 249)',
+        backgroundColor: 'rgb(169, 176, 249,0.2)',
         tension: 0.4,
         fill: true,
       }],
@@ -51,8 +50,8 @@ function generateChart(data) {
       plugins: {
         tooltip: {
           callbacks: {
-            title: function (tooltipItem) {
-              return ''; // No title
+            title: function () {
+              return '';
             },
             label: function (tooltipItem) {
               const contestName = contestNames[tooltipItem.dataIndex];
@@ -62,14 +61,14 @@ function generateChart(data) {
           },
         },
         legend: {
-          labels:{
+          labels: {
             color: '#f2e3ee',
           }
         },
       },
       scales: {
         x: {
-          display: false, // Show X axis
+          display: false,
         },
         y: {
           title: {
@@ -77,8 +76,8 @@ function generateChart(data) {
             text: 'Rating',
             color: '#f2e3ee',
           },
-          ticks:{
-            color:'#f2e3ee',
+          ticks: {
+            color: '#f2e3ee',
           },
         },
       },
@@ -98,7 +97,6 @@ platformRadios.forEach(radio => {
     const selectedPlatform = e.target.value;
     let selectedData;
 
-    // Select the correct data based on the radio button
     if (selectedPlatform === 'leetcode') {
       selectedData = leetcodeData;
     } else if (selectedPlatform === 'codeforces') {
@@ -107,65 +105,102 @@ platformRadios.forEach(radio => {
       selectedData = codechefData;
     }
 
-    // Destroy the previous chart and generate the new one
     currentChart.destroy();
     currentChart = generateChart(selectedData);
   });
 });
 
-// Data for DSA difficulty levels
-const data = {
-  labels: ['Easy', 'Medium', 'Hard'],
-  datasets: [{
-    data: [90, 260, 46],  // The number of problems for each difficulty
-    backgroundColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 99, 132, 1)'],
-    hoverBackgroundColor: ['rgba(75, 192, 192, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(255, 99, 132, 0.8)']
-  }]
-};
+// Fetch and render pie chart
+fetch('https://scribe.rohandev.online') // Use your actual JSON endpoint
+  .then(response => response.json())
+  .then(jsonData => {
+    const rawValues = {
+      'CodeChef': parseInt(jsonData.competitive_codechef),
+      'Codeforces': parseInt(jsonData.competitive_codeforces),
+      'Easy': parseInt(jsonData.dsa_easy),
+      'Medium': parseInt(jsonData.dsa_medium),
+      'Hard': parseInt(jsonData.dsa_hard),
+      'GFG': parseInt(jsonData.fundamentals_gfg),
+      'HackerRank': parseInt(jsonData.fundamentals_hackerrank)
+    };
 
-// Create the pie chart
-const ctx = document.getElementById('dsaPieChart').getContext('2d');
-const dsaPieChart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Easy', 'Medium', 'Hard'], // Add your labels
-    datasets: [{
-      data: [90, 260, 46], // Add your dataset values
-      backgroundColor: ['#219B9D', '#4C1F7A', '#FF8000'], // Colors for slices
-      hoverOffset: 4,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          color : '#f2e3ee',
-          font: {
-            family: 'Poppins', // Use Poppins font
-          }
-        }
+    const labels = Object.keys(rawValues);
+    const values = Object.values(rawValues);
+    const total = values.reduce((a, b) => a + b, 0);
+
+    const backgroundColors = [
+      '#FF9F1C',  // CodeChef
+  '#00C9A7',  // Codeforces
+  '#6A4C93',  // DSA Easy
+  '#F72585',  // DSA Medium
+  '#3A86FF',  // DSA Hard
+  '#FF4C29',  // GFG
+  '#8338EC'   // HackerRank
+    ];
+
+    const ctx = document.getElementById('dsaPieChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: backgroundColors,
+          hoverOffset: 12,
+          spacing: 3,
+          borderWidth: 2,
+           borderColor: '#f2e4ef',
+        }]
       },
-      tooltip: {
-        callbacks: {
-          label: function(tooltipItem) {
-            return tooltipItem.label + ': ' + tooltipItem.raw; // Display count in the tooltip
-          }
-        }
-      },
-      datalabels: {
-        color: '#f2e3ee',
-        font: {
-          weight: 'bold',
-          size: 14,
-          family: 'Poppins', // Set font for numbers inside slices
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: 10
         },
-        formatter: (value) => value, // Display the value directly on the slice
+        cutout: '50%',
+        animation: {
+          animateRotate: true,
+          duration: 1000,
+          easing: 'easeOutBounce'
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#f2e4ef',
+              font: {
+                family: 'Poppins'
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function (tooltipItem) {
+                const label = tooltipItem.label;
+                const raw = tooltipItem.raw;
+                return `${label}: ${raw}`;
+              }
+            }
+          },
+          datalabels: {
+            color: '#0b050a',
+            font: {
+              weight: 'bold',
+              size: 12,
+              family: 'Poppins'
+            },
+            formatter: (value) => {
+              return `${value}`;
+            },
+            anchor: 'center',
+            clamp: true
+          }
+        }
       },
-    },
-    scales: {}, // Remove any scales for the pie chart
-  },
-  plugins: [ChartDataLabels], // Add the Chart.js Data Labels plugin
-});
+      plugins: [ChartDataLabels]
+    });
+  })
+  .catch(error => {
+    console.error('Failed to fetch pie chart data:', error);
+  });
