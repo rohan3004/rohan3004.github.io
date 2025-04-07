@@ -96,17 +96,79 @@ platformRadios.forEach(radio => {
   radio.addEventListener('change', (e) => {
     const selectedPlatform = e.target.value;
     let selectedData;
+    const summaryEl = document.getElementById('platform-summary');
+      summaryEl.classList.add('fade-out');
+    fetch('https://scribe.rohandev.online')
+      .then(response => response.json())
+      .then(data => {
+        // LeetCode summary
+        const leetcodeSummary = 
+          `With ${data.leetcode_contests} contests under my belt, my performance on LeetCode is both consistent and upward trending. I currently hold a contest rating of ${data.leetcode_contest_rating.current}, with a career-high of ${data.leetcode_contest_rating.max}—an indication of my steady progress and adaptability in tackling challenging problems.`;
 
-    if (selectedPlatform === 'leetcode') {
-      selectedData = leetcodeData;
-    } else if (selectedPlatform === 'codeforces') {
-      selectedData = codeforcesData;
-    } else if (selectedPlatform === 'codechef') {
-      selectedData = codechefData;
-    }
+        // CodeChef summary
+        const codechefSummary = 
+          `My CodeChef journey includes ${data.codechef_contests} competitive contests where I’ve maintained an impressive rating of ${data.codechef_contest_rating.current}, matching my top performance. This reliability is further underscored by a dedicated competitive score of ${data.competitive_codechef}.`;
 
-    currentChart.destroy();
-    currentChart = generateChart(selectedData);
+        // CodeForces summary
+        const codeforcesSummary = 
+          `On CodeForces, I’ve participated in ${data.codeforces_contests} contests, achieving a contest rating of ${data.codeforces_contest_rating.current}. Though currently at the "${data.codeforces_contest_rating.rank}" rank, this experience lays a solid foundation for future growth.`;
+
+          if (selectedPlatform === 'leetcode') {
+            selectedData = leetcodeData;
+            // document.getElementById('platform-summary').innerText = leetcodeSummary;
+            setTimeout(() => {
+              summaryEl.innerText = leetcodeSummary;
+      
+              // slight pause before fade in
+              requestAnimationFrame(() => {
+                summaryEl.classList.remove('fade-out');
+                summaryEl.classList.add('fade-in');
+      
+                setTimeout(() => {
+                  summaryEl.classList.remove('fade-in');
+                }, 600); // duration of fade-in
+              });
+            }, 350); // timing for fade-out to finish
+          } else if (selectedPlatform === 'codeforces') {
+            selectedData = codeforcesData;
+            // document.getElementById('platform-summary').innerText = codeforcesSummary;
+            setTimeout(() => {
+              summaryEl.innerText = codeforcesSummary;
+      
+              // slight pause before fade in
+              requestAnimationFrame(() => {
+                summaryEl.classList.remove('fade-out');
+                summaryEl.classList.add('fade-in');
+      
+                setTimeout(() => {
+                  summaryEl.classList.remove('fade-in');
+                }, 600); // duration of fade-in
+              });
+            }, 350); // timing for fade-out to finish
+          } else if (selectedPlatform === 'codechef') {
+            selectedData = codechefData;
+            // document.getElementById('platform-summary').innerText = codechefSummary;
+            setTimeout(() => {
+              summaryEl.innerText = codechefSummary;
+      
+              // slight pause before fade in
+              requestAnimationFrame(() => {
+                summaryEl.classList.remove('fade-out');
+                summaryEl.classList.add('fade-in');
+      
+                setTimeout(() => {
+                  summaryEl.classList.remove('fade-in');
+                }, 600); // duration of fade-in
+              });
+            }, 350); // timing for fade-out to finish
+          }
+      
+          currentChart.destroy();
+          currentChart = generateChart(selectedData);
+
+
+      })
+      .catch(error => console.error('Failed to fetch contest ratings:', error));
   });
 });
 
