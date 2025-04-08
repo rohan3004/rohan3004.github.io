@@ -101,23 +101,10 @@ platformRadios.forEach(radio => {
     fetch('https://scribe.rohandev.online')
       .then(response => response.json())
       .then(data => {
-        // LeetCode summary
-        const leetcodeSummary = 
-          `With ${data.leetcode_contests} contests under my belt, my performance on LeetCode is both consistent and upward trending. I currently hold a contest rating of ${data.leetcode_contest_rating.current}, with a career-high of ${data.leetcode_contest_rating.max}—an indication of my steady progress and adaptability in tackling challenging problems.`;
-
-        // CodeChef summary
-        const codechefSummary = 
-          `My CodeChef journey includes ${data.codechef_contests} competitive contests where I’ve maintained an impressive rating of ${data.codechef_contest_rating.current}, matching my top performance. This reliability is further underscored by a dedicated competitive score of ${data.competitive_codechef}.`;
-
-        // CodeForces summary
-        const codeforcesSummary = 
-          `On CodeForces, I’ve participated in ${data.codeforces_contests} contests, achieving a contest rating of ${data.codeforces_contest_rating.current}. Though currently at the "${data.codeforces_contest_rating.rank}" rank, this experience lays a solid foundation for future growth.`;
-
           if (selectedPlatform === 'leetcode') {
             selectedData = leetcodeData;
-            // document.getElementById('platform-summary').innerText = leetcodeSummary;
             setTimeout(() => {
-              summaryEl.innerText = leetcodeSummary;
+              summaryEl.innerHTML = generateSummary('LeetCode', data.leetcode_contests, data.leetcode_contest_rating.current, data.leetcode_contest_rating.max);
       
               // slight pause before fade in
               requestAnimationFrame(() => {
@@ -131,9 +118,8 @@ platformRadios.forEach(radio => {
             }, 350); // timing for fade-out to finish
           } else if (selectedPlatform === 'codeforces') {
             selectedData = codeforcesData;
-            // document.getElementById('platform-summary').innerText = codeforcesSummary;
             setTimeout(() => {
-              summaryEl.innerText = codeforcesSummary;
+              summaryEl.innerHTML = generateSummary('Codeforces', data.codeforces_contests, data.codeforces_contest_rating.current, data.codeforces_contest_rating.max, data.codeforces_contest_rating.rank);
       
               // slight pause before fade in
               requestAnimationFrame(() => {
@@ -147,9 +133,8 @@ platformRadios.forEach(radio => {
             }, 350); // timing for fade-out to finish
           } else if (selectedPlatform === 'codechef') {
             selectedData = codechefData;
-            // document.getElementById('platform-summary').innerText = codechefSummary;
             setTimeout(() => {
-              summaryEl.innerText = codechefSummary;
+              summaryEl.innerHTML = generateSummary('CodeChef', data.codechef_contests, data.codechef_contest_rating.current, data.codechef_contest_rating.max);
       
               // slight pause before fade in
               requestAnimationFrame(() => {
@@ -238,6 +223,9 @@ fetch('https://scribe.rohandev.online') // Use your actual JSON endpoint
           },
           tooltip: {
             callbacks: {
+              title: function () {
+                return '';
+              },
               label: function (tooltipItem) {
                 const label = tooltipItem.label;
                 const raw = tooltipItem.raw;
@@ -266,3 +254,7 @@ fetch('https://scribe.rohandev.online') // Use your actual JSON endpoint
   .catch(error => {
     console.error('Failed to fetch pie chart data:', error);
   });
+
+  function generateSummary(platform, contests, currentRating, maxRating, rank = "") {
+    return `I have participated in <span class="highlight">${contests}</span> <span class="highlight">${platform}</span> contests so far. My current rating stands at <span class="highlight">${currentRating}</span>, with a personal best of <span class="highlight">${maxRating}</span>. ${rank && `I currently hold the "<span class="highlight">${rank}</span>" rank.`}`.trim();
+  }  

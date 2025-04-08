@@ -89,3 +89,8 @@ label span:before {
   .fade-in {
     opacity: 1;
   }
+
+  .highlight {
+    background-color: #b16f59;
+    color: #fff7f7;
+  }
