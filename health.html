@@ -2,84 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rohan Chakravarty - Server Health</title>
+  <title>Rohan Chakravarty - Monitor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./favicon.png" />
   <style>
-    /* Terminal Color Palette */
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+    /* Define the new color scheme and glassmorphism settings */
     :root {
-      --bg-color: #000;
-      --terminal-bg: #121212;
-      --text-color: #00ff00;
-      --prompt-color: #00ff00;
-      --error-color: #ff4d4d;
-      --cursor-color: #00ff00;
+      --bg: #0e0e0e; /* main dark background */
+      --glass-bg: rgba(255, 247, 247, 0.1); /* semi-transparent light background */
+      --border-color: rgba(255, 247, 247, 0.2); /* subtle border with off-white tint */
+      --text: #fff7f7; /* off-white text */
+      --accent: #b16f59; /* accent color for prompts and highlights */
+      --error: #ff4d4d;  /* error color remains for alerts */
+      --cursor: #b16f59; /* cursor follows the accent color */
     }
-
-    /* Reset & Base Style */
+    
+    /* Reset */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+    
     body {
-      background-color: var(--bg-color);
-      font-family: 'Courier New', Courier, monospace;
-      color: var(--text-color);
+      background: var(--bg);
+      font-family: "JetBrains Mono", monospace;
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
     }
-
-    /* Terminal Container */
+    
+    /* Terminal Container with glassmorphism effect */
     .terminal {
-      background-color: var(--terminal-bg);
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
       width: 100%;
       max-width: 800px;
       padding: 20px;
-      border-radius: 4px;
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+    
     .terminal-header {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     .terminal-header h1 {
-      color: var(--prompt-color);
-      font-size: 1.5rem;
-      margin-bottom: 5px;
+      font-size: 1.8rem;
+      color: var(--accent);
     }
     .terminal-header p {
       font-size: 0.9rem;
-      color: var(--text-color);
     }
-
-    /* Terminal Output Style */
+    
     #terminal-output {
+      flex-grow: 1;
       min-height: 180px;
-      margin-bottom: 10px;
     }
+    
     .line {
-      padding: 5px 0;
+      padding: 6px 0;
       font-size: 1rem;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
     }
     .prompt {
-      color: var(--prompt-color);
+      color: var(--accent);
       margin-right: 8px;
     }
-    .green { color: var(--text-color); }
-    .red { color: var(--error-color); }
-
+    .green {
+      color: var(--accent);
+    }
+    .red {
+      color: var(--error);
+    }
+    
+    /* Footer style for legal and timestamp info */
+    .terminal-footer {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+      color: var(--text);
+    }
+    
     /* Blinking Cursor */
     .cursor {
       display: inline-block;
-      background-color: var(--cursor-color);
+      background: var(--cursor);
       width: 10px;
       height: 18px;
       margin-left: 5px;
@@ -88,30 +108,36 @@
     @keyframes blink {
       50% { opacity: 0; }
     }
-
-    /* Responsive Adjustments */
-    @media (max-width: 600px) {
+    
+    @media (max-width:600px) {
       .terminal {
         padding: 15px;
       }
-      .line { font-size: 0.9rem; }
+      .line {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="terminal">
-    <div class="terminal-header">
-      <h1>Dashboard</h1>
-      <p>Real-Time Server &amp; Database Monitor</p>
-    </div>
-    <div id="terminal-output">
-      <!-- Terminal lines are dynamically injected via JavaScript -->
-      <div class="line">
-        <span class="prompt">[root@server]</span>
-        <span>Initializing dashboard...</span>
+    <div>
+      <div class="terminal-header">
+        <h1>Health &amp; Statistics</h1>
+        <p>Spring Boot Server &amp; MYSQL Monitor</p>
       </div>
+      <div id="terminal-output">
+        <div class="line">
+          <span class="prompt">[ec2@aws]</span>
+          <span>Initializing dashboard...</span>
+        </div>
+      </div>
+      <div class="cursor"></div>
     </div>
-    <div class="cursor"></div>
+    <div id="terminal-footer" class="terminal-footer">
+      <!-- Legal and timestamp information will be injected here -->
+      <span>Loading Copyright &amp; Current Date and Time...</span>
+    </div>
   </div>
 
   <script>
@@ -120,41 +146,50 @@
         const res = await fetch("https://api.rohandev.online/health");
         const data = await res.json();
         const output = document.getElementById("terminal-output");
-        output.innerHTML = "";
-        
+        output.innerHTML = '';
+
         // Server Status
-        let serverLine = document.createElement("div");
+        const serverLine = document.createElement("div");
         serverLine.className = "line";
-        serverLine.innerHTML = `<span class="prompt">[root@server]</span> Server Status: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
+        serverLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Spring Boot Server: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
         output.appendChild(serverLine);
 
         // Database Status
-        let dbLine = document.createElement("div");
+        const dbLine = document.createElement("div");
         dbLine.className = "line";
-        dbLine.innerHTML = `<span class="prompt">[root@server]</span> Database Connection: <span class="${data.database === 'active' ? 'green' : 'red'}">${data.database === 'active' ? 'Connected' : 'Disconnected'}</span>`;
+        dbLine.innerHTML = `<span class="prompt">[ec2@aws]</span> MYSQL Connection: <span class="${data.database === 'active' ? 'green' : 'red'}">${data.database === 'active' ? 'Connected' : 'Disconnected'}</span>`;
         output.appendChild(dbLine);
 
-        // Used Memory
-        let memLine = document.createElement("div");
+        // Memory Usage (converted to MB)
+        const memLine = document.createElement("div");
         memLine.className = "line";
-        let usedMemory = (data.usedMemory / (1024 * 1024)).toFixed(2);
-        memLine.innerHTML = `<span class="prompt">[root@server]</span> Memory Usage: <span class="green">${usedMemory} MB</span>`;
+        const usedMemory = (data.usedMemory / (1024 * 1024)).toFixed(3);
+        memLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Memory Usage: <span class="green">${usedMemory} MB</span>`;
         output.appendChild(memLine);
 
-        // Available Processors
-        let cpuLine = document.createElement("div");
+        // Processor Count
+        const cpuLine = document.createElement("div");
         cpuLine.className = "line";
-        cpuLine.innerHTML = `<span class="prompt">[root@server]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
+        cpuLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
         output.appendChild(cpuLine);
+
+        // Footer update - legal and timestamp
+        const footer = document.getElementById("terminal-footer");
+        footer.innerHTML = `<div>${data.legal}</div>
+                            <div>Last Updated: ${data.timestamp}</div>`;
       } catch (err) {
-        console.error("Server Offiline", err);
+        console.error("Error fetching data:", err);
         const output = document.getElementById("terminal-output");
-        output.innerHTML += `<div class="line"><span class="prompt">[root@server]</span> <span class="red">Error: Data retrieval failed.</span></div>`;
+        output.innerHTML = `<div class="line"><span class="prompt">[ec2@aws]</span> <span class="red">Spring Boot Server: Offline.</span></div>`;
+        
+        const footer = document.getElementById("terminal-footer");
+        footer.innerHTML = `<div>Error retrieving legal info &amp; timestamp.</div>`;
       }
     }
 
     fetchHealth();
-    setInterval(fetchHealth, 30000); // Refresh every 30 seconds
+    // Refresh every 30 seconds
+    setInterval(fetchHealth, 30000);
   </script>
 </body>
 </html>
