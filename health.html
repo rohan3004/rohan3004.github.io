@@ -147,7 +147,7 @@
         cpuLine.innerHTML = `<span class="prompt">[root@server]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
         output.appendChild(cpuLine);
       } catch (err) {
-        console.error("Error fetching server data:", err);
+        console.error("Server Offiline", err);
         const output = document.getElementById("terminal-output");
         output.innerHTML += `<div class="line"><span class="prompt">[root@server]</span> <span class="red">Error: Data retrieval failed.</span></div>`;
       }
