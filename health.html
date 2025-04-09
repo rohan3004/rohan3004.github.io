@@ -5,8 +5,10 @@
   <title>Rohan Chakravarty - Monitor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
     /* Define the new color scheme and glassmorphism settings */
     :root {
       --bg: #0e0e0e; /* main dark background */
@@ -32,8 +34,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px; /* reduced padding on mobile devices */
       min-height: 100vh;
-      padding: 20px;
     }
     
     /* Terminal Container with glassmorphism effect */
@@ -44,20 +46,22 @@
       backdrop-filter: blur(10px);
       width: 100%;
       max-width: 800px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      /* min-height: 80vh; */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      padding: 20px;
     }
     
     .terminal-header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     .terminal-header h1 {
       font-size: 1.8rem;
       color: var(--accent);
+      margin-bottom: 5px;
     }
     .terminal-header p {
       font-size: 0.9rem;
@@ -65,7 +69,10 @@
     
     #terminal-output {
       flex-grow: 1;
-      min-height: 180px;
+      min-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      padding-right: 5px;
     }
     
     .line {
@@ -73,7 +80,7 @@
       font-size: 1rem;
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
+      word-break: break-all;
     }
     .prompt {
       color: var(--accent);
@@ -86,6 +93,25 @@
       color: var(--error);
     }
     
+    /* Command Input style */
+    .command-line {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .command-line input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      flex-grow: 1;
+      padding: 8px;
+    }
+    
     /* Footer style for legal and timestamp info */
     .terminal-footer {
       margin-top: 15px;
@@ -93,7 +119,7 @@
       text-align: center;
       border-top: 1px solid var(--border-color);
       padding-top: 10px;
-      color: var(--text);
+      line-height: 1.3;
     }
     
     /* Blinking Cursor */
@@ -109,12 +135,29 @@
       50% { opacity: 0; }
     }
     
-    @media (max-width:600px) {
+    /* Responsive adjustments for mobile devices */
+    @media (max-width: 600px) {
       .terminal {
         padding: 15px;
+        /* min-height: 70vh; */
       }
-      .line {
+      .terminal-header h1 {
+        font-size: 1.5rem;
+      }
+      .terminal-header p,
+      .terminal-footer {
+        font-size: 0.8rem;
+      }
+      .line, .command-line input {
         font-size: 0.9rem;
+      }
+      .command-line {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .command-line input {
+        width: 100%;
+        margin-top: 5px;
       }
     }
   </style>
@@ -123,16 +166,21 @@
   <div class="terminal">
     <div>
       <div class="terminal-header">
-        <h1>Health &amp; Statistics</h1>
+        <h1>EC2 Health</h1>
         <p>Spring Boot Server &amp; MYSQL Monitor</p>
       </div>
       <div id="terminal-output">
         <div class="line">
-          <span class="prompt">[ec2@aws]</span>
+          <span class="prompt">[api.rohandev.online]</span>
           <span>Initializing dashboard...</span>
         </div>
       </div>
       <div class="cursor"></div>
+      <!-- Command input area -->
+      <div class="command-line">
+        <span class="prompt">[api.rohandev.online]</span>
+        <input type="text" id="command-input" placeholder="Type exit here..." autofocus />
+      </div>
     </div>
     <div id="terminal-footer" class="terminal-footer">
       <!-- Legal and timestamp information will be injected here -->
@@ -151,26 +199,26 @@
         // Server Status
         const serverLine = document.createElement("div");
         serverLine.className = "line";
-        serverLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Spring Boot Server: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
+        serverLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Spring Boot Server: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
         output.appendChild(serverLine);
 
         // Database Status
         const dbLine = document.createElement("div");
         dbLine.className = "line";
-        dbLine.innerHTML = `<span class="prompt">[ec2@aws]</span> MYSQL Connection: <span class="${data.database === 'active' ? 'green' : 'red'}">${data.database === 'active' ? 'Connected' : 'Disconnected'}</span>`;
+        dbLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> MYSQL Connection: <span class="${data.database === 'active' ? 'green' : 'red'}">${data.database === 'active' ? 'Connected' : 'Disconnected'}</span>`;
         output.appendChild(dbLine);
 
         // Memory Usage (converted to MB)
         const memLine = document.createElement("div");
         memLine.className = "line";
         const usedMemory = (data.usedMemory / (1024 * 1024)).toFixed(3);
-        memLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Memory Usage: <span class="green">${usedMemory} MB</span>`;
+        memLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Memory Usage: <span class="green">${usedMemory} MB</span>`;
         output.appendChild(memLine);
 
         // Processor Count
         const cpuLine = document.createElement("div");
         cpuLine.className = "line";
-        cpuLine.innerHTML = `<span class="prompt">[ec2@aws]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
+        cpuLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
         output.appendChild(cpuLine);
 
         // Footer update - legal and timestamp
@@ -180,7 +228,7 @@
       } catch (err) {
         console.error("Error fetching data:", err);
         const output = document.getElementById("terminal-output");
-        output.innerHTML = `<div class="line"><span class="prompt">[ec2@aws]</span> <span class="red">Spring Boot Server: Offline.</span></div>`;
+        output.innerHTML = `<div class="line"><span class="prompt">[api.rohandev.online]</span> <span class="red">Spring Boot Server: Offline.</span></div>`;
         
         const footer = document.getElementById("terminal-footer");
         footer.innerHTML = `<div>Error retrieving legal info &amp; timestamp.</div>`;
@@ -190,6 +238,33 @@
     fetchHealth();
     // Refresh every 30 seconds
     setInterval(fetchHealth, 30000);
+
+    // Command input functionality: Process "exit" command to go to the home page.
+    const commandInput = document.getElementById("command-input");
+    commandInput.addEventListener('keydown', function(e) {
+      if (e.key === "Enter") {
+        const command = this.value.trim();
+        // Log the command to terminal output
+        const output = document.getElementById("terminal-output");
+        const commandLine = document.createElement("div");
+        commandLine.className = "line";
+        commandLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> ${command}`;
+        output.appendChild(commandLine);
+        
+        if (command.toLowerCase() === "exit") {
+          // Log exit message and redirect after 1.5 seconds
+          const exitLine = document.createElement("div");
+          exitLine.className = "line";
+          exitLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Exiting... Redirecting to home page.`;
+          output.appendChild(exitLine);
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1500);
+        }
+        
+        this.value = ''; // clear the input
+      }
+    });
   </script>
 </body>
 </html>
