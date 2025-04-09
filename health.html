@@ -167,7 +167,7 @@
     <div>
       <div class="terminal-header">
         <h1>EC2 Health</h1>
-        <p>Spring Boot Server &amp; MYSQL Monitor</p>
+        <p>Spring Boot & Gunicorn Server &amp; MYSQL Monitor</p>
       </div>
       <div id="terminal-output">
         <div class="line">
@@ -199,7 +199,7 @@
         // Server Status
         const serverLine = document.createElement("div");
         serverLine.className = "line";
-        serverLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Spring Boot Server: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
+        serverLine.innerHTML = `<span class="prompt">[api.rohandev.online]</span> Spring Boot & Gunicorn Server: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
         output.appendChild(serverLine);
 
         // Database Status
@@ -228,7 +228,7 @@
       } catch (err) {
         console.error("Error fetching data:", err);
         const output = document.getElementById("terminal-output");
-        output.innerHTML = `<div class="line"><span class="prompt">[api.rohandev.online]</span> <span class="red">Spring Boot Server: Offline.</span></div>`;
+        output.innerHTML = `<div class="line"><span class="prompt">[api.rohandev.online]</span> <span class="red">Spring Boot & Gunicorn Server: Offline.</span></div>`;
         
         const footer = document.getElementById("terminal-footer");
         footer.innerHTML = `<div>Error retrieving legal info &amp; timestamp.</div>`;
