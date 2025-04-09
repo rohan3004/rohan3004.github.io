@@ -48,7 +48,7 @@ async function fetchGitHubData() {
         // Repository thumbnail, title, and description
         card.innerHTML = `
           <div class="article-container" onclick="window.location.href='${hostedURL}';">
-          <img src="${repoMap[repo.name]}" alt="${repo.name}">
+          <img src="${repoMap[repo.name]}" alt="${repo.name}" loading="lazy">
             <div class="repo-content">
                 <h3>
                     <a href="${repo.html_url}" target="_blank">${repo.name}</a>
@@ -110,14 +110,14 @@ function htmlInstaPost(index, { caption, imageUrl }) {
   return `
                 <div class="instagram-photo">
               <div class="instagram-header">
-                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42">
+                <figure><img src="./assets/insta-pic.jpg" alt="Rohan Chakravarty" width="42" height="42" loading="lazy">
                   <figcaption>
                     <h4>rohan.chakravarty</h4>
                   </figcaption>
                 </figure>
               </div>
               <div class="insta-media">
-                <img src="${imageUrl}" alt="Photograph ${index}" />
+                <img src="${imageUrl}" alt="Photograph ${index}" loading="lazy"/>
               </div>
               <div class="insta-buttons">
                 <div class="left"><svg class="instagram__icon instagram__icon--heart" fill="none"
