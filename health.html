@@ -2,136 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Professional Server Health Dashboard</title>
+  <title>Rohan Chakravarty - Server Health</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.png" />
   <style>
-    /* CSS Variables for Dark Mode Palette */
+    /* Terminal Color Palette */
     :root {
-      --bg-color: #121212;         /* Dark background */
-      --card-bg: #1e1e2f;          /* Slightly lighter card background */
-      --text-color: #e0e0e0;       /* Light text for contrast */
-      --accent-color: #bb86fc;     /* Accent color for headings & highlights */
-      --success-color: #03dac6;    /* Green for positive statuses */
-      --error-color: #cf6679;      /* Red for negative statuses */
-      --shadow-color: rgba(0, 0, 0, 0.4);
+      --bg-color: #000;
+      --terminal-bg: #121212;
+      --text-color: #00ff00;
+      --prompt-color: #00ff00;
+      --error-color: #ff4d4d;
+      --cursor-color: #00ff00;
     }
+
+    /* Reset & Base Style */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
       background-color: var(--bg-color);
+      font-family: 'Courier New', Courier, monospace;
       color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 20px;
-      line-height: 1.5;
     }
-    .dashboard {
-      max-width: 1200px;
-      margin: auto;
-      background-color: var(--card-bg);
-      border-radius: 15px;
-      box-shadow: 0 8px 32px var(--shadow-color);
-      padding: 30px;
-      transition: background-color 0.3s ease;
+
+    /* Terminal Container */
+    .terminal {
+      background-color: var(--terminal-bg);
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      overflow: hidden;
     }
-    .dashboard header {
+    .terminal-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
-    .dashboard header h1 {
-      font-size: 2rem;
-      color: var(--accent-color);
-      margin-bottom: 10px;
+    .terminal-header h1 {
+      color: var(--prompt-color);
+      font-size: 1.5rem;
+      margin-bottom: 5px;
     }
-    .dashboard header p {
-      font-size: 1rem;
+    .terminal-header p {
+      font-size: 0.9rem;
       color: var(--text-color);
     }
-    .status-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 16px var(--shadow-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 32px var(--shadow-color);
-    }
-    .card .status-label {
-      font-size: 1.1rem;
+
+    /* Terminal Output Style */
+    #terminal-output {
+      min-height: 180px;
       margin-bottom: 10px;
+    }
+    .line {
+      padding: 5px 0;
+      font-size: 1rem;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
-    .card .status-label .dot {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
+    .prompt {
+      color: var(--prompt-color);
       margin-right: 8px;
-      border: 2px solid var(--text-color);
-      transition: background-color 0.3s ease;
     }
-    .card .status-value {
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-align: right;
+    .green { color: var(--text-color); }
+    .red { color: var(--error-color); }
+
+    /* Blinking Cursor */
+    .cursor {
+      display: inline-block;
+      background-color: var(--cursor-color);
+      width: 10px;
+      height: 18px;
+      margin-left: 5px;
+      animation: blink 1s step-start infinite;
     }
-    .green {
-      background-color: var(--success-color);
+    @keyframes blink {
+      50% { opacity: 0; }
     }
-    .red {
-      background-color: var(--error-color);
-    }
+
+    /* Responsive Adjustments */
     @media (max-width: 600px) {
-      .card {
+      .terminal {
         padding: 15px;
       }
-      .card .status-label, .card .status-value {
-        font-size: 1rem;
-      }
+      .line { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-
-  <div class="dashboard">
-    <header>
-      <h1>Server Health Dashboard</h1>
-      <p>Real-time monitoring of server and database statuses</p>
-    </header>
-    <div class="status-container">
-      <div class="card">
-        <div class="status-label">
-          <span id="server-dot" class="dot"></span>
-          Server
-        </div>
-        <div class="status-value" id="server-status">Checking...</div>
-      </div>
-      <div class="card">
-        <div class="status-label">
-          <span id="db-dot" class="dot"></span>
-          Database
-        </div>
-        <div class="status-value" id="db-status">Checking...</div>
-      </div>
-      <div class="card">
-        <div class="status-label">Used Memory</div>
-        <div class="status-value" id="memory-usage">Loading...</div>
-      </div>
-      <div class="card">
-        <div class="status-label">Processors</div>
-        <div class="status-value" id="cpu-count">Loading...</div>
+  <div class="terminal">
+    <div class="terminal-header">
+      <h1>Dashboard</h1>
+      <p>Real-Time Server &amp; Database Monitor</p>
+    </div>
+    <div id="terminal-output">
+      <!-- Terminal lines are dynamically injected via JavaScript -->
+      <div class="line">
+        <span class="prompt">[root@server]</span>
+        <span>Initializing dashboard...</span>
       </div>
     </div>
+    <div class="cursor"></div>
   </div>
 
   <script>
@@ -139,47 +119,42 @@
       try {
         const res = await fetch("https://api.rohandev.online/health");
         const data = await res.json();
+        const output = document.getElementById("terminal-output");
+        output.innerHTML = "";
+        
+        // Server Status
+        let serverLine = document.createElement("div");
+        serverLine.className = "line";
+        serverLine.innerHTML = `<span class="prompt">[root@server]</span> Server Status: <span class="${data.server === 'alive' ? 'green' : 'red'}">${data.server === 'alive' ? 'Online' : 'Offline'}</span>`;
+        output.appendChild(serverLine);
 
-        // Server status
-        const serverDot = document.getElementById("server-dot");
-        const serverStatus = document.getElementById("server-status");
-        if (data.server === "alive") {
-          serverDot.classList.add("green");
-          serverStatus.textContent = "Online";
-        } else {
-          serverDot.classList.add("red");
-          serverStatus.textContent = "Offline";
-        }
+        // Database Status
+        let dbLine = document.createElement("div");
+        dbLine.className = "line";
+        dbLine.innerHTML = `<span class="prompt">[root@server]</span> Database Connection: <span class="${data.database === 'active' ? 'green' : 'red'}">${data.database === 'active' ? 'Connected' : 'Disconnected'}</span>`;
+        output.appendChild(dbLine);
 
-        // Database status
-        const dbDot = document.getElementById("db-dot");
-        const dbStatus = document.getElementById("db-status");
-        if (data.database === "active") {
-          dbDot.classList.add("green");
-          dbStatus.textContent = "Connected";
-        } else {
-          dbDot.classList.add("red");
-          dbStatus.textContent = "Disconnected";
-        }
+        // Used Memory
+        let memLine = document.createElement("div");
+        memLine.className = "line";
+        let usedMemory = (data.usedMemory / (1024 * 1024)).toFixed(2);
+        memLine.innerHTML = `<span class="prompt">[root@server]</span> Memory Usage: <span class="green">${usedMemory} MB</span>`;
+        output.appendChild(memLine);
 
-        // Used Memory in MB
-        const usedMemory = (data.usedMemory / (1024 * 1024)).toFixed(2);
-        document.getElementById("memory-usage").textContent = `${usedMemory} MB`;
-
-        // Processor count
-        document.getElementById("cpu-count").textContent = data.availableProcessors;
+        // Available Processors
+        let cpuLine = document.createElement("div");
+        cpuLine.className = "line";
+        cpuLine.innerHTML = `<span class="prompt">[root@server]</span> Processors: <span class="green">${data.availableProcessors}</span>`;
+        output.appendChild(cpuLine);
       } catch (err) {
-        console.error("Failed to fetch server health:", err);
-        document.getElementById("server-status").textContent = "Error";
-        document.getElementById("db-status").textContent = "Error";
-        document.getElementById("memory-usage").textContent = "Error";
-        document.getElementById("cpu-count").textContent = "Error";
+        console.error("Server Offiline", err);
+        const output = document.getElementById("terminal-output");
+        output.innerHTML += `<div class="line"><span class="prompt">[root@server]</span> <span class="red">Error: Data retrieval failed.</span></div>`;
       }
     }
 
     fetchHealth();
-    // Refresh dashboard every 30 seconds
-    setInterval(fetchHealth, 30000);
+    setInterval(fetchHealth, 30000); // Refresh every 30 seconds
   </script>
 </body>
 </html>
