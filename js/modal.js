@@ -1,3 +1,14 @@
+/*!
+ * Copyright © 2025 Rohan Chakravarty.
+ * All Rights Reserved.
+ *
+ * Licensed under the MIT License.
+ * You may obtain a copy of the License at
+ *      https://rohandev.online/LICENSE
+ *
+ * This file is provided "as is", without warranty of any kind.
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("musicModal");
   const playMusicBtn = document.getElementById("playMusic");

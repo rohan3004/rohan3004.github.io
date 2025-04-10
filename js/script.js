@@ -1,3 +1,14 @@
+/*!
+ * Copyright © 2025 Rohan Chakravarty.
+ * All Rights Reserved.
+ *
+ * Licensed under the MIT License.
+ * You may obtain a copy of the License at
+ *      https://rohandev.online/LICENSE
+ *
+ * This file is provided "as is", without warranty of any kind.
+ */
+
 // Get the current year and set it in the footer
 document.getElementById("year").textContent = new Date().getFullYear();
 

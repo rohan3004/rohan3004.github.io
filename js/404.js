@@ -1,3 +1,14 @@
+/*!
+ * Copyright © 2025 Rohan Chakravarty.
+ * All Rights Reserved.
+ *
+ * Licensed under the MIT License.
+ * You may obtain a copy of the License at
+ *      https://rohandev.online/LICENSE
+ *
+ * This file is provided "as is", without warranty of any kind.
+ */
+
 const BLACKLISTED_KEY_CODES = [38, 40, 37, 39, 18, 20, 17, 16, 9, 27, 144];
 //List of commands
 const COMMANDS = {
