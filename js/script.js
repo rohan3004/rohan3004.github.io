@@ -309,11 +309,11 @@ window.onload = () => {
   Generate();
 };
 
-fetch("https://api.rohandev.online/your_ip")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("ip-display").textContent = data;
-  })
-  .catch(error => {
-    console.error("Error fetching IP from Spring Boot:", error);
-  });
+// fetch("https://api.rohandev.online/your_ip")
+//   .then(response => response.text())
+//   .then(data => {
+//     document.getElementById("ip-display").textContent = data;
+//   })
+//   .catch(error => {
+//     console.error("Error fetching IP from Spring Boot:", error);
+//   });
