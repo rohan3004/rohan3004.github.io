@@ -109,7 +109,7 @@ platformRadios.forEach(radio => {
     let selectedData;
     const summaryEl = document.getElementById('platform-summary');
       summaryEl.classList.add('fade-out');
-    fetch('https://scribe.rohandev.online')
+    fetch('https://scribe.rohandev.online/stats')
       .then(response => response.json())
       .then(data => {
           if (selectedPlatform === 'leetcode') {
@@ -169,7 +169,7 @@ platformRadios.forEach(radio => {
 });
 
 // Fetch and render pie chart
-fetch('https://scribe.rohandev.online') // Use your actual JSON endpoint
+fetch('https://scribe.rohandev.online/stats') // Use your actual JSON endpoint
   .then(response => response.json())
   .then(jsonData => {
     const rawValues = {
