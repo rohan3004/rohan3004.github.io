@@ -23,15 +23,24 @@
   <link rel="stylesheet" href="./styles/photography.css" />
   <link rel="stylesheet" href="./styles/modal.css" />
 
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels" defer></script>
 
   <link rel="icon" href="./favicon.ico" />
   <link rel="manifest" href="./manifest.json" />
 
-  <script src="./js/min/contact.min.js"></script>
+  <script src="./js/min/contact.min.js" defer></script>
 </head>
 
 <body>
@@ -116,7 +125,8 @@
               <img src="./assets/Rohan Chakravarty.webp" alt="Rohan Chakravarty" />
               <div class="info">
                 <h1>Hello, World!</h1>
-                <p style="color: #e4b1f0; color: white;"><span id="submissions">781</span> Subs |🔥<span id="max-streak">144</span></p>
+                <p style="color: #e4b1f0; color: white;"><span id="submissions">781</span> Subs |🔥<span
+                    id="max-streak">144</span></p>
               </div>
             </div>
             <div id="weatherRohan">
@@ -138,7 +148,10 @@
             </div>
             <div class="track-time">
               <div class="track"></div>
-              <div class="time"><p><span id="total-questions">820</span> Qs | <span id="total-active-days">312</span> Days | 2⭐@Codechef</p></div>
+              <div class="time">
+                <p><span id="total-questions">820</span> Qs | <span id="total-active-days">312</span> Days | 2⭐@Codechef
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -156,13 +169,14 @@
           </button>
         </div>
         <div id="socials-container">
-          <img src="./assets/health.svg" alt="Check the Health of the Server" class="icon" onclick="location.href='https://rohandev.online/health'" title="Check Health of the Server">
+          <img src="./assets/health.svg" alt="Check the Health of the Server" class="icon"
+            onclick="location.href='https://rohandev.online/health'" title="Check Health of the Server">
           <img src="./assets/mail.svg" alt="My Email" class="icon"
-            onclick="location.href='mailto:rohan.chakravarty02@gmail.com'" title="My Email Address"/>
+            onclick="location.href='mailto:rohan.chakravarty02@gmail.com'" title="My Email Address" />
           <img src="./assets/linkedin.svg" alt="My LinkedIn profile" class="icon"
-            onclick="location.href='https://www.linkedin.com/in/rohan-chakravarty-/'" title="My LinkedIn Profile"/>
+            onclick="location.href='https://www.linkedin.com/in/rohan-chakravarty-/'" title="My LinkedIn Profile" />
           <img src="./assets/github.svg" alt="My Github profile" class="icon"
-            onclick="location.href='https://github.com/rohan3004/'" title="My Github Profile"/>
+            onclick="location.href='https://github.com/rohan3004/'" title="My Github Profile" />
         </div>
       </div>
     </section>
@@ -171,8 +185,9 @@
     <p class="section__text__p1">Get To Know My Statistics</p>
     <h1 class="title">Fundamentals</h1>
     <div class="section-container">
-      <div class="section__pic-container"style="position: relative; width: 100%; max-width: 800px; margin: auto; height: 500px;">
-          <canvas id="dsaPieChart"></canvas>
+      <div class="section__pic-container"
+        style="position: relative; width: 100%; max-width: 800px; margin: auto; height: 500px;">
+        <canvas id="dsaPieChart"></canvas>
       </div>
       <div class="about-details-container">
         <div class="about-containers chart-container">
@@ -193,11 +208,24 @@
             </form>
           </div>
           <canvas id="ratingChart"></canvas>
-          <script src="./js/min/graph.min.js"></script>
+          <script src="./js/min/graph.min.js" defer></script>
         </div>
         <div class="text-container">
           <p>
-            I’m a developer with hands-on experience in <span class="highlight">Java</span>, <span class="highlight">C/C++</span>, <span class="highlight">Python</span>, <span class="highlight">JavaScript</span>, and <span class="highlight">SQL</span>. I build robust, scalable solutions using <span class="highlight">Spring Boot</span>, <span class="highlight">RESTful APIs</span>, and modern frontend tools like <span class="highlight">Tailwind CSS</span> and <span class="highlight">Sass</span>. Skilled in cloud platforms like <span class="highlight">AWS</span> and <span class="highlight">GCP</span>, I also bring expertise in <span class="highlight">Docker</span>, <span class="highlight">Terraform</span>, and working across <span class="highlight">Linux</span> and <span class="highlight">Windows</span> environments. I'm passionate about <span class="highlight">clean code</span>, <span class="highlight">system design</span>, and solving <span class="highlight">real-world problems</span>. <span id="platform-summary" class=""> I have participated in <span class="highlight">12</span> <span class="highlight">LeetCode</span> contests so far. My current rating stands at <span class="highlight">1684</span>, with a personal best of <span class="highlight">1718</span>.</span></p>
+            I’m a developer with hands-on experience in <span class="highlight">Java</span>, <span
+              class="highlight">C/C++</span>, <span class="highlight">Python</span>, <span
+              class="highlight">JavaScript</span>, and <span class="highlight">SQL</span>. I build robust, scalable
+            solutions using <span class="highlight">Spring Boot</span>, <span class="highlight">RESTful APIs</span>, and
+            modern frontend tools like <span class="highlight">Tailwind CSS</span> and <span
+              class="highlight">Sass</span>. Skilled in cloud platforms like <span class="highlight">AWS</span> and
+            <span class="highlight">GCP</span>, I also bring expertise in <span class="highlight">Docker</span>, <span
+              class="highlight">Terraform</span>, and working across <span class="highlight">Linux</span> and <span
+              class="highlight">Windows</span> environments. I'm passionate about <span class="highlight">clean
+              code</span>, <span class="highlight">system design</span>, and solving <span class="highlight">real-world
+              problems</span>. <span id="platform-summary" class=""> I have participated in <span
+                class="highlight">12</span> <span class="highlight">LeetCode</span> contests so far. My current rating
+              stands at <span class="highlight">1684</span>, with a personal best of <span
+                class="highlight">1718</span>.</span></p>
         </div>
       </div>
     </div>
@@ -218,7 +246,8 @@
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Languages and Tools</h1>
-      <div class="my-component-void" id="my-component-void" style="margin-top: 50px" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      <div class="my-component-void" id="my-component-void" style="margin-top: 50px" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="200">
         <div class="my-component-crop">
           <ul id="my-component-card-list" style="--count: 10">
             <li>
