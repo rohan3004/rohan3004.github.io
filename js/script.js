@@ -162,7 +162,7 @@ function GenerateInstaPosts() {
 
 async function loadStats() {
     try {
-        const response = await fetch('https://scribe.rohandev.online');
+        const response = await fetch('https://scribe.rohandev.online/stats');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
