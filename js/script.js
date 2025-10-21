@@ -25,7 +25,7 @@ function playRandomBackgroundMusic() {
     const songs = ['music1.mp3', 'music2.mp3', 'music3.mp3', 'music4.mp3','music5.mp3'];
     const randomIndex = Math.floor(Math.random() * songs.length);
     const randomSong = songs[randomIndex];
-    const audioSourceUrl = `https://cdn.rohandev.online/api/stream/${randomSong}`;
+    const audioSourceUrl = `https://rohandev.online/assets/music/${randomSong}`;
     const audioPlayer = document.getElementById('backgroundMusic');
 
     if (audioPlayer) {
