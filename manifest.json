@@ -3,18 +3,18 @@
   "description": "Rohan Chakravarty - Portfolio",
   "version": "v1.0",
   "short_name": "Rohan Chakravarty",
-  "start_url": "https://rohandev.online",
+  "start_url": "https://rcxdev.com",
   "display": "standalone",
   "theme_color": "#b16f59",
   "background_color": "#FFFFFF",
   "icons": [
     {
-      "src": "https://rohandev.online/assets/logo.png",
+      "src": "https://rcxdev.com/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "https://rohandev.online/assets/logo.png",
+      "src": "https://rcxdev.com/assets/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     }
