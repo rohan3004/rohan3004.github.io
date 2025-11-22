@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT License.
  * You may obtain a copy of the License at
- * https://rohandev.online/LICENSE
+ * https://rcxdev.com/LICENSE
  *
  * This file is provided "as is", without warranty of any kind.
  */
@@ -25,7 +25,7 @@ function playRandomBackgroundMusic() {
     const songs = ['music1.mp3', 'music2.mp3', 'music3.mp3', 'music4.mp3','music5.mp3'];
     const randomIndex = Math.floor(Math.random() * songs.length);
     const randomSong = songs[randomIndex];
-    const audioSourceUrl = `https://rohandev.online/assets/music/${randomSong}`;
+    const audioSourceUrl = `https://rcxdev.com/assets/music/${randomSong}`;
     const audioPlayer = document.getElementById('backgroundMusic');
 
     if (audioPlayer) {
@@ -48,7 +48,7 @@ async function fetchGitHubData() {
     };
 
     try {
-        const reposResponse = await fetch("https://api.rohandev.online/github/repositories");
+        const reposResponse = await fetch("https://apis.byrohan.in/v1/github/repositories");
         const reposData = await reposResponse.json();
         const filteredRepos = reposData.filter((repo) => repoMap.hasOwnProperty(repo.name));
 
@@ -56,7 +56,7 @@ async function fetchGitHubData() {
             const repoContainer = document.getElementById("repo-container");
             for (const repo of filteredRepos) {
                 const hostedURL = `https://${username}.github.io/${repo.name}`;
-                const languagesResponse = await fetch(`https://api.rohandev.online/github/languages/${repo.name}`);
+                const languagesResponse = await fetch(`https://apis.byrohan.in/github/languages/${repo.name}`);
                 const languages = await languagesResponse.json();
                 const languageList = Object.keys(languages).map(lang => `<span class="language-item">${lang}</span>`).join(", ");
 

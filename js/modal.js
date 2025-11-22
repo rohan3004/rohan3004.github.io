@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT License.
  * You may obtain a copy of the License at
- *      https://rohandev.online/LICENSE
+ *      https://rcxdev.com/LICENSE
  *
  * This file is provided "as is", without warranty of any kind.
  */

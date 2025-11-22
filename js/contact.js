@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT License.
  * You may obtain a copy of the License at
- *      https://rohandev.online/LICENSE
+ *      https://rcxdev.com/LICENSE
  *
  * This file is provided "as is", without warranty of any kind.
  */
@@ -19,7 +19,7 @@ async function submitForm(event) {
     message: document.getElementById("message").value,
   };
 
-  const response = await fetch("https://api.rohandev.online/contact", {
+  const response = await fetch("https://apis.byrohan.in/v1/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

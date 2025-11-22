@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT License.
  * You may obtain a copy of the License at
- *      https://rohandev.online/LICENSE
+ *      https://rcxdev.com/LICENSE
  *
  * This file is provided "as is", without warranty of any kind.
  */
@@ -26,7 +26,7 @@ let terminalOutput;
 let Terminal;
 let Keyboard;
 const app = () => {
-  fetch("https://api.rohandev.online/your_ip")
+  fetch("https://apis.byrohan.in/v1/your_ip")
   .then(response => response.text())
   .then(data => {
     document.getElementById("ip-display").textContent = data;
@@ -82,7 +82,7 @@ const execute = function executeCommand(input) {
     output = COMMANDS[input];
   }
 
-  terminalOutput.innerHTML = `${terminalOutput.innerHTML}<p class="out_code"><span class="arrow green">rohandev.online:</span><span class="blue">~/404</span>$ ${input}<br>${output}</p>`;
+  terminalOutput.innerHTML = `${terminalOutput.innerHTML}<p class="out_code"><span class="arrow green">rcxdev.com:</span><span class="blue">~/404</span>$ ${input}<br>${output}</p>`;
   Terminal.scrollTop = terminalOutput.scrollHeight;
 };
 let str = "";
