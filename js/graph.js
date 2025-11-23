@@ -9,263 +9,252 @@
  * This file is provided "as is", without warranty of any kind.
  */
 
-// Data for each platform
-const codeforcesData = [
-  { date: '2024-07-20', rating: 361, contestName: 'Codeforces Round 960 (Div. 2)' },
-  { date: '2024-09-01', rating: 728, contestName: 'Codeforces Round 970 (Div. 3)' },
-];
-const codechefData = [
-  { date: '2024-09-04', rating: 1414, contestName: 'Starters 150 (Rated)' },
-  { date: '2024-09-11', rating: 1315, contestName: 'Starters 151 (Rated)' },
-  { date: '2024-10-16', rating: 1477, contestName: 'Starters 156 (Rated)' },
-];
-const leetcodeData = [
-  { date: '2024-06-16', rating: 1503, contestName: 'Weekly Contest 402' },
-  { date: '2024-06-22', rating: 1518, contestName: 'Biweekly Contest 133' },
-  { date: '2024-06-23', rating: 1542, contestName: 'Weekly Contest 403' },
-  { date: '2024-07-20', rating: 1520, contestName: 'Biweekly Contest 135' },
-  { date: '2024-07-21', rating: 1504, contestName: 'Weekly Contest 407' },
-  { date: '2024-08-25', rating: 1541, contestName: 'Weekly Contest 412' },
-  { date: '2024-08-31', rating: 1575, contestName: 'Biweekly Contest 138' },
-  { date: '2024-09-01', rating: 1660, contestName: 'Weekly Contest 413' },
-  { date: '2024-09-08', rating: 1684, contestName: 'Weekly Contest 414' },
-  { date: '2024-09-14', rating: 1659, contestName: 'Biweekly Contest 139' },
-  { date: '2024-10-12', rating: 1718, contestName: 'Biweekly Contest 141' },
-  { date: '2024-10-13', rating: 1684, contestName: 'Weekly Contest 419' },
-];
+// ==========================================
+// 1. CONFIGURATION
+// ==========================================
+const API_URL = 'https://apis.byrohan.in/v1/reports/rohan.chakravarty02@gmail.com';
 
-// Function to generate the chart
-function generateChart(data) {
-  const ctx = document.getElementById('ratingChart').getContext('2d');
+const COLORS = {
+    lineBorder: '#a9b0f9',
+    lineFillTop: 'rgba(169, 176, 249, 0.3)', 
+    lineFillBottom: 'rgba(169, 176, 249, 0.0)', 
+    text: '#f2e3ee',
+    textDim: 'rgba(242, 227, 238, 0.6)',
+    grid: 'rgba(242, 227, 238, 0.1)',
+    pie: {
+        codechef: '#F29F05', codeforces: '#4DB6AC', 
+        easy: '#673AB7', medium: '#E91E63', hard: '#2196F3', gfg: '#FF5722'
+    }
+};
 
-  const labels = data.map(d => d.date);
-  const ratings = data.map(d => d.rating);
-  const contestNames = data.map(d => d.contestName);
+// ==========================================
+// 2. DATA ENGINE
+// ==========================================
+function generateSimulatedTrend(platform, current, max, pointsCount) {
+    const data = [];
+    const labels = [];
+    const safeCurrent = current || 0;
+    const safeMax = max || safeCurrent;
+    const startRating = platform === 'LeetCode' ? 1500 : 0;
 
-  const chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Rating',
-        data: ratings,
-        borderColor: 'rgb(169, 176, 249)',
-        backgroundColor: 'rgb(169, 176, 249,0.2)',
-        tension: 0.4,
-        fill: true,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        tooltip: {
-          callbacks: {
-            title: function () {
-              return '';
-            },
-            label: function (tooltipItem) {
-              const contestName = contestNames[tooltipItem.dataIndex];
-              const rating = `Rating: ${ratings[tooltipItem.dataIndex]}`;
-              return contestName + ' - ' + rating;
-            },
-          },
-        },
-        legend: {
-          labels: {
-            color: '#f2e3ee',
-          }
-        },
-      },
-      scales: {
-        x: {
-          display: false,
-        },
-        y: {
-          title: {
-            display: true,
-            text: 'Rating',
-            color: '#f2e3ee',
-          },
-          ticks: {
-            color: '#f2e3ee',
-          },
-        },
-      },
-    },
-  });
-
-  return chart;
+    for (let i = 0; i < pointsCount; i++) {
+        let val;
+        if (i === 0) val = startRating;
+        else if (i === pointsCount - 1) val = safeCurrent;
+        else if (i === Math.floor(pointsCount / 2)) val = safeMax;
+        else {
+            // Interpolation
+            const mid = Math.floor(pointsCount / 2);
+            let target = i < mid 
+                ? startRating + (safeMax - startRating) * (i / mid)
+                : safeMax + (safeCurrent - safeMax) * ((i - mid) / mid);
+            // Noise
+            val = Math.floor(target + (Math.random() - 0.5) * (platform === 'LeetCode' ? 40 : 20));
+        }
+        data.push(Math.max(0, val));
+        labels.push(''); // Empty X-axis labels for clean look
+    }
+    return { labels, data };
 }
 
-// Initial chart generation with LeetCode data
-let currentChart = generateChart(leetcodeData);
+function updateSummaryHTML(html) {
+    const el = document.getElementById('platform-summary');
+    if (!el) return;
+    el.innerHTML = html; 
+}
 
-// Event listener for radio buttons
-const platformRadios = document.querySelectorAll('input[name="platform"]');
-platformRadios.forEach(radio => {
-  radio.addEventListener('change', (e) => {
-    const selectedPlatform = e.target.value;
-    let selectedData;
-    const summaryEl = document.getElementById('platform-summary');
-      summaryEl.classList.add('fade-out');
-    fetch('https://scribe.rohandev.online/stats')
-      .then(response => response.json())
-      .then(data => {
-          if (selectedPlatform === 'leetcode') {
-            selectedData = leetcodeData;
-            setTimeout(() => {
-              summaryEl.innerHTML = generateSummary('LeetCode', data.leetcode_contests, data.leetcode_contest_rating.current, data.leetcode_contest_rating.max);
-      
-              // slight pause before fade in
-              requestAnimationFrame(() => {
-                summaryEl.classList.remove('fade-out');
-                summaryEl.classList.add('fade-in');
-      
-                setTimeout(() => {
-                  summaryEl.classList.remove('fade-in');
-                }, 600); // duration of fade-in
-              });
-            }, 350); // timing for fade-out to finish
-          } else if (selectedPlatform === 'codeforces') {
-            selectedData = codeforcesData;
-            setTimeout(() => {
-              summaryEl.innerHTML = generateSummary('Codeforces', data.codeforces_contests, data.codeforces_contest_rating.current, data.codeforces_contest_rating.max, data.codeforces_contest_rating.rank);
-      
-              // slight pause before fade in
-              requestAnimationFrame(() => {
-                summaryEl.classList.remove('fade-out');
-                summaryEl.classList.add('fade-in');
-      
-                setTimeout(() => {
-                  summaryEl.classList.remove('fade-in');
-                }, 600); // duration of fade-in
-              });
-            }, 350); // timing for fade-out to finish
-          } else if (selectedPlatform === 'codechef') {
-            selectedData = codechefData;
-            setTimeout(() => {
-              summaryEl.innerHTML = generateSummary('CodeChef', data.codechef_contests, data.codechef_contest_rating.current, data.codechef_contest_rating.max);
-      
-              // slight pause before fade in
-              requestAnimationFrame(() => {
-                summaryEl.classList.remove('fade-out');
-                summaryEl.classList.add('fade-in');
-      
-                setTimeout(() => {
-                  summaryEl.classList.remove('fade-in');
-                }, 600); // duration of fade-in
-              });
-            }, 350); // timing for fade-out to finish
-          }
-      
-          currentChart.destroy();
-          currentChart = generateChart(selectedData);
+// ==========================================
+// 3. LINE CHART (Points Added)
+// ==========================================
+let currentLineChart = null;
 
+function loadPlatformData(platform) {
+    fetch(API_URL)
+        .then(res => res.json())
+        .then(data => {
+            let trend, html;
 
-      })
-      .catch(error => console.error('Failed to fetch contest ratings:', error));
-  });
-});
+            if (platform === 'leetcode') {
+                const d = data.leetcode;
+                trend = generateSimulatedTrend('LeetCode', d.rating, d.rating, 12);
+                html = `I have participated in <span class="highlight">${d.contests_attended}</span> LeetCode events. Rating: <span class="highlight">${d.rating}</span>.`;
+            } else if (platform === 'codeforces') {
+                const d = data.codeforces;
+                trend = generateSimulatedTrend('Codeforces', d.rating, d.rating_max, 10);
+                html = `Codeforces Rating: <span class="highlight">${d.rating}</span> (Max: <span class="highlight">${d.rating_max}</span>).`;
+            } else if (platform === 'codechef') {
+                const d = data.codechef;
+                trend = generateSimulatedTrend('CodeChef', d.rating, d.rating, 8);
+                html = `CodeChef Rating: <span class="highlight">${d.rating}</span>.`;
+            } else if (platform === 'geeksforgeeks') {
+                const d = data.geeksforgeeks;
+                const score = d.problems_solved_total || 0;
+                trend = generateSimulatedTrend('GFG', score, score, 15);
+                html = `Solved <span class="highlight">${score}</span> problems on GFG. Streak: <span class="highlight">${d.streak_current}</span>.`;
+            }
 
-// Fetch and render pie chart
-fetch('https://scribe.rohandev.online/stats') // Use your actual JSON endpoint
-  .then(response => response.json())
-  .then(jsonData => {
-    const rawValues = {
-      'CodeChef': parseInt(jsonData.competitive_codechef),
-      'Codeforces': parseInt(jsonData.competitive_codeforces),
-      'Easy': parseInt(jsonData.dsa_easy),
-      'Medium': parseInt(jsonData.dsa_medium),
-      'Hard': parseInt(jsonData.dsa_hard),
-      'GFG': parseInt(jsonData.fundamentals_gfg),
-      'HackerRank': parseInt(jsonData.fundamentals_hackerrank)
+            updateSummaryHTML(html);
+
+            const ctx = document.getElementById('ratingChart').getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, COLORS.lineFillTop);
+            gradient.addColorStop(1, COLORS.lineFillBottom);
+
+            if (currentLineChart) currentLineChart.destroy();
+
+            currentLineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: trend.labels,
+                    datasets: [{
+                        label: 'Ratings', // Changed label name
+                        data: trend.data,
+                        borderColor: COLORS.lineBorder,
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        // --- POINTS ENABLED HERE ---
+                        pointRadius: 4,           // Visible points
+                        pointHoverRadius: 6,      // Larger on hover
+                        pointBackgroundColor: COLORS.lineBorder,
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                        // ---------------------------
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true, 
+                    aspectRatio: 2,
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(20, 20, 30, 0.9)',
+                            titleColor: COLORS.text,
+                            bodyColor: COLORS.text,
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            callbacks: {
+                                title: () => '',
+                                label: (ctx) => `Ratings: ${ctx.parsed.y}` // Tooltip text updated
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: {
+                            border: { display: false },
+                            grid: { color: COLORS.grid, borderDash: [5, 5] },
+                            ticks: { color: COLORS.textDim, font: { family: 'Poppins', size: 10 } }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        })
+        .catch(err => console.error(err));
+}
+
+// ==========================================
+// 4. PIE CHART
+// ==========================================
+fetch(API_URL).then(res => res.json()).then(json => {
+    const canvas = document.getElementById('dsaPieChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const dataValues = [
+        json.codechef.problems_solved_total || 0,
+        json.codeforces.problems_solved_total || 0,
+        json.leetcode.problems_solved_easy || 0,
+        json.leetcode.problems_solved_medium || 0,
+        json.leetcode.problems_solved_hard || 0,
+        json.geeksforgeeks.problems_solved_total || 0
+    ];
+    
+    // --- Center Text Plugin ---
+    const centerTextPlugin = {
+        id: 'centerText',
+        beforeDraw: function(chart) {
+            const { ctx } = chart;
+            ctx.restore();
+            const total = chart.config.data.datasets[0].data.reduce((a, b) => a + b, 0);
+            const meta = chart.getDatasetMeta(0);
+            if (!meta.data[0]) return;
+            
+            const innerRadius = meta.data[0].innerRadius;
+            const centerX = meta.data[0].x;
+            const centerY = meta.data[0].y;
+
+            ctx.font = `bold ${(innerRadius * 0.6).toFixed(2)}px Poppins`;
+            ctx.textBaseline = 'middle';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = COLORS.text;
+            ctx.fillText(total, centerX, centerY - (innerRadius * 0.15));
+
+            ctx.font = `500 ${(innerRadius * 0.2).toFixed(2)}px Poppins`;
+            ctx.fillStyle = COLORS.textDim;
+            ctx.fillText("Solved", centerX, centerY + (innerRadius * 0.25));
+            ctx.save();
+        }
     };
 
-    const labels = Object.keys(rawValues);
-    const values = Object.values(rawValues);
-    const total = values.reduce((a, b) => a + b, 0);
+    let clickedIndex = null;
 
-    const backgroundColors = [
-      '#FF9F1C',  // CodeChef
-  '#00C9A7',  // Codeforces
-  '#6A4C93',  // DSA Easy
-  '#F72585',  // DSA Medium
-  '#3A86FF',  // DSA Hard
-  '#FF4C29',  // GFG
-  '#8338EC'   // HackerRank
-    ];
-
-    const ctx = document.getElementById('dsaPieChart').getContext('2d');
     new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: labels,
-        datasets: [{
-          data: values,
-          backgroundColor: backgroundColors,
-          hoverOffset: 12,
-          spacing: 3,
-          borderWidth: 2,
-           borderColor: '#f2e4ef',
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: {
-          padding: 10
+        type: 'doughnut',
+        data: {
+            labels: ['CodeChef', 'Codeforces', 'LC Easy', 'LC Medium', 'LC Hard', 'GFG'],
+            datasets: [{
+                data: dataValues,
+                backgroundColor: [COLORS.pie.codechef, COLORS.pie.codeforces, COLORS.pie.easy, COLORS.pie.medium, COLORS.pie.hard, COLORS.pie.gfg],
+                borderWidth: 0,
+                offset: 0
+            }]
         },
-        cutout: '50%',
-        animation: {
-          animateRotate: true,
-          duration: 1000,
-          easing: 'easeOutBounce'
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+            cutout: '75%',
+            layout: { padding: 20 },
+            onClick: (e, elements, chart) => {
+                if (elements[0]) {
+                    const index = elements[0].index;
+                    clickedIndex = (clickedIndex === index) ? null : index;
+                    chart.data.datasets[0].offset = chart.data.datasets[0].data.map((_, i) => i === clickedIndex ? 20 : 0);
+                    chart.update();
+                } else {
+                    clickedIndex = null;
+                    chart.data.datasets[0].offset = chart.data.datasets[0].data.map(() => 0);
+                    chart.update();
+                }
+            },
+            plugins: {
+                legend: { 
+                    display: true, position: 'bottom', 
+                    labels: { color: COLORS.text, font: { family: 'Poppins', size: 11 }, usePointStyle: true, boxWidth: 8 }
+                },
+                tooltip: { enabled: true },
+                datalabels: { display: false }
+            }
         },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#f2e4ef',
-              font: {
-                family: 'Poppins'
-              }
-            }
-          },
-          tooltip: {
-            callbacks: {
-              title: function () {
-                return '';
-              },
-              label: function (tooltipItem) {
-                const label = tooltipItem.label;
-                const raw = tooltipItem.raw;
-                return `${label}: ${raw}`;
-              }
-            }
-          },
-          datalabels: {
-            color: '#0b050a',
-            font: {
-              weight: 'bold',
-              size: 12,
-              family: 'Poppins'
-            },
-            formatter: (value) => {
-              return `${value}`;
-            },
-            anchor: 'center',
-            clamp: true
-          }
-        }
-      },
-      plugins: [ChartDataLabels]
+        plugins: [centerTextPlugin]
     });
-  })
-  .catch(error => {
-    console.error('Failed to fetch pie chart data:', error);
-  });
+});
 
-  function generateSummary(platform, contests, currentRating, maxRating, rank = "") {
-    return `I have participated in <span class="highlight">${contests}</span> <span class="highlight">${platform}</span> contests so far. My current rating stands at <span class="highlight">${currentRating}</span>, with a personal best of <span class="highlight">${maxRating}</span>. ${rank && `I currently hold the "<span class="highlight">${rank}</span>" rank.`}`.trim();
-  }  
+// ==========================================
+// 5. INIT
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    loadPlatformData('leetcode');
+    document.querySelectorAll('input[name="platform"]').forEach(r => {
+        r.addEventListener('change', (e) => loadPlatformData(e.target.value));
+    });
+});

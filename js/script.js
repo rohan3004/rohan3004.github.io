@@ -162,15 +162,32 @@ function GenerateInstaPosts() {
 
 async function loadStats() {
     try {
-        const response = await fetch('https://scribe.rohandev.online/stats');
+        const response = await fetch('https://apis.byrohan.in/v1/reports/rohan.chakravarty02@gmail.com');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        document.getElementById('total-questions').textContent = data.total_questions;
-        document.getElementById('total-active-days').textContent = data.total_active_days;
-        document.getElementById('submissions').textContent = data.submissions;
-        document.getElementById('max-streak').textContent = data.max_streak;
+
+        // 1. Calculate total questions from all platforms
+        const totalQuestions = (
+            (data.codechef?.problems_solved_total || 0) +
+            (data.codeforces?.problems_solved_total || 0) +
+            (data.geeksforgeeks?.problems_solved_total || 0) +
+            (data.leetcode?.problems_solved_total || 0)
+        );
+
+        // 2. Get badges (specifically from LeetCode as per the data)
+        const totalBadges = data.leetcode?.platform_specific?.badges || 0;
+        const streakMax = data.leetcode?.streak_max || 0;
+        const topPercent = data.leetcode?.platform_specific?.top_percentage || 0;
+        const codechefBadge = data.codechef?.platform_specific?.contest_rank_stars || 2;
+
+        // Update the DOM
+        document.getElementById('total-questions').textContent = totalQuestions;
+        document.getElementById('total-active-days').textContent = totalBadges; 
+        document.getElementById('submissions').textContent = topPercent;
+        document.getElementById('max-streak').textContent = streakMax;
+        document.getElementById('codechef-badge').textContent = codechefBadge;
     } catch (error) {
         console.error("Failed to fetch stats:", error);
         document.getElementById('total-questions').textContent = "Error";
