@@ -27,9 +27,9 @@ let Terminal;
 let Keyboard;
 const app = () => {
   fetch("https://apis.byrohan.in/v1/your_ip")
-  .then(response => response.text())
+  .then(response => response.json())
   .then(data => {
-    document.getElementById("ip-display").textContent = data;
+    document.getElementById("ip-display").textContent = data.ip;
   })
   .catch(error => {
     console.error("Error fetching IP from Spring Boot:", error);
