@@ -22,16 +22,24 @@ function setYear() {
 
 // Function to play a random background song
 function playRandomBackgroundMusic() {
-    const songs = ['music1.mp3', 'music2.mp3', 'music3.mp3', 'music4.mp3','music5.mp3'];
+    const songs = [
+        "music1.mp3",
+        "music2.mp3",
+        "music3.mp3",
+        "music4.mp3",
+        "music5.mp3",
+    ];
     const randomIndex = Math.floor(Math.random() * songs.length);
     const randomSong = songs[randomIndex];
     const audioSourceUrl = `https://rcxdev.com/assets/music/${randomSong}`;
-    const audioPlayer = document.getElementById('backgroundMusic');
+    const audioPlayer = document.getElementById("backgroundMusic");
 
     if (audioPlayer) {
         audioPlayer.src = audioSourceUrl;
-        audioPlayer.play().catch(error => {
-            console.log("Autoplay was prevented by the browser. User must interact with the page first.");
+        audioPlayer.play().catch((error) => {
+            console.log(
+                "Autoplay was prevented by the browser. User must interact with the page first."
+            );
         });
     }
 }
@@ -44,36 +52,49 @@ async function fetchGitHubData() {
         "DevOps-Showcase": "./assets/projects/p3.png",
         "Evaluator-System": "./assets/projects/p6.png",
         "Face-Frenzy": "./assets/projects/p4.png",
-        "chessMind": "./assets/projects/p5.png",
+        chessMind: "./assets/projects/p5.png",
     };
 
     try {
-        const reposResponse = await fetch("https://apis.byrohan.in/v1/github/repositories");
+        const reposResponse = await fetch(
+            "https://apis.byrohan.in/v1/github/repositories"
+        );
         const reposData = await reposResponse.json();
-        const filteredRepos = reposData.filter((repo) => repoMap.hasOwnProperty(repo.name));
+        const filteredRepos = reposData.filter((repo) =>
+            repoMap.hasOwnProperty(repo.name)
+        );
 
         if (Array.isArray(reposData)) {
             const repoContainer = document.getElementById("repo-container");
             for (const repo of filteredRepos) {
                 const hostedURL = `https://${username}.github.io/${repo.name}`;
-                const languagesResponse = await fetch(`https://apis.byrohan.in/github/languages/${repo.name}`);
+                const languagesResponse = await fetch(
+                    `https://apis.byrohan.in/github/languages/${repo.name}`
+                );
                 const languages = await languagesResponse.json();
-                const languageList = Object.keys(languages).map(lang => `<span class="language-item">${lang}</span>`).join(", ");
+                const languageList = Object.keys(languages)
+                    .map((lang) => `<span class="language-item">${lang}</span>`)
+                    .join(", ");
 
                 const card = document.createElement("div");
                 card.className = "repo-card";
                 card.innerHTML = `
                     <div class="article-container" onclick="window.location.href='${hostedURL}';">
-                        <img src="${repoMap[repo.name]}" alt="${repo.name}" loading="lazy">
+                        <img src="${repoMap[repo.name]}" alt="${repo.name
+                    }" loading="lazy">
                         <div class="repo-content">
                             <h3>
-                                <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                                <span class="stars"><i class="fa-solid fa-star" style="color:yellow;"></i> ${repo.stargazers_count}</span>
+                                <a href="${repo.html_url}" target="_blank">${repo.name
+                    }</a>
+                                <span class="stars"><i class="fa-solid fa-star" style="color:yellow;"></i> ${repo.stargazers_count
+                    }</span>
                             </h3>
                             <div class="repo-stats">
-                                <div class="language">${languageList || "N/A"}</div>
+                                <div class="language">${languageList || "N/A"
+                    }</div>
                             </div>
-                            <p>${repo.description || "No description provided."}</p>
+                            <p>${repo.description || "No description provided."
+                    }</p>
                         </div>
                     </div>`;
                 repoContainer.appendChild(card);
@@ -88,21 +109,35 @@ async function fetchGitHubData() {
 
 async function getWeather() {
     try {
-        const response = await fetch("https://api.weatherapi.com/v1/current.json?key=fc9c2d13772441e9b72191328240604&q=Kolkata");
+        const response = await fetch(
+            "https://api.weatherapi.com/v1/current.json?key=fc9c2d13772441e9b72191328240604&q=Kolkata"
+        );
         const data = await response.json();
 
         if (data && data.current) {
-            document.getElementById("temp").textContent = `${data.current.temp_c}°C in Kolkata`;
-            document.getElementById("condition").textContent = `${data.current.condition.text} ${data.current.pressure_mb} hPa`;
-            document.getElementById("icon").src = `https:${data.current.condition.icon}`;
+            document.getElementById(
+                "temp"
+            ).textContent = `${data.current.temp_c}°C in Kolkata`;
+            document.getElementById(
+                "condition"
+            ).textContent = `${data.current.condition.text} ${data.current.pressure_mb} hPa`;
+            document.getElementById(
+                "icon"
+            ).src = `https:${data.current.condition.icon}`;
             document.getElementById("humidity").textContent = data.current.humidity;
-            document.getElementById("wind").textContent = `${data.current.wind_dir} ${data.current.wind_kph}`;
+            document.getElementById(
+                "wind"
+            ).textContent = `${data.current.wind_dir} ${data.current.wind_kph}`;
         } else {
-            document.getElementById("weatherRohan").innerHTML = `<p>City not found</p>`;
+            document.getElementById(
+                "weatherRohan"
+            ).innerHTML = `<p>City not found</p>`;
         }
     } catch (error) {
         console.error("Error fetching weather data:", error);
-        document.getElementById("weatherRohan").innerHTML = `<p>Unable to get weather data</p>`;
+        document.getElementById(
+            "weatherRohan"
+        ).innerHTML = `<p>Unable to get weather data</p>`;
     }
 }
 
@@ -129,18 +164,90 @@ function htmlInstaPost(index, { caption, imageUrl }) {
 }
 
 const imageCaptions = new Map([
-    [1, { caption: "Lost in Heaven<br>Shot on Canon EOS R10", imageUrl: "./assets/photography/p11.png" }],
-    [2, { caption: "Hadimba Temple<br>Shot on Canon EOS R10", imageUrl: "./assets/photography/p12.png" }],
-    [3, { caption: "It's Either You or Nobody✨<br>Shot on Xiaomi 11T Pro", imageUrl: "./assets/photography/p10.jpeg" }],
-    [4, { caption: "Sunset<br>Shot on Xiaomi 11T Pro", imageUrl: "./assets/photography/p9.jpg" }],
-    [5, { caption: "Kolkata Christmas<br>Shot on Xiaomi 11T Pro", imageUrl: "./assets/photography/p8.jpg" }],
-    [6, { caption: "Khiderpore Docks<br>Shot on Redmi Note 10 Pro Max", imageUrl: "./assets/photography/p7.jpg" }],
-    [7, { caption: "Macro Photography<br>Shot on Redmi Note 10 Pro Max", imageUrl: "./assets/photography/p6.jpg" }],
-    [8, { caption: "Railway Tracks<br>Shot on Redmi K30", imageUrl: "./assets/photography/p5.jpg" }],
-    [9, { caption: "Fountain Stop Motion<br>Shot on Redmi K30", imageUrl: "./assets/photography/p4.jpg" }],
-    [10, { caption: "Beautiful Sunrise Sky<br>Shot on Redmi K30", imageUrl: "./assets/photography/p3.jpg" }],
-    [11, { caption: "Night Photography - Bulb Mode<br>Shot on Redmi Note 8 Pro", imageUrl: "./assets/photography/p2.jpg" }],
-    [12, { caption: "Annual Solar Eclipse<br>Shot on Redmi Note 8 Pro", imageUrl: "./assets/photography/p1.jpg" }],
+    [
+        1,
+        {
+            caption: "Lost in Heaven<br>Shot on Canon EOS R10",
+            imageUrl: "./assets/photography/p11.png",
+        },
+    ],
+    [
+        2,
+        {
+            caption: "Hadimba Temple<br>Shot on Canon EOS R10",
+            imageUrl: "./assets/photography/p12.png",
+        },
+    ],
+    [
+        3,
+        {
+            caption: "It's Either You or Nobody✨<br>Shot on Xiaomi 11T Pro",
+            imageUrl: "./assets/photography/p10.jpeg",
+        },
+    ],
+    [
+        4,
+        {
+            caption: "Sunset<br>Shot on Xiaomi 11T Pro",
+            imageUrl: "./assets/photography/p9.jpg",
+        },
+    ],
+    [
+        5,
+        {
+            caption: "Kolkata Christmas<br>Shot on Xiaomi 11T Pro",
+            imageUrl: "./assets/photography/p8.jpg",
+        },
+    ],
+    [
+        6,
+        {
+            caption: "Khiderpore Docks<br>Shot on Redmi Note 10 Pro Max",
+            imageUrl: "./assets/photography/p7.jpg",
+        },
+    ],
+    [
+        7,
+        {
+            caption: "Macro Photography<br>Shot on Redmi Note 10 Pro Max",
+            imageUrl: "./assets/photography/p6.jpg",
+        },
+    ],
+    [
+        8,
+        {
+            caption: "Railway Tracks<br>Shot on Redmi K30",
+            imageUrl: "./assets/photography/p5.jpg",
+        },
+    ],
+    [
+        9,
+        {
+            caption: "Fountain Stop Motion<br>Shot on Redmi K30",
+            imageUrl: "./assets/photography/p4.jpg",
+        },
+    ],
+    [
+        10,
+        {
+            caption: "Beautiful Sunrise Sky<br>Shot on Redmi K30",
+            imageUrl: "./assets/photography/p3.jpg",
+        },
+    ],
+    [
+        11,
+        {
+            caption: "Night Photography - Bulb Mode<br>Shot on Redmi Note 8 Pro",
+            imageUrl: "./assets/photography/p2.jpg",
+        },
+    ],
+    [
+        12,
+        {
+            caption: "Annual Solar Eclipse<br>Shot on Redmi Note 8 Pro",
+            imageUrl: "./assets/photography/p1.jpg",
+        },
+    ],
 ]);
 
 function GenerateInstaPosts() {
@@ -162,39 +269,63 @@ function GenerateInstaPosts() {
 
 async function loadStats() {
     try {
-        const response = await fetch('https://apis.byrohan.in/v1/reports/rohan.chakravarty02@gmail.com');
+        const response = await fetch(
+            "https://apis.byrohan.in/v1/reports/rohan.chakravarty02@gmail.com"
+        );
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
 
         // 1. Calculate total questions from all platforms
-        const totalQuestions = (
+        const totalQuestions =
             (data.codechef?.problems_solved_total || 0) +
             (data.codeforces?.problems_solved_total || 0) +
             (data.geeksforgeeks?.problems_solved_total || 0) +
-            (data.leetcode?.problems_solved_total || 0)
-        );
+            (data.leetcode?.problems_solved_total || 0);
 
         // 2. Get badges (specifically from LeetCode as per the data)
         const totalBadges = data.leetcode?.platform_specific?.badges || 0;
         const streakMax = data.leetcode?.streak_max || 0;
         const topPercent = data.leetcode?.platform_specific?.top_percentage || 0;
-        const codechefBadge = data.codechef?.platform_specific?.contest_rank_stars || 2;
+        const codechefBadge =
+            data.codechef?.platform_specific?.contest_rank_stars || 2;
 
         // Update the DOM
-        document.getElementById('total-questions').textContent = totalQuestions;
-        document.getElementById('total-active-days').textContent = totalBadges; 
-        document.getElementById('submissions').textContent = topPercent;
-        document.getElementById('max-streak').textContent = streakMax;
-        document.getElementById('codechef-badge').textContent = codechefBadge;
+        document.getElementById("total-questions").textContent = totalQuestions;
+        document.getElementById("total-active-days").textContent = totalBadges;
+        document.getElementById("submissions").textContent = topPercent;
+        document.getElementById("max-streak").textContent = streakMax;
+        document.getElementById("codechef-badge").textContent = codechefBadge;
     } catch (error) {
         console.error("Failed to fetch stats:", error);
-        document.getElementById('total-questions').textContent = "Error";
-        document.getElementById('total-active-days').textContent = "Error";
+        document.getElementById("total-questions").textContent = "Error";
+        document.getElementById("total-active-days").textContent = "Error";
     }
 }
 
+async function loadHeroBg() {
+    // Set the specific HLS stream URL
+    const src = "https://stream.byrohan.in/hls/vid_bg1/master.m3u8";
+    const video = document.getElementById("player");
+
+    // Load HLS
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            video.play().catch((e) => console.log("Autoplay blocked:", e));
+        });
+    }
+    // Fallback for Safari (native HLS support)
+    else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = src;
+        video.addEventListener("loadedmetadata", () => {
+            video.play().catch((e) => console.log("Autoplay blocked:", e));
+        });
+    }
+}
 
 // ===================================================================
 //
@@ -210,4 +341,5 @@ window.onload = () => {
     loadStats();
     GenerateInstaPosts();
     playRandomBackgroundMusic(); // Added the music function here
+    loadHeroBg();
 };

@@ -613,6 +613,29 @@ async function loadStats() {
     }
 }
 
+async function loadHeroBg() {
+    // Set the specific HLS stream URL
+    const src = "https://stream.byrohan.in/hls/vid_bg1/master.m3u8";
+    const video = document.getElementById("player");
+
+    // Load HLS
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            video.play().catch((e) => console.log("Autoplay blocked:", e));
+        });
+    }
+    // Fallback for Safari (native HLS support)
+    else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = src;
+        video.addEventListener("loadedmetadata", () => {
+            video.play().catch((e) => console.log("Autoplay blocked:", e));
+        });
+    }
+}
+
 
 // ===================================================================
 //
@@ -628,4 +651,5 @@ window.onload = () => {
     loadStats();
     GenerateInstaPosts();
     playRandomBackgroundMusic(); // Added the music function here
+    loadHeroBg();
 };
