@@ -504,23 +504,57 @@ async function fetchGitHubData() {
     }
 }
 
+async function getIpDetails() {
+    try {
+        const ipDetails = await fetch("https://apis.byrohan.in/v1/your_ip");
+        const data = await ipDetails.json();
+
+        // Check if the specific path exists, otherwise return default
+        if (data?.cityNames?.en) {
+            return data.cityNames.en;
+        }
+    } catch (ignored) {
+        // Fallback if fetch fails or JSON parse fails
+        console.log("IP fetch failed, using default.");
+    }
+    
+    // Default return if anything above fails
+    return "Kolkata";
+}
+
 async function getWeather() {
     try {
-        const response = await fetch("https://api.weatherapi.com/v1/current.json?key=fc9c2d13772441e9b72191328240604&q=Kolkata");
+        // 1. Get the city (will be "Kolkata" if IP fetch failed)
+        const cityName = await getIpDetails();
+
+        // 2. Fetch weather
+        const response = await fetch(
+            `https://api.weatherapi.com/v1/current.json?key=fc9c2d13772441e9b72191328240604&q=${cityName}`
+        );
         const data = await response.json();
 
+        // 3. Update UI
         if (data && data.current) {
-            document.getElementById("temp").textContent = `${data.current.temp_c}°C in Kolkata`;
-            document.getElementById("condition").textContent = `${data.current.condition.text} ${data.current.pressure_mb} hPa`;
-            document.getElementById("icon").src = `https:${data.current.condition.icon}`;
+            document.getElementById("temp").textContent = `${data.current.temp_c}°C in ${cityName}`;
+            
+            document.getElementById("condition").textContent = 
+                `${data.current.condition.text} ${data.current.pressure_mb} hPa`;
+            
+            // Ensure the icon URL is valid (sometimes APIs omit the leading https:)
+            document.getElementById("icon").src = data.current.condition.icon.startsWith("//") 
+                ? `https:${data.current.condition.icon}` 
+                : data.current.condition.icon;
+                
             document.getElementById("humidity").textContent = data.current.humidity;
             document.getElementById("wind").textContent = `${data.current.wind_dir} ${data.current.wind_kph}`;
         } else {
+            // Handle API errors (e.g., invalid API key or city not found)
             document.getElementById("weatherRohan").innerHTML = `<p>City not found</p>`;
         }
     } catch (error) {
         console.error("Error fetching weather data:", error);
-        document.getElementById("weatherRohan").innerHTML = `<p>Unable to get weather data</p>`;
+        const container = document.getElementById("weatherRohan");
+        if(container) container.innerHTML = `<p>Unable to get weather data</p>`;
     }
 }
 
