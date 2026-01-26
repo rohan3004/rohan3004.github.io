@@ -1,541 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta property="og:title" content="Rohan Chakravarty's Portfolio" />
-  <meta property="og:description" content="I am Software Developer Engineer, Cloud Architect, DevOps Engineer" />
-  <meta property="og:image" content="https://rcxdev.com/assets/logo.webp" />
-  <meta property="og:url" content="https://rcxdev.com/" />
-  <meta property="og:type" content="profile" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#b16f59" />
-  <meta http-equiv="Content-Language" content="en-US" />
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Rohan Chakravarty - Portfolio</title>
-  <link rel="stylesheet" href="./styles/main.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apex Node | portfolio.byrohan.in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./favicon.ico" />
+    <style>
+        :root {
+            /* Dark Mode Gradient */
+            --bg-top: #0f172a; /* Deep Slate/Navy */
+            --bg-bot: #1e293b; /* Slightly lighter Slate */
+            --text-color: #f1f5f9;
+            --accent-green: #4ade80;
+            --ui-font: 'Nunito', sans-serif;
+            
+            /* Dark Glass styling */
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
 
+        body {
+            font-family: var(--ui-font);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, var(--bg-top), var(--bg-bot));
+            color: var(--text-color);
+            touch-action: none;
+        }
 
+        /* Canvas Layers */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print"
-    onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </noscript>
+        #bg-canvas { z-index: 0; }
+        #game-canvas { z-index: 1; cursor: pointer; }
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        /* --- UI OVERLAY --- */
+        .ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 4vh;
+        }
 
-  <link rel="icon" href="./favicon.ico" />
-  <link rel="manifest" href="./manifest.json" />
+        /* Profile / Status Card (Dark Mode Version) */
+        .status-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            text-align: left;
+            pointer-events: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4); /* Stronger shadow */
+            margin-bottom: 20px;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
 
-  <!-- <script src="./js/min/contact.min.js"></script> -->
-  <!-- <script src="./js/main.combined.js"></script> -->
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 12px;
+        }
+
+        .node-badge {
+            background: rgba(255,255,255,0.1);
+            color: #94a3b8;
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .live-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: blink 2s infinite;
+        }
+
+        .domain-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .profile-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6366f1, #a855f7); /* Purple/Indigo gradient */
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .bio-content h2 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: #e2e8f0;
+        }
+
+        .bio-content p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #94a3b8; /* Muted text for readability */
+            margin-bottom: 12px;
+        }
+
+        .tech-specs {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 0.75rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            color: #cbd5e1;
+        }
+
+        .spec-val {
+            font-family: monospace;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 0.8rem;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* Action Button */
+        .redirect-btn {
+            display: block;
+            width: 100%;
+            background: #fff; /* White button pops on dark bg */
+            color: #0f172a;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+
+        .redirect-btn:active { transform: scale(0.98); }
+        .redirect-btn:hover { 
+            background: #f8fafc;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3); 
+        }
+
+        /* HUD: Score */
+        .score-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .score { font-size: 2.5rem; font-weight: 900; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .high-score { font-size: 0.9rem; font-weight: 700; color: #94a3b8; margin-top: -5px; }
+        .new-record { color: #facc15; animation: pulse-gold 1s infinite; text-shadow: 0 0 10px rgba(250, 204, 21, 0.4); }
+
+        .reset-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 20;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .game-over-msg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 30;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .flash-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 50;
+            transition: opacity 0.1s;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-gold { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        @media (max-width: 600px) {
+            .status-card { padding: 16px; margin-top: 50px; }
+            .domain-title { font-size: 1.1rem; }
+            .bio-content p { display: none; }
+            .bio-content p.short-bio { display: block; }
+        }
+        @media (min-width: 601px) {
+            .bio-content p.short-bio { display: none; }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="modal" id="musicModal">
-    <div class="modal-content" id="musicModalContainer">
-      <h2>Enable Music?</h2>
-      <img src="./assets/modal.webp" alt="">
-      <button class="btn btn-color-1" id="playMusic">
-        <i class="fa-regular fa-face-laugh-wink"></i> Yes
-      </button>
-      <button class="btn btn-color-2" id="noMusic">
-        <i class="fa-regular fa-face-sad-cry"></i> No
-      </button>
-    </div>
-  </div>
 
-  <!-- Your audio element, now without a source -->
-  <audio id="backgroundMusic" loop preload="auto" autoplay>
-      <!-- The source will be added by JavaScript -->
-  </audio>
-  <!-- <script src="./js/min/modal.min.js"></script> -->
-  <div class="menu">
-    <a href="https://blog.rohandev.online" class="link">
-      <span class="link-icon">
-        <!-- icon -->
-        <svg width="192" height="192" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M7.385 6.67244L11.029 3.52744C11.8836 2.82419 13.1164 2.82419 13.971 3.52744L17.615 6.67244C17.9887 6.98222 18.2079 7.44011 18.215 7.92544L18.5 18.0004C18.5 19.6573 17.1569 21.0004 15.5 21.0004H9.5C7.84315 21.0004 6.5 19.6573 6.5 18.0004L6.782 7.92544C6.78982 7.43962 7.01021 6.98165 7.385 6.67244Z"
-            stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          <path
-            d="M10.5 13.2504C10.0858 13.2504 9.75 13.5862 9.75 14.0004C9.75 14.4147 10.0858 14.7504 10.5 14.7504V13.2504ZM14.5 14.7504C14.9142 14.7504 15.25 14.4147 15.25 14.0004C15.25 13.5862 14.9142 13.2504 14.5 13.2504V14.7504ZM9.5 16.2504C9.08579 16.2504 8.75 16.5862 8.75 17.0004C8.75 17.4147 9.08579 17.7504 9.5 17.7504V16.2504ZM15.5 17.7504C15.9142 17.7504 16.25 17.4147 16.25 17.0004C16.25 16.5862 15.9142 16.2504 15.5 16.2504V17.7504ZM11 8.50045L11.75 8.50078L11 8.50045ZM12.208 7.02982L12.062 6.29417L12.208 7.02982ZM13.886 7.92764L13.193 8.21438V8.21438L13.886 7.92764ZM13.3329 9.74862L12.9165 9.12487L13.3329 9.74862ZM11.439 9.56144L10.9085 10.0916L11.439 9.56144ZM10.5 14.7504H14.5V13.2504H10.5V14.7504ZM9.5 17.7504H15.5V16.2504H9.5V17.7504ZM11.75 8.50078C11.7502 8.14299 12.003 7.83513 12.354 7.76547L12.062 6.29417C11.0091 6.50314 10.2505 7.42672 10.25 8.50011L11.75 8.50078ZM12.354 7.76547C12.7049 7.69582 13.0562 7.88377 13.193 8.21438L14.5791 7.64089C14.1687 6.64905 13.1148 6.08521 12.062 6.29417L12.354 7.76547ZM13.193 8.21438C13.3298 8.54499 13.214 8.9262 12.9165 9.12487L13.7494 10.3724C14.6421 9.77635 14.9894 8.63273 14.5791 7.64089L13.193 8.21438ZM12.9165 9.12487C12.6189 9.32355 12.2224 9.28437 11.9695 9.03128L10.9085 10.0916C11.6673 10.8508 12.8567 10.9684 13.7494 10.3724L12.9165 9.12487ZM11.9695 9.03128C11.8289 8.89056 11.7499 8.69973 11.75 8.50078L10.25 8.50011C10.2497 9.09695 10.4866 9.66944 10.9085 10.0916L11.9695 9.03128Z"
-            fill="#000000" />
-        </svg>
-        <!-- /icon -->
-      </span>
-      <span class="link-title">Blog</span>
-    </a>
-    <a href="#projects" class="link">
-      <span class="link-icon">
-        <!-- icon -->
-        <svg width="192" height="192" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M5.5 8C6.88071 8 8 6.88071 8 5.5C8 4.11929 6.88071 3 5.5 3C4.11929 3 3 4.11929 3 5.5C3 6.88071 4.11929 8 5.5 8ZM5.5 8V16M5.5 16C4.11929 16 3 17.1193 3 18.5C3 19.8807 4.11929 21 5.5 21C6.88071 21 8 19.8807 8 18.5C8 17.1193 6.88071 16 5.5 16ZM18.5 8C19.8807 8 21 6.88071 21 5.5C21 4.11929 19.8807 3 18.5 3C17.1193 3 16 4.11929 16 5.5C16 6.88071 17.1193 8 18.5 8ZM18.5 8C18.5 8.92997 18.5 9.39496 18.3978 9.77646C18.1204 10.8117 17.3117 11.6204 16.2765 11.8978C15.895 12 15.43 12 14.5 12H8.5C6.84315 12 5.5 13.3431 5.5 15"
-            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <!-- /icon -->
-      </span>
-      <span class="link-title">Projects</span>
-    </a>
-    <a href="#experience" class="link">
-      <span class="link-icon">
-        <!-- icon -->
-        <svg fill="#000000" width="192" height="192" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M6.272,22.414l4.2-4.2.929.93a1,1,0,1,0,1.414-1.414l-.774-.775,8.8-5.869a1,1,0,0,0,.445-.832V3.707a1,1,0,0,0-1-1H13.747a1,1,0,0,0-.832.445l-5.869,8.8-.774-.774A1,1,0,1,0,4.858,12.6l.93.93-4.2,4.2a1,1,0,0,0,0,1.414l3.272,3.272A1,1,0,0,0,6.272,22.414Zm8.01-17.707h5.011v5.01L10.6,15.511c-.1-.1-2.25-2.25-2.113-2.113ZM7.2,14.94,9.06,16.8l-3.495,3.5L3.707,18.435Z" />
-        </svg>
-        <!-- /icon -->
-      </span>
-      <span class="link-title">Skills</span>
-    </a>
-    <a href="#photography" class="link">
-      <span class="link-icon">
-        <!-- icon -->
-        <svg width="192" height="192" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          <path
-            d="M3 16.8V9.2C3 8.0799 3 7.51984 3.21799 7.09202C3.40973 6.71569 3.71569 6.40973 4.09202 6.21799C4.51984 6 5.0799 6 6.2 6H7.25464C7.37758 6 7.43905 6 7.49576 5.9935C7.79166 5.95961 8.05705 5.79559 8.21969 5.54609C8.25086 5.49827 8.27836 5.44328 8.33333 5.33333C8.44329 5.11342 8.49827 5.00346 8.56062 4.90782C8.8859 4.40882 9.41668 4.08078 10.0085 4.01299C10.1219 4 10.2448 4 10.4907 4H13.5093C13.7552 4 13.8781 4 13.9915 4.01299C14.5833 4.08078 15.1141 4.40882 15.4394 4.90782C15.5017 5.00345 15.5567 5.11345 15.6667 5.33333C15.7216 5.44329 15.7491 5.49827 15.7803 5.54609C15.943 5.79559 16.2083 5.95961 16.5042 5.9935C16.561 6 16.6224 6 16.7454 6H17.8C18.9201 6 19.4802 6 19.908 6.21799C20.2843 6.40973 20.5903 6.71569 20.782 7.09202C21 7.51984 21 8.0799 21 9.2V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8Z"
-            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <!-- /icon -->
-      </span>
-      <span class="link-title">Lens</span>
-    </a>
-  </div>
-  <div class="homeSection">
-    <div class="video-background">
-        <video id="player" autoplay muted loop playsinline></video>
-    </div>
-    <section id="profile">
-      <div id="boxes">
-        <div id="player02" class="player horizontal">
-          <div class="wrapper">
-            <div class="info-wrapper">
-              <img src="./assets/Rohan Chakravarty.webp" alt="Rohan Chakravarty" />
-              <div class="info">
-                <h1>Hello, World!</h1>
-                <p style="color: #e4b1f0; color: white;">Top <span id="submissions">14%</span>😤 |🔥<span
-                    id="max-streak">144</span></p>
-              </div>
-            </div>
-            <div id="weatherRohan">
-              <div class="weather-info">
-                <div class="details">
-                  <p class="temperature" id="temp">--°C in Kolkata</p>
-                  <p class="condition" id="condition"></p>
-                </div>
-                <img id="icon" src="" alt="Weather Icon" />
-                <div class="details">
-                  <p>
-                    <i class="fas fa-tint"></i><span id="humidity">--</span>%
-                  </p>
-                  <p>
-                    <i class="fa-solid fa-wind"></i><span id="wind">--</span> km/h
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="track-time">
-              <div class="track"></div>
-              <div class="time">
-                <p><span id="total-questions">820</span> Qs | <span id="total-active-days">20</span> Badges | <span id="codechef-badge">2</span>⭐@Codechef
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1" style="color:#F5F5F5">Hello, I'm</p>
-        <h1 class="title">Rohan Chakravarty</h1>
-        <p class="section__text__p2" style="color:#F5F5F5">Software Developer</p>
-        <div class="btn-container">
-          <button class="btn specialBtn" onclick="window.open('./assets/RohanChakravarty.pdf')">
-            Resume <i class="fa-solid fa-file"></i>
-          </button>
-          <button class="btn specialBtn" onclick="location.href='./#contact'">
-            Contact Me <i class="fa-solid fa-address-book"></i>
-          </button>
-        </div>
-        <div id="socials-container">
-          <img src="./assets/health.svg" alt="Check the Health of the Server" class="icon"
-            onclick="location.href='https://rcxdev.com/health'" title="Check Health of the Server">
-          <img src="./assets/mail.svg" alt="My Email" class="icon"
-            onclick="location.href='mailto:hello@rcxdev.com'" title="My Email Address" />
-          <img src="./assets/linkedin.svg" alt="My LinkedIn profile" class="icon"
-            onclick="location.href='https://www.linkedin.com/in/rohan-chakravarty-/'" title="My LinkedIn Profile" />
-          <img src="./assets/github.svg" alt="My Github profile" class="icon"
-            onclick="location.href='https://github.com/rohan3004/'" title="My Github Profile" />
-        </div>
-      </div>
-    </section>
-  </div>
-  <section id="about">
-    <p class="section__text__p1">Get To Know My Statistics</p>
-    <h1 class="title">Fundamentals</h1>
-    <div class="section-container">
-      <div class="section__pic-container"
-        style="position: relative; width: 100%; max-width: 800px; margin: auto; height: 500px;">
-        <canvas id="dsaPieChart"></canvas>
-      </div>
-      <div class="about-details-container">
-        <div class="about-containers chart-container">
-          <div>
-            <form>
-              <label>
-                <input type="radio" name="platform" value="leetcode" checked>
-                <span>LeetCode</span>
-              </label>
-              <label>
-                <input type="radio" name="platform" value="codechef">
-                <span>CodeChef</span>
-              </label>
-              <label>
-                <input type="radio" name="platform" value="codeforces">
-                <span>Codeforces</span>
-              </label>
-               <label>
-                <input type="radio" name="platform" value="geeksforgeeks">
-                <span>GeeksforGeeks</span>
-              </label>
-            </form>
-          </div>
-          <canvas id="ratingChart"></canvas>
-          <!-- <script src="./js/min/graph.min.js"></script> -->
-        </div>
-        <div class="text-container">
-          <p>
-            I’m a developer with hands-on experience in <span class="highlight">Java</span>, <span
-              class="highlight">C/C++</span>, <span class="highlight">Python</span>, <span
-              class="highlight">JavaScript</span>, and <span class="highlight">SQL</span>. I build robust, scalable
-            solutions using <span class="highlight">Spring Boot</span>, <span class="highlight">RESTful APIs</span>, and
-            modern frontend tools like <span class="highlight">Tailwind CSS</span> and <span
-              class="highlight">Sass</span>. Skilled in cloud platforms like <span class="highlight">AWS</span> and
-            <span class="highlight">GCP</span>, I also bring expertise in <span class="highlight">Docker</span>, <span
-              class="highlight">Terraform</span>, and working across <span class="highlight">Linux</span> and <span
-              class="highlight">Windows</span> environments. I'm passionate about <span class="highlight">clean
-              code</span>, <span class="highlight">system design</span>, and solving <span class="highlight">real-world
-              problems</span>. <span id="platform-summary" class=""> I have participated in <span
-                class="highlight">12</span> <span class="highlight">LeetCode</span> contests so far. My current rating
-              stands at <span class="highlight">1684</span>, with a personal best of <span
-                class="highlight">1718</span>.</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#company'" />
-  </section>
-  <section id="company">
-    <p class="section__text__p1" style="color: #faf9f6">A look into the steps, challenges, and victories along the road
-    </p>
-    <h1 class="title" style="color: white">Professional Milestones</h1>
-    <div class="my-exp-component-void" style="margin-top: 50px">
-      <ol class="exp_timeline">
-        <li class="exp_timeline-item">
-          <span class="exp_timeline-item-icon exp_avatar-icon">
-            <i class="exp_avatar">
-              <img src="./assets/insta-pic.webp" alt="Rohan Chakravarty" />
-            </i>
-          </span>
-          <div class="exp_new-comment">
-            <h1>Software Engineer Intern</h1>
-          </div>
-        </li>
-        <li class="exp_timeline-item">
-          <span class="exp_timeline-item-icon exp_faded-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path fill="currentColor"
-                d="M12.9 6.858l4.242 4.243L7.242 21H3v-4.243l9.9-9.9zm1.414-1.414l2.121-2.122a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.122 2.121-4.242-4.242z" />
-            </svg>
-          </span>
-          <div class="exp_timeline-item-description">
-            <i class="exp_avatar exp_small">
-              <img src="./assets/insta-pic.webp" alt="Rohan Chakravarty" />
-            </i>
-            <span>
-              <a href="#company">Rohan Chakravarty</a> has added <a href="#company"
-                title="Moved to Bangalore & Started as a SWE Intern @ Nielsen">a new milestone</a> on
-              <time datetime="03-03-2025">Mar 03, 2025</time>
-            </span>
-          </div>
-        </li>
-        <li class="exp_timeline-item">
-          <span class="exp_timeline-item-icon exp_faded-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path fill="currentColor" d="M12 13H4v-2h8V4l8 8-8 8z" />
-            </svg>
-          </span>
-          <div class="exp_timeline-item-description">
-            <i class="exp_avatar exp_small">
-              <img src="./assets/insta-pic.webp" alt="Rohan Chakravarty" />
-            </i>
-            <span>
-              <a href="#compay">Rohan Chakravarty</a> started as a <a
-                href="https://en.wikipedia.org/wiki/Software_engineering">Software Engineering Intern</a> at
-              <a href="https://www.nielsen.com/">Nielsen</a> on
-              <time datetime="03-03-2025">Mar 03, 2025</time>
-            </span>
-          </div>
-        </li>
-        <li class="exp_timeline-item exp_extra-space">
-          <span class="exp_timeline-item-icon exp_filled-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path fill="currentColor"
-                d="M6.455 19L2 22.5V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6.455zM7 10v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z" />
-            </svg>
-          </span>
-          <div class="exp_timeline-item-wrapper">
-            <div class="exp_timeline-item-description">
-              <i class="exp_avatar exp_small">
-                <img src="./assets/insta-pic.webp" alt="Rohan Chakravarty" />
-              </i>
-              <span>
-                <a href="#company">Rohan Chakravarty</a> commented on
-                <time datetime="04-03-2025">Mar 04, 2025</time>
-              </span>
-            </div>
-            <div class="exp_comment">
-              <p>
-                At Nielsen, I applied innovative problem-solving techniques, collaborated effectively with
-                cross-functional teams, and continuously pushed the boundaries of what I believed possible in
-                technology.
-              </p>
-              <button class="exp_button">👏 2K</button>
-              <button class="exp_button exp_square">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path fill="currentColor"
-                    d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM7 12a5 5 0 0 0 10 0h-2a3 3 0 0 1-6 0H7z" />
-                </svg>
-              </button>
-            </div>
-            <button class="exp_show-replies">
-              <svg xmlns="http://www.w3.org/2000/svg" class="exp_icon exp_icon-tabler exp_icon-tabler-arrow-forward"
-                width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 11l4 4l-4 4m4 -4h-11a4 4 0 0 1 0 -8h1" />
-              </svg>
-              Show 300 replies
-              <span class="exp_avatar-list">
-                <i class="exp_avatar exp_small">
-                  <img src="./assets/dona.webp" alt="Dona Dutta" />
-                </i>
-                <i class="exp_avatar exp_small">
-                  <img src="./assets/dona.webp" alt="Dona Dutta" />
-                </i>
-                <i class="exp_avatar exp_small">
-                  <img src="./assets/samya.webp" alt="Samya Dey" />
-                </i>
-              </span>
-            </button>
-          </div>
-        </li>
-      </ol>
-    </div>
-    <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
-  </section>
-  <div class="projectBG">
-    <section id="projects">
-      <p class="section__text__p1" style="color: #faf9f6">Browse My Recent</p>
-      <h1 class="title" style="color: white">Projects</h1>
-      <div class="experience-details-container">
-        <div id="repo-container">
-        </div>
-      </div>
-      <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
-    </section>
-  </div>
-  <div class="exp">
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Languages and Tools</h1>
-      <div class="my-component-void" id="my-component-void" style="margin-top: 50px" data-aos="fade-up"
-        data-aos-duration="1000" data-aos-delay="200">
-        <div class="my-component-crop">
-          <ul id="my-component-card-list" style="--count: 10">
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Java</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">C/C++</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Python</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">JS</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">SQL</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Git</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">Bash</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">GCP</span>
-              </div>
-            </li>
-            <li>
-              <div class="my-component-card">
-                <span class="my-component-model-name">RHEL</span>
-              </div>
-            </li>
-          </ul>
-          <div class="my-component-last-circle"></div>
-          <div class="my-component-second-circle"></div>
-        </div>
-        <div class="my-component-mask"></div>
-        <div class="my-component-center-circle" style="
-            background: url('./assets/logo.webp');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-          "></div>
-      </div>
-      <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#photography'" />
-    </section>
-  </div>
-  <div class="photographyDiv">
-    <section id="photography">
-      <p class="section__text__p1" style="color: #f2e4ef">
-        Exploring the art of storytelling through visuals
-      </p>
-      <h1 class="title">Through My Lens</h1>
-      <div class="experience-details-container">
-        <div id="sp"></div>
-      </div>
-      <img src="./assets/arrow.svg" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
-    </section>
-  </div>
-  <div class="contactContainer">
-    <section id="contact">
-      <div class="background" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="200">
-        <div class="container">
-          <div class="screen">
-            <div class="screen-header">
-              <div class="screen-header-left">
-                <div class="screen-header-button close"></div>
-                <div class="screen-header-button maximize"></div>
-                <div class="screen-header-button minimize"></div>
-              </div>
-              <div class="TitleBar"></div>
-              <div class="screen-header-right">
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-              </div>
-            </div>
-            <div class="screen-body">
-              <div class="screen-body-item left">
-                <div class="app-title">
-                  <span>CONTACT</span>
-                  <span>ME</span>
-                </div>
-                <div class="app-contact">
-                  CONTACT INFO : hello@rcxdev.com
-                </div>
-              </div>
-              <div class="screen-body-item">
-                <form id="form">
-                  <div class="app-form">
-                    <div class="app-form-group">
-                      <input class="app-form-control" id="name" placeholder="NAME" required />
-                    </div>
-                    <div class="app-form-group">
-                      <input class="app-form-control" id="email" placeholder="EMAIL" required />
-                    </div>
-                    <div class="app-form-group">
-                      <input class="app-form-control" id="contactNo" placeholder="CONTACT NO" required />
-                    </div>
-                    <div class="app-form-group message">
-                      <input class="app-form-control" id="message" placeholder="MESSAGE" required />
-                    </div>
-                    <div class="app-form-group buttons">
-                      <button type="button" class="app-form-button" onclick="clearForm()">
-                        RESET
-                      </button>
-                      <button class="app-form-button" onclick="submitForm(event)">
-                        SEND
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="flash-overlay" id="flash"></div>
+    <canvas id="bg-canvas"></canvas>
+    <canvas id="game-canvas"></canvas>
 
-      <div class="techstack" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
-        <p class="headingTS">Built Using</p>
-        <div class="ts">
-          <img src="./assets/html.svg" alt="HTML Logo" title="HTML Logo" loading="lazy">
-          <img src="./assets/css.svg" alt="CSS Logo" title="CSS Logo" loading="lazy">
-          <img src="./assets/sass.svg" alt="Sass Logo" title="Sass Logo" loading="lazy">
-          <img src="./assets/vite.svg" alt="Vite Logo" title="Vite Logo" loading="lazy">
-          <img src="./assets/javascript.svg" alt="Javascript Logo" title="Javascript Logo" loading="lazy">
-          <img src="./assets/tailwind.svg" alt="Tailwindcss Logo" title="Tailwindcss Logo" loading="lazy">
-          <img src="./assets/postcss.svg" alt="Postcss Logo" title="Postcss Logo" loading="lazy">
-        </div>
-        <div class="ts">
-          <img src="./assets/mysql.svg" alt="Mysql Logo" title="Mysql Logo" style="width: 70px;" loading="lazy">
-          <img src="./assets/Spring_Boot.svg" alt="SpringBoot Logo" title="SpringBoot Logo" loading="lazy">
-          <img src="./assets/java.svg" alt="Java Logo" title="Java Logo" loading="lazy">
-          <img src="./assets/python.svg" alt="Python Logo" title="Python Logo" loading="lazy">
-          <img src="./assets/nginx.svg" alt="Nginx Logo" title="Nginx Logo" loading="lazy">
-          <img src="./assets/apache.svg" alt="Apache Logo" title="Apache Logo" loading="lazy">
-          <img src="./assets/docker.svg" alt="Docker Logo" title="Docker Logo" loading="lazy">
-          <img src="./assets/aws.svg" alt="AWS Logo" title="AWS Logo" loading="lazy">
-          <img src="./assets/cloudflare.svg" alt="CloudFlare Logo" title="CloudFlare Logo" loading="lazy">
+    <div class="score-container">
+        <div class="score" id="score">0</div>
+        <div class="high-score" id="high-score">Best: 0</div>
+    </div>
+
+    <div class="reset-icon" id="reset-btn" title="Reset Game">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+    </div>
+
+    <div class="game-over-msg" id="end-msg">
+        <div>GAME OVER</div>
+        <div style="font-size: 0.9rem; margin-top: 5px; opacity: 0.7; color: #94a3b8;">Tap to Restart</div>
+    </div>
+
+<div class="ui-layer">
+    <div class="status-card" id="info-card" role="main">
+        <div class="card-header">
+            <span class="node-badge" role="img" aria-label="Apex Domain Node">Apex Domain Node</span>
+            <div class="live-status" aria-label="Site is live">
+                <div class="live-dot" role="status" aria-live="polite"></div> 
+                LIVE
+            </div>
         </div>
 
-      </div>
-    </section>
-    <footer>
-      <div class="footer-links">
-      <p>
-        Copyright &copy; <span id="year"></span> Rohan Chakravarty. All Rights
-        Reserved.
-      </p>
-        <a href="https://www.rcxdev.com/legal/privacy" target="_blank">Privacy Policy</a><a href="https://www.rcxdev.com/legal/terms" target="_blank">Terms of Use</a>
-        <p>India</p>
-      </div>
-    </footer>
-  </div>
-  <!-- <script src="./js/min/script.min.js"></script> -->
-    <script src="./js/main.combined.js"></script>
+        <div class="domain-title" role="heading" aria-level="1">portfolio.byrohan.in</div>
+
+        <div class="profile-row">
+            <div class="avatar" role="img" aria-label="Rohan Chakravarty initials">RC</div>
+            <div class="bio-content">
+                <h2>Rohan Chakravarty</h2>
+                <p>Backend & Cloud Engineer building scalable microservices with Spring Boot + REST APIs, AWS (EC2/Lambda/Terraform), Docker containerization, and CI/CD pipelines. Currently SDE Intern @ Nielsen driving production data systems.</p>
+                <p class="short-bio">Spring Boot | AWS | Docker | CI/CD | SDE Intern @ Nielsen</p>
+            </div>
+        </div>
+
+        <div class="tech-specs">
+            <div class="spec-row">
+                <span>DNS Record Type</span>
+                <span class="spec-val">CNAME</span>
+            </div>
+            <div class="spec-row">
+                <span>Target Host</span>
+                <span class="spec-val">rohan3004.github.io</span>
+            </div>
+        </div>
+
+            <div class="quote">"The central domain for all my deployed github projects."</div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <a href="https://rcxdev.com" class="redirect-btn" id="redirect-link" aria-label="View full portfolio site">
+                Proceed to Portfolio →
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        // --- CONFIG & STATE ---
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const highScoreEl = document.getElementById('high-score');
+        const endMsg = document.getElementById('end-msg');
+        const flashEl = document.getElementById('flash');
+        
+        let width, height;
+        const BLOCK_HEIGHT = 30;
+        const DEFAULT_SIZE = 120;
+        const START_OFFSET = 200;
+        
+        // VIBRANT COLORS for Dark Mode
+        // These pop against the dark blue/slate background
+        const COLORS = [
+            '#f472b6', // Pink
+            '#c084fc', // Purple
+            '#818cf8', // Indigo
+            '#38bdf8', // Sky
+            '#2dd4bf', // Teal
+            '#4ade80', // Green
+            '#facc15', // Yellow
+            '#fb923c'  // Orange
+        ];
+
+        let animationId = null;
+
+        let state = {
+            active: true,
+            score: 0,
+            highScore: 0,
+            blocks: [],
+            current: null,
+            cameraY: 0,
+            targetCameraY: 0,
+            speed: 3
+        };
+
+        // --- GAME LOGIC ---
+        function initGame() {
+            if (animationId) cancelAnimationFrame(animationId);
+
+            const savedScore = localStorage.getItem('apexStackHighScore');
+            state.highScore = savedScore ? parseInt(savedScore) : 0;
+            highScoreEl.innerText = "Best: " + state.highScore;
+            highScoreEl.classList.remove('new-record');
+
+            state.score = 0;
+            state.blocks = [];
+            state.active = true;
+            state.cameraY = 0;
+            state.targetCameraY = 0;
+            
+            const isMobile = window.innerWidth < 600;
+            state.speed = isMobile ? 2.0 : 3.5;
+
+            scoreEl.innerText = "0";
+            endMsg.style.display = 'none';
+
+            state.blocks.push({
+                x: 0, z: 0, w: DEFAULT_SIZE, d: DEFAULT_SIZE,
+                layer: 0, color: COLORS[0]
+            });
+
+            spawnBlock();
+            render();
+        }
+
+        function spawnBlock() {
+            const prev = state.blocks[state.blocks.length - 1];
+            const layer = state.blocks.length;
+            const dir = layer % 2 === 0 ? 'x' : 'z';
+            
+            state.current = {
+                x: prev.x, z: prev.z,
+                w: prev.w, d: prev.d,
+                layer: layer, dir: dir,
+                color: COLORS[layer % COLORS.length],
+                moveDir: 1
+            };
+
+            if (dir === 'x') state.current.x = -START_OFFSET;
+            else state.current.z = -START_OFFSET;
+        }
+
+        function update() {
+            if (!state.active || !state.current) return;
+            const curr = state.current;
+            
+            if (curr.dir === 'x') {
+                curr.x += state.speed * curr.moveDir;
+                if (curr.x > START_OFFSET) curr.moveDir = -1;
+                if (curr.x < -START_OFFSET) curr.moveDir = 1;
+            } else {
+                curr.z += state.speed * curr.moveDir;
+                if (curr.z > START_OFFSET) curr.moveDir = -1;
+                if (curr.z < -START_OFFSET) curr.moveDir = 1;
+            }
+
+            const topStackY = getIsoY(0, 0, state.blocks.length);
+            const idealY = height * 0.65;
+            const diff = topStackY - idealY;
+            if (diff < 0) state.targetCameraY = -diff + 80;
+            state.cameraY += (state.targetCameraY - state.cameraY) * 0.1;
+        }
+
+        function placeBlock() {
+            if (!state.active) { initGame(); return; }
+            if (!state.current) return;
+
+            const curr = state.current;
+            const prev = state.blocks[state.blocks.length - 1];
+            let success = false;
+            let cutX = curr.x, cutZ = curr.z, cutW = curr.w, cutD = curr.d;
+
+            if (curr.dir === 'x') {
+                const delta = curr.x - prev.x;
+                const overlap = prev.w - Math.abs(delta);
+                if (overlap > 0) {
+                    success = true;
+                    cutW = overlap;
+                    cutX = delta > 0 ? curr.x : prev.x; 
+                    curr.z = prev.z;
+                }
+            } else { 
+                const delta = curr.z - prev.z;
+                const overlap = prev.d - Math.abs(delta);
+                if (overlap > 0) {
+                    success = true;
+                    cutD = overlap;
+                    cutZ = delta > 0 ? curr.z : prev.z;
+                    curr.x = prev.x;
+                }
+            }
+
+            if (success) {
+                flash();
+                state.blocks.push({
+                    x: cutX, z: cutZ, w: cutW, d: cutD,
+                    layer: curr.layer, color: curr.color
+                });
+                state.score++;
+                scoreEl.innerText = state.score;
+
+                if (state.score > state.highScore) {
+                    state.highScore = state.score;
+                    localStorage.setItem('apexStackHighScore', state.highScore);
+                    highScoreEl.innerText = "Best: " + state.highScore;
+                    highScoreEl.classList.add('new-record');
+                }
+                
+                const isMobile = window.innerWidth < 600;
+                const maxSpeed = isMobile ? 3.5 : 5.5;
+                if (state.speed < maxSpeed) state.speed += 0.15;
+
+                spawnBlock();
+            } else {
+                gameOver();
+            }
+        }
+
+        function gameOver() {
+            state.active = false;
+            state.current = null;
+            endMsg.style.display = 'block';
+        }
+
+        // --- RENDERING ---
+        function getIsoX(x, z) { return width/2 + (x - z); }
+        function getIsoY(x, z, layer) { return (height/2 + 250) + (x + z) * 0.55 - (layer * BLOCK_HEIGHT) + state.cameraY; }
+
+        function drawIsoBlock(x, z, w, d, layer, color) {
+            const p1 = {x: getIsoX(x, z), y: getIsoY(x, z, layer)};
+            const p2 = {x: getIsoX(x+w, z), y: getIsoY(x+w, z, layer)};
+            const p3 = {x: getIsoX(x+w, z+d), y: getIsoY(x+w, z+d, layer)};
+            const p4 = {x: getIsoX(x, z+d), y: getIsoY(x, z+d, layer)};
+
+            // Darker sides for depth
+            ctx.fillStyle = shadeColor(color, -30);
+            ctx.beginPath(); ctx.moveTo(p2.x, p2.y); ctx.lineTo(p3.x, p3.y); ctx.lineTo(p3.x, p3.y + BLOCK_HEIGHT); ctx.lineTo(p2.x, p2.y + BLOCK_HEIGHT); ctx.fill();
+
+            ctx.fillStyle = shadeColor(color, -15);
+            ctx.beginPath(); ctx.moveTo(p3.x, p3.y); ctx.lineTo(p4.x, p4.y); ctx.lineTo(p4.x, p4.y + BLOCK_HEIGHT); ctx.lineTo(p3.x, p3.y + BLOCK_HEIGHT); ctx.fill();
+
+            // Top
+            ctx.fillStyle = color;
+            ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.lineTo(p3.x, p3.y); ctx.lineTo(p4.x, p4.y); ctx.fill();
+
+            // Highlights
+            ctx.strokeStyle = "rgba(255,255,255,0.2)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+
+        function render() {
+            update();
+            ctx.clearRect(0, 0, width, height);
+            state.blocks.forEach(b => drawIsoBlock(b.x, b.z, b.w, b.d, b.layer, b.color));
+            if (state.current) {
+                const c = state.current;
+                drawIsoBlock(c.x, c.z, c.w, c.d, c.layer, c.color);
+            }
+            animationId = requestAnimationFrame(render);
+        }
+
+        // --- UTILS ---
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        function shadeColor(color, percent) {
+            let num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+            return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+        }
+        function flash() { flashEl.style.opacity = 0.6; setTimeout(() => flashEl.style.opacity = 0, 50); }
+
+        window.addEventListener('contextmenu', (e) => { e.preventDefault(); initGame(); });
+        window.addEventListener('pointerdown', (e) => {
+            if (e.target.closest('#redirect-link') || e.target.closest('.status-card') || e.target.closest('#reset-btn')) return;
+            e.preventDefault();
+            placeBlock();
+        });
+        window.addEventListener('keydown', (e) => { if (e.code === 'Space') placeBlock(); });
+        document.getElementById('reset-btn').addEventListener('click', initGame);
+        window.addEventListener('resize', resize);
+
+        // Background Particles
+        const bgCanvas = document.getElementById('bg-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        function drawStars() {
+            bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight;
+            for(let i=0; i<80; i++) {
+                const x = Math.random() * bgCanvas.width;
+                const y = Math.random() * bgCanvas.height;
+                const s = Math.random() * 2 + 1;
+                // Subtle blue/purple stars
+                bgCtx.fillStyle = `rgba(${150 + Math.random()*100}, ${200 + Math.random()*55}, 255, ${Math.random() * 0.5})`;
+                bgCtx.beginPath();
+                bgCtx.moveTo(x, y-s); bgCtx.lineTo(x+s, y); bgCtx.lineTo(x, y+s); bgCtx.lineTo(x-s, y);
+                bgCtx.fill();
+            }
+        }
+        
+        resize();
+        drawStars();
+        initGame();
+    </script>
 </body>
-
 </html>
